@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Bg-color: #262e34;
+  --primary-col: #89bcd9;
+  --secondary-col: #f8f5ec;
+  --inactiv-col: #262e341f;
+  --error-col: #e44c36;
+  --done-col: #97e163;
+}
