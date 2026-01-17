@@ -2,16 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Hero } from '../../sections/hero/hero';
-import { Skills } from '../../sections/skills/skills';
-import { Projects } from '../../sections/projects/projects';
-import { References } from '../../sections/references/references';
-import { Contact } from '../../sections/contact/contact';
-import { Footer } from '../../sections/footer/footer';
+import { Navigtaion } from '../../sections/navigtaion/navigtaion';
+
 @Component({
   selector: 'app-layout',
-  standalone: true,
-  imports: [CommonModule, Hero, Skills, Projects, References, Contact, Footer],
+  imports: [CommonModule, Hero, Navigtaion],
   templateUrl: './layout.html',
-  styleUrls: ['./layout.scss'],
+  styleUrl: './layout.scss',
 })
 export class Layout {}

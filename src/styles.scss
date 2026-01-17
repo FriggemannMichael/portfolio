@@ -1,4 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Anta';
+  src: url('/fonts/Anta-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Josefin';
+  src: url('/fonts/JosefinSans-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
+}
 
 * {
   margin: 0;
@@ -7,10 +17,79 @@
 }
 
 :root {
-  --Bg-color: #262e34;
+  --bg-color: #262e34;
   --primary-col: #89bcd9;
   --secondary-col: #f8f5ec;
-  --inactiv-col: #262e341f;
+  --inactive-col: #262e341f;
   --error-col: #e44c36;
   --done-col: #97e163;
+
+  --main-font: 'Anta', sans-serif;
+  --second-font: 'Josefin', sans-serif;
+
+  --fn-size-h1: clamp(3rem, 5.5vw, 5.5rem); // 88px
+  --fn-size-h2: clamp(2.5rem, 3.75vw, 3.75rem); // 60px
+  --fn-size-h3: clamp(1.75rem, 2vw, 2rem); // 32px
+  --fn-size-subtitle: clamp(1.5rem, 2.5vw, 2.5rem); // 40px
+  --fn-size-body: clamp(1rem, 1.125vw, 1.125rem); // 18px
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+.subtitle {
+  font-family: var(--second-font); // Josefin Sans
+  font-weight: 400;
+  font-size: var(--fn-size-subtitle);
+  line-height: 120%;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--secondary-col);
+}
+
+h1 {
+  font-family: var(--main-font); // Anta
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--fn-size-h1);
+  line-height: 120%;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--secondary-col);
+}
+
+h2 {
+  font-family: var(--main-font); // Anta
+  font-weight: 400;
+  font-size: var(--fn-size-h2);
+  line-height: 120%;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--secondary-col);
+  background: var(--primary-col); // #89BCD9
+}
+
+h3 {
+  font-family: var(--second-font);
+  font-weight: 400;
+  font-size: var(--fn-size-h3);
+  line-height: 120%;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--secondary-col);
+  background: var(--primary-col);
+}
+
+p {
+  font-family: var(--second-font);
+  font-weight: 400;
+  font-size: var(--fn-size-body);
+  line-height: 120%;
+  letter-spacing: 0;
+  color: var(--secondary-col);
+}
+
+.d_none {
+  display: none;
 }

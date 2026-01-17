@@ -7,4 +7,4 @@ import { Component } from '@angular/core';
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
 })
-export class Skills {}
+export class skills {}
