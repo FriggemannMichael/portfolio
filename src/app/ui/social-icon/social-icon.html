@@ -1,0 +1,15 @@
+<a 
+  [href]="href()" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  [attr.aria-label]="alt()"
+  class="social-icon">
+  <img
+    [ngSrc]="'/img/' + icon() + '_button.svg'"
+    [alt]="alt()"
+    [width]="width()"
+    [height]="height()"
+    priority
+  />
+</a>
+

@@ -11,9 +11,27 @@
     </div>
 
     <div class="hero-right">
-      <img class="logo" src="/img/1_logo.svg" alt="" />
+      <div class="logoIcon">
+        <img class="logo" src="/img/1_logo.svg" alt="" />
+        <div class="social-icons">
+          <app-social-icon icon="email" alt="Email kontaktieren" href="mailto:deine@email.com" />
+
+          <app-social-icon
+            icon="github"
+            alt="GitHub Profil ansehen"
+            href="https://github.com/deinusername"
+          />
+
+          <app-social-icon
+            icon="linkedin"
+            alt="LinkedIn Profil ansehen"
+            href="https://linkedin.com/in/deinusername"
+          />
+        </div>
+      </div>
       <h1>Michael friggemann</h1>
       <p class="subtitle">Frontend Developer</p>
     </div>
   </div>
+  <app-navigtaion></app-navigtaion>
 </section>
