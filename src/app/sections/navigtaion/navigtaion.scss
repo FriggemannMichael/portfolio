@@ -15,11 +15,11 @@
   padding: 16px 109px;
   gap: 196px;
 
-  width: 1440px;
+  width: 100%;
   height: 104px;
   margin: 0 auto;
 
-  background: #89BCD9;
+  background: #89bcd9;
 }
 
 .logo-section {
@@ -65,7 +65,7 @@
   line-height: 120%;
   text-align: center;
   text-decoration: none;
-  color: #262E34;
+  color: #262e34;
 
   transition: opacity 0.3s ease;
 
@@ -96,7 +96,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 120%;
-  color: #262E34;
+  color: #262e34;
 
   background: transparent;
   border: none;
@@ -106,7 +106,7 @@
   transition: color 0.3s ease;
 
   &.active {
-    color: #F8F5EC;
+    color: #f8f5ec;
 
     &::before {
       content: '';

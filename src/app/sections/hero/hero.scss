@@ -1,78 +1,60 @@
-.hero {
-  position: relative;
-  background: var(--bg-color);
-  height: 100vh;
-  overflow: hidden;
-}
-
-.burger-menu {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  gap: 0.375rem;
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-
-  span {
-    display: block;
-    width: 100%;
-    height: 0.25rem;
-    background: var(--secondary-col);
-    border-radius: 0.125rem;
-    transition: all 0.3s ease;
-  }
-
-  &:hover span {
-    background: var(--primary-col);
-  }
-}
-
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  height: 100%;
-  width: 100%;
+  padding: 0 40px;
+  max-width: 1920px;
 }
 
-.hero-left {
+.logoIcon {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  flex-direction: row;
+}
+
+.logoCenter {
   justify-content: center;
 }
 
 .hero-right {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  padding-right: 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.d_none {
-  display: none;
+.logo-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
 .logo {
-  width: 80%;
-  padding-bottom: 4rem;
-  padding-right: 8rem;
+  /* Passe die Größe nach Bedarf an */
+  max-width: 200px;
+  height: auto;
 }
 
-.logoIcon {
-  display: flex;
-  justify-content: center;
-}
 .social-icons {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column; /* oder column, je nach gewünschtem Layout */
+}
+
+.nav {
+  grid-row: 1/1;
+  width: 100vw;
 }
