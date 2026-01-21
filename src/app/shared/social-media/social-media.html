@@ -1,0 +1,53 @@
+<div class="social-media">
+  <a
+    [href]="socialLinks.email"
+    class="social-link"
+    (mouseenter)="setHover('email', true)"
+    (mouseleave)="setHover('email', false)"
+    aria-label="Send me an email"
+  >
+    <img
+      [ngSrc]="emailHover() ? '/img/emailhoverblue.svg' : '/img/email_button.svg'"
+      alt="Email"
+      width="30"
+      height="30"
+      priority
+    />
+  </a>
+
+  <a
+    [href]="socialLinks.github"
+    class="social-link"
+    target="_blank"
+    rel="noopener noreferrer"
+    (mouseenter)="setHover('github', true)"
+    (mouseleave)="setHover('github', false)"
+    aria-label="Visit my GitHub profile"
+  >
+    <img
+      [ngSrc]="githubHover() ? '/img/githoverblue.svg' : '/img/github_button.svg'"
+      alt="GitHub"
+      width="30"
+      height="30"
+      priority
+    />
+  </a>
+
+  <a
+    [href]="socialLinks.linkedin"
+    class="social-link"
+    target="_blank"
+    rel="noopener noreferrer"
+    (mouseenter)="setHover('linkedin', true)"
+    (mouseleave)="setHover('linkedin', false)"
+    aria-label="Visit my LinkedIn profile"
+  >
+    <img
+      [ngSrc]="linkedinHover() ? '/img/linkdinhoverblue.svg' : '/img/linkedin_button.svg'"
+      alt="LinkedIn"
+      width="30"
+      height="30"
+      priority
+    />
+  </a>
+</div>

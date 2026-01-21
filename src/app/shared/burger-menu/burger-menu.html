@@ -1,0 +1,61 @@
+<div class="burger-menu-wrapper">
+  <button
+    class="burger-icon"
+    (click)="toggleMenu()"
+    [attr.aria-label]="isOpen() ? 'Menü schließen' : 'Menü öffnen'"
+    [attr.aria-expanded]="isOpen()"
+  >
+    <img
+      [src]="isOpen() ? '/mobil/hero/burgermenuclose.svg' : '/mobil/hero/burgermenudefaul.svg'"
+      alt="Menü"
+    />
+  </button>
+</div>
+
+@if (isOpen()) {
+  <div class="menu-container">
+    <div class="bg-shape">
+      <img src="/mobil/hero/shapebgmob.svg" alt="" />
+    </div>
+
+    <div class="menu-items">
+      <button class="menu-button" (click)="onNavigate('why-me')">
+        <span class="menu-text">Why me</span>
+      </button>
+
+      <button class="menu-button" (click)="onNavigate('skills')">
+        <span class="menu-text">Skills</span>
+      </button>
+
+      <button class="menu-button" (click)="onNavigate('projects')">
+        <span class="menu-text">Projects</span>
+      </button>
+
+      <button class="menu-button" (click)="onNavigate('contact')">
+        <span class="menu-text">Contact</span>
+      </button>
+    </div>
+
+    <div class="language-switcher">
+      <div class="language-ellipse">
+        <img src="/mobil/hero/elbglanguageswitch.svg" alt="" />
+      </div>
+
+      <button
+        class="lang-button de"
+        [class.active]="currentLanguage() === 'DE'"
+        (click)="switchLanguage('DE')"
+      >
+        DE
+      </button>
+
+      <button
+        class="lang-button en"
+        [class.active]="currentLanguage() === 'EN'"
+        (click)="switchLanguage('EN')"
+      >
+        EN
+      </button>
+    </div>
+  </div>
+}

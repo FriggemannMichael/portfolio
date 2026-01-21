@@ -1,0 +1,30 @@
+.hero-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4rem;
+
+  &:hover .bg-shape {
+    transform: rotate(-45deg);
+  }
+
+  .bg-shape {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .portrait {
+    position: absolute;
+    z-index: 2;
+    max-width: 80%;
+    height: auto;
+  }
+}

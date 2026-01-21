@@ -1,0 +1,29 @@
+<section class="hero">
+  <app-burger-menu
+    class="hero__burger-menu"
+    (navigate)="onNavigate($event)"
+    (languageChange)="onLanguageChange($event)"
+    (menuToggle)="onMenuToggle($event)"
+  />
+
+  <app-logo class="hero__logo" />
+
+  <app-social-media class="hero__social" />
+
+  @if (!isMenuOpen()) {
+    <div class="hero__content">
+      <h1 class="hero__name">Michael Friggemann</h1>
+      <h2 class="hero__title">FRONTEND DEVELOPER</h2>
+    </div>
+
+    <app-hero-image class="hero__image" />
+  }
+
+  @if (isMenuOpen()) {
+    <div class="hero__menu-overlay">
+      <!-- Overlay nimmt die Grid-Position des Hero-Images ein -->
+    </div>
+  }
+
+  <app-arrow-btn direction="down" class="hero__arrow" (click)="scrollToNext()" />
+</section>

@@ -1,0 +1,191 @@
+@use '../../../styles.scss' as styles;
+
+.burger-menu-wrapper {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+}
+
+.burger-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.overlay {
+  // Nimmt die Position des Hero-Images ein
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 998;
+}
+
+.menu-container {
+  position: relative;
+  width: 311.17px;
+  height: 370px;
+  background: styles.$color-primary-blue;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.bg-shape {
+  position: absolute;
+  width: 311.17px;
+  height: 326px;
+  left: 0;
+  top: 43px;
+  z-index: 1;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.menu-items {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  z-index: 2;
+  padding: 1rem 0;
+  margin-top: 1rem;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  text-align: center;
+
+  &:hover .menu-text {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.menu-text {
+  font-family: styles.$font-body;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  color: styles.$color-primary-dark;
+  transition: all styles.$transition;
+}
+
+.language-switcher {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 2;
+}
+
+.language-ellipse {
+  position: absolute;
+  right: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 70px;
+  height: 45px;
+  background: styles.$color-bg-dark-grey;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.lang-button {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: styles.$font-body;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  transition: all styles.$transition;
+  padding: 0.5rem 1rem;
+  z-index: 2;
+
+  &.de {
+    color: styles.$color-primary-dark;
+  }
+
+  &.en {
+    color: styles.$color-creme-white;
+  }
+
+  &.active {
+    font-weight: 700;
+  }
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+// Desktop
+@media (min-width: 769px) {
+  .menu-container {
+    width: 594px;
+    height: 594px;
+  }
+
+  .bg-shape {
+    width: 594px;
+    height: 594px;
+    top: 0;
+  }
+
+  .menu-items {
+    gap: 2.5rem;
+    margin-top: 0;
+    padding: 2rem 0;
+  }
+
+  .menu-text {
+    font-size: 22px;
+  }
+
+  .language-switcher {
+    bottom: 4rem;
+    gap: 3rem;
+  }
+
+  .language-ellipse {
+    width: 80px;
+    height: 50px;
+  }
+
+  .lang-button {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,7 @@
+<button class="arrow-btn" [class.arrow-up]="direction() === 'up'">
+  <img
+    [src]="direction() === 'down' ? '/img/Arrow_down.svg' : '/img/Arrow_up.svg'"
+    [alt]="direction() + ' arrow'"
+    class="arrow-icon"
+  />
+</button>

@@ -1,0 +1,16 @@
+@use '../../../styles.scss' as styles;
+
+.logo {
+  display: inline-block;
+  transition: transform styles.$transition;
+
+  &:hover {
+    transform: rotateY(15deg);
+  }
+
+  img {
+    display: block;
+    width: auto;
+    height: 100%;
+  }
+}
