@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px 24px 0;
+  padding: 180px 24px 100px;
   gap: 32px;
   width: 100%;
   max-width: 344px;
@@ -24,6 +24,18 @@
     align-self: stretch;
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    padding-bottom: 40px; // Reduziert von 104px, da kein Button in mobiler Ansicht
+
+    @media (min-width: 768px) {
+      padding-bottom: 0; // Desktop hat kein padding-bottom, da der Button separat ist
+    }
+  }
+
   &__location {
     position: relative;
     width: 100%;
@@ -35,12 +47,15 @@
     align-items: center;
   }
 
-  &__location-icon {
+  &__location-icon-wrapper {
     position: absolute;
-    width: 32.5px;
-    height: 40px;
     left: 0;
     top: 3px;
+  }
+
+  &__location-icon {
+    width: 32.5px;
+    height: 40px;
     object-fit: contain;
     animation: fadeIn styles.$transition ease-in;
   }
@@ -67,6 +82,12 @@
     }
   }
 
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
   &__description {
     width: 100%;
     font-family: styles.$font-body;
@@ -80,6 +101,161 @@
     order: 2;
     align-self: stretch;
     margin: 0;
+  }
+
+  &__button {
+    display: none;
+  }
+
+  // Desktop Version
+  @media (min-width: 768px) {
+    max-width: 860px;
+    padding: 120px 0 0 0;
+    gap: 80px;
+    height: 307px;
+
+    &__title {
+      width: 860px;
+      height: 51px;
+      font-size: 60px;
+      flex: none;
+      order: 0;
+      align-self: stretch;
+      flex-grow: 0;
+    }
+
+    &__content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0;
+      gap: 49px;
+      width: 860px;
+      height: 176px;
+      flex: none;
+      order: 1;
+      align-self: stretch;
+      flex-grow: 0;
+    }
+
+    &__location {
+      position: relative;
+      width: 429px;
+      height: 57px;
+      max-width: none;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+
+    &__location-icon-wrapper {
+      position: absolute;
+      width: 74.43px;
+      height: 63.28px;
+      left: 0.12px;
+      top: 2px;
+
+      // Ellipse 24 - Hintergrund
+      &::before {
+        content: '';
+        position: absolute;
+        width: 65.76px;
+        height: 51.66px;
+        left: 0;
+        top: 0;
+        background: rgba(137, 188, 217, 0.12);
+        border-radius: 50%;
+        transform: rotate(11.02deg);
+      }
+
+      // Ellipse 20 - kleiner Kreis unten
+      &::after {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        width: 19px;
+        height: 7px;
+        left: 26px;
+        top: 43px;
+        border: 2px solid styles.$color-creme-white;
+        border-radius: 50%;
+      }
+    }
+
+    &__location-icon {
+      position: absolute;
+      width: 33.31px;
+      height: 41px;
+      left: 19px;
+      top: 0;
+      z-index: 1;
+    }
+
+    &__location-text {
+      position: absolute;
+      width: 458px;
+      height: 38px;
+      left: 82.55px;
+      top: 15px;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 0;
+      gap: 24px;
+      width: 379px;
+      height: 176px;
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+    }
+
+    &__description {
+      width: 379px;
+      height: 104px;
+      font-size: 18px;
+      text-align: left;
+      color: styles.$color-creme-white;
+      flex: none;
+      order: 0;
+      align-self: stretch;
+      flex-grow: 0;
+    }
+
+    &__button {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 30px;
+      gap: 10px;
+      width: 134px;
+      height: 48px;
+      background: transparent;
+      border: 1px solid styles.$color-primary-blue;
+      border-radius: 30px;
+      font-family: styles.$font-body;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 120%;
+      color: styles.$color-primary-blue;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+
+      &:hover {
+        background: styles.$color-primary-blue;
+        color: styles.$color-primary-dark;
+      }
+    }
   }
 }
 

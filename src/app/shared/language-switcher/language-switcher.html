@@ -1,0 +1,21 @@
+<!-- language-switcher.html -->
+<div class="language-switcher">
+  <button
+    class="language-btn"
+    [class.active]="currentLanguage() === 'DE'"
+    (click)="selectLanguage('DE')"
+    type="button"
+    aria-label="Deutsch wählen"
+  >
+    DE
+  </button>
+  <button
+    class="language-btn"
+    [class.active]="currentLanguage() === 'EN'"
+    (click)="selectLanguage('EN')"
+    type="button"
+    aria-label="Select English"
+  >
+    EN
+  </button>
+</div>

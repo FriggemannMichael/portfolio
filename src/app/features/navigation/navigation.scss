@@ -1,0 +1,145 @@
+@use '../../../styles.scss' as styles;
+
+.menu-bar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: styles.$spacing-sm 109px;
+  gap: 196px;
+  width: 100%;
+  height: 104px;
+  background: styles.$color-primary-blue;
+  z-index: 20;
+
+  // Auf Mobile ausblenden
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.logo-container {
+  display: flex;
+  align-items: flex-end;
+  gap: styles.$spacing-xs;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.logo {
+  width: 58px;
+  height: 72px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.name {
+  font-family: styles.$font-heading;
+  font-style: normal;
+  font-weight: 400;
+  font-size: styles.$fs-small;
+  line-height: 120%;
+  color: styles.$color-creme-white;
+}
+
+.role {
+  font-family: styles.$font-body;
+  font-style: normal;
+  font-weight: 300;
+  font-size: styles.$fs-small;
+  line-height: 120%;
+  color: styles.$color-primary-dark;
+}
+
+.menu-system {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 92px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.menu-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity styles.$transition;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  .text {
+    font-family: styles.$font-body;
+    font-style: normal;
+    font-weight: 500;
+    font-size: styles.$fs-h6;
+    line-height: 120%;
+    text-align: center;
+    color: styles.$color-primary-dark;
+  }
+}
+
+.lang-ellipse {
+  position: absolute;
+  left: 55.43%;
+  right: 4.57%;
+  top: 9.68%;
+  bottom: 12.9%;
+  background: styles.$color-bg-dark-grey;
+  border-radius: 50%;
+  transform: rotate(-2.14deg);
+  transition: left styles.$transition;
+}
+
+.lang-option {
+  position: absolute;
+  top: 19.35%;
+  font-family: styles.$font-body;
+  font-style: normal;
+  font-weight: 400;
+  font-size: styles.$fs-p;
+  line-height: 120%;
+  transition: color styles.$transition;
+
+  &:first-of-type {
+    left: 15.22%;
+    color: styles.$color-primary-dark;
+  }
+
+  &:last-of-type {
+    left: 59.78%;
+    color: styles.$color-creme-white;
+  }
+
+  &.active {
+    &:first-of-type {
+      color: styles.$color-creme-white;
+    }
+    &:last-of-type {
+      color: styles.$color-primary-dark;
+    }
+  }
+}
+
+.change-language:has(.lang-option.active:last-of-type) .lang-ellipse {
+  left: 15.22%;
+}
+
+app-language-switcher {
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}

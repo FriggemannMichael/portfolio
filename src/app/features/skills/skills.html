@@ -1,1 +1,43 @@
-<p>skills works!</p>
+<section class="skills-section">
+  <h2 class="skills-headline">My Skills</h2>
+
+  <div class="skills-content">
+    <!-- Skill Set -->
+    <div class="skill-set">
+      @for (skill of skills(); track skill.name) {
+        <div class="skill-item">
+          <div class="skill-icon">
+            <img [src]="'icon/' + skill.icon" [alt]="skill.name" />
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Currently Learning -->
+    <div class="currently-learning">
+      <div
+        class="learning-ellipse"
+        [class.hovered]="isLearningHovered()"
+        (mouseenter)="isLearningHovered.set(true)"
+        (mouseleave)="isLearningHovered.set(false)"
+      >
+        <p class="learning-title">currently learning...</p>
+
+        <div class="learning-icons">
+          @for (skill of learningSkills(); track skill.name) {
+            <div class="learning-item">
+              <div class="learning-icon">
+                <img [src]="'icon/' + skill.icon" [alt]="skill.name" />
+              </div>
+            </div>
+          }
+        </div>
+
+        <p class="learning-text">
+          I am currently expanding my knowledge by learning React and Vue.js to broaden my frontend
+          development skills and stay up-to-date with modern frameworks.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

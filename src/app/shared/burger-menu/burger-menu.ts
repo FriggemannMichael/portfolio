@@ -1,16 +1,16 @@
 import { Component, output, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LanguageSwitcherComponent } from '../language-switcher/language-switcher';
 
 @Component({
   selector: 'app-burger-menu',
-  imports: [CommonModule],
+  imports: [CommonModule, LanguageSwitcherComponent],
   templateUrl: './burger-menu.html',
   styleUrl: './burger-menu.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BurgerMenu {
   isOpen = signal(false);
-  currentLanguage = signal<'DE' | 'EN'>('DE');
 
   navigate = output<string>();
   languageChange = output<'DE' | 'EN'>();
@@ -32,8 +32,7 @@ export class BurgerMenu {
     this.close.emit();
   }
 
-  switchLanguage(lang: 'DE' | 'EN') {
-    this.currentLanguage.set(lang);
+  onLanguageChange(lang: 'DE' | 'EN') {
     this.languageChange.emit(lang);
   }
 }

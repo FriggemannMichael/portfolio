@@ -36,26 +36,6 @@
       </button>
     </div>
 
-    <div class="language-switcher">
-      <div class="language-ellipse">
-        <img src="/mobil/hero/elbglanguageswitch.svg" alt="" />
-      </div>
-
-      <button
-        class="lang-button de"
-        [class.active]="currentLanguage() === 'DE'"
-        (click)="switchLanguage('DE')"
-      >
-        DE
-      </button>
-
-      <button
-        class="lang-button en"
-        [class.active]="currentLanguage() === 'EN'"
-        (click)="switchLanguage('EN')"
-      >
-        EN
-      </button>
-    </div>
+    <app-language-switcher (languageChange)="onLanguageChange($event)" />
   </div>
 }

@@ -1,18 +1,26 @@
 <section class="why-me">
   <h2 class="why-me__title">Why me</h2>
 
-  <div class="why-me__location">
-    @if (showIcon()) {
-      <img [src]="iconPath()" alt="Location icon" class="why-me__location-icon" />
-    }
-    <p class="why-me__location-text">
-      <span class="why-me__location-text--highlight">I am</span>
-      <span class="why-me__location-text--normal">{{ displayedText() }}</span>
-      <span class="cursor">|</span>
-    </p>
-  </div>
+  <div class="why-me__content">
+    <div class="why-me__location">
+      @if (showIcon()) {
+        <div class="why-me__location-icon-wrapper">
+          <img [src]="iconPath()" alt="Location icon" class="why-me__location-icon" />
+        </div>
+      }
+      <p class="why-me__location-text">
+        <span class="why-me__location-text--highlight">I am</span>
+        <span class="why-me__location-text--normal">{{ displayedText() }}</span>
+        <span class="cursor">|</span>
+      </p>
+    </div>
 
-  <p class="why-me__description">
-    {{ descriptionText() }}
-  </p>
+    <div class="why-me__info">
+      <p class="why-me__description">
+        {{ descriptionText() }}
+      </p>
+
+      <button class="why-me__button">Let's talk</button>
+    </div>
+  </div>
 </section>

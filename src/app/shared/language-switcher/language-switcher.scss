@@ -1,0 +1,56 @@
+// language-switcher.scss
+@import '../../../styles.scss';
+
+.language-switcher {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 11px;
+  border-radius: $radius-sm;
+  width: 123px;
+  height: 52px;
+}
+
+.language-btn {
+  position: relative;
+  background: none;
+  border: none;
+  font-family: $font-body;
+  font-weight: 400;
+  font-size: $fs-p;
+  line-height: 120%;
+  color: $color-primary-dark;
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: $transition;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-2.14deg);
+    width: 85px;
+    height: 56px;
+    background-image: url('/icon/languagswitch.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: $transition;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: $color-creme-white;
+  }
+
+  &.active {
+    color: $color-creme-white;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
