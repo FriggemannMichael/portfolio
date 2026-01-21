@@ -1,0 +1,209 @@
+/* You can add global styles to this file, and also import other style files */
+
+// ============================================
+// VARIABLES
+// ============================================
+
+// Colors
+$color-primary-dark: #262e34;
+$color-primary-blue: #89bcd9;
+$color-creme-white: #f8f5ec;
+$color-white: #fffdfd;
+$color-error: #e44c36;
+$color-done: #97e163;
+$color-bg-light-blue: rgba(137, 188, 217, 0.07);
+$color-bg-light-blue-12: rgba(137, 188, 217, 0.12);
+$color-bg-dark-grey: rgba(38, 46, 52, 0.12);
+$color-tab-bg: #2d383f;
+
+// Typography
+$font-heading: 'Anta', sans-serif;
+$font-body: 'Josefin Sans', sans-serif;
+$font-code: 'Roboto Mono', monospace;
+
+// Font Sizes
+$fs-h1: 88px;
+$fs-h2: 60px;
+$fs-h3: 40px;
+$fs-h4: 30px;
+$fs-h5: 28px;
+$fs-h6: 26px;
+$fs-p: 18px;
+$fs-small: 14px;
+
+// Spacing
+$spacing-xs: 8px;
+$spacing-sm: 16px;
+$spacing-md: 24px;
+$spacing-lg: 40px;
+$spacing-xl: 56px;
+$spacing-2xl: 80px;
+
+// Border Radius
+$radius-sm: 5px;
+$radius-md: 30px;
+
+// Transitions
+$transition: 0.3s ease;
+
+// ============================================
+// FONTS
+// ============================================
+
+@font-face {
+  font-family: 'Anta';
+  src: url('/fonts/Anta-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('/fonts/JosefinSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// ============================================
+// RESET & BASE
+// ============================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-body;
+  background: $color-primary-dark;
+  color: $color-creme-white;
+  line-height: 1.2;
+  overflow-x: hidden;
+}
+
+// ============================================
+// TYPOGRAPHY
+// ============================================
+
+h1 {
+  font-family: $font-heading;
+  font-size: $fs-h1;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+h2 {
+  font-family: $font-heading;
+  font-size: $fs-h2;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+h3 {
+  font-family: $font-body;
+  font-size: $fs-h3;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+h4 {
+  font-family: $font-body;
+  font-size: $fs-h4;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+p {
+  font-family: $font-body;
+  font-size: $fs-p;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+// ============================================
+// BUTTONS
+// ============================================
+
+.btn {
+  padding: 13px 30px;
+  border-radius: $radius-md;
+  font-family: $font-body;
+  font-size: $fs-p;
+  font-weight: 400;
+  cursor: pointer;
+  transition: $transition;
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &-primary {
+    background: $color-primary-blue;
+    color: $color-primary-dark;
+
+    &:hover {
+      background: $color-creme-white;
+    }
+  }
+
+  &-secondary {
+    background: transparent;
+    color: $color-primary-blue;
+    border: 1px solid $color-primary-blue;
+
+    &:hover {
+      background: $color-bg-light-blue-12;
+    }
+  }
+
+  &-inactive {
+    opacity: 0.5;
+    border: 1px solid $color-creme-white;
+    color: $color-creme-white;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// ============================================
+// LAYOUT
+// ============================================
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: $spacing-2xl 0;
+}
+
+// ============================================
+// UTILITIES
+// ============================================
+
+.text-center {
+  text-align: center;
+}
+
+.mb-sm {
+  margin-bottom: $spacing-sm;
+}
+.mb-md {
+  margin-bottom: $spacing-md;
+}
+.mb-lg {
+  margin-bottom: $spacing-lg;
+}
+.mb-xl {
+  margin-bottom: $spacing-xl;
+}
