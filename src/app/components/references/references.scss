@@ -1,0 +1,131 @@
+@use '../../../styles.scss' as *;
+
+.references-section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xl;
+
+  &__headline {
+    font-family: $font-body;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 400;
+    line-height: 120%;
+    text-align: center;
+    color: $color-primary-blue;
+    max-width: 1209px;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+    }
+  }
+}
+
+.references-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+  width: 100%;
+  max-width: 1209px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.reference-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 400px;
+  margin: 0 auto;
+
+  &__shape {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgba(137, 188, 217, 0.05);
+    padding: $spacing-md;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-sm;
+    text-align: center;
+    max-width: 297px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-xs;
+  }
+
+  &__name {
+    font-family: $font-body;
+    font-size: clamp(1.25rem, 2vw, 1.625rem);
+    font-weight: 600;
+    line-height: 120%;
+    color: $color-creme-white;
+    margin: 0;
+  }
+
+  &__project {
+    font-family: $font-body;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    font-weight: 400;
+    line-height: 120%;
+    color: $color-creme-white;
+    margin: 0;
+  }
+
+  &__quote {
+    font-family: $font-body;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    font-weight: 400;
+    line-height: 120%;
+    color: $color-creme-white;
+    margin: $spacing-sm 0;
+    max-width: 292px;
+  }
+
+  &__link {
+    font-family: $font-body;
+    font-size: clamp(0.875rem, 1.2vw, 1rem);
+    font-weight: 400;
+    line-height: 120%;
+    text-decoration: underline;
+    color: $color-primary-blue;
+    transition: $transition;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary-blue;
+      outline-offset: 4px;
+      border-radius: $radius-sm;
+    }
+  }
+}

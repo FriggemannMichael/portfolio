@@ -1,0 +1,404 @@
+@import '../../../styles.scss';
+
+.contact-section {
+  position: relative;
+  padding: $spacing-2xl 0;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+// Headline
+.contact-headline {
+  font-family: $font-heading;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 120%;
+  color: $color-primary-blue;
+  text-align: center;
+  margin-bottom: 133px;
+}
+
+// Scroll to Top Button
+.scroll-to-top {
+  position: absolute;
+  right: 40px;
+  top: 80px;
+  text-decoration: none;
+  z-index: 10;
+  transition: transform $transition;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+// Contact Information Container
+.contact-information {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 48px;
+  width: 100%;
+}
+
+// Text and Contact Details
+.text-and-contacts {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  gap: 36px;
+  width: 100%;
+}
+
+.contact-intro {
+  width: 429px;
+  font-family: $font-body;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $fs-p;
+  line-height: 120%;
+  text-align: justify;
+  color: $color-creme-white;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+// Contact Links (Email & Phone)
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  color: $color-creme-white;
+  font-family: $font-body;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  transition: color $transition;
+
+  svg {
+    width: 26.25px;
+    height: 30.94px;
+    color: $color-creme-white;
+    transition: color $transition;
+  }
+
+  &:hover {
+    color: $color-primary-blue;
+
+    svg {
+      color: $color-primary-blue;
+    }
+  }
+}
+
+// Contact Form
+.contact-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 0;
+  gap: 16px 21px;
+  width: 100%;
+  max-width: 911px;
+}
+
+// Input Wrapper
+.input-wrapper {
+  position: relative;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+  &:not(.message-wrapper) {
+    width: 445px;
+    height: 80px;
+  }
+
+  &.message-wrapper {
+    width: 100%;
+    max-width: 911px;
+    height: auto;
+    min-height: 164px;
+    order: 2;
+  }
+}
+
+.input-label {
+  position: absolute;
+  left: 27px;
+  top: 3px;
+  font-family: $font-body;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $fs-small;
+  line-height: 120%;
+  color: $color-primary-blue;
+  mix-blend-mode: normal;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input-field {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  left: 0;
+  top: 20px;
+  padding: 20px 50px 10px 27px;
+  background: transparent;
+  border: 1px solid $color-primary-blue;
+  border-radius: $radius-md;
+  font-family: $font-body;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $fs-p;
+  line-height: 120%;
+  color: $color-white;
+  outline: none;
+  transition: background $transition, border $transition;
+
+  &:focus,
+  &.filled {
+    background: $color-bg-light-blue-12;
+  }
+
+  &::placeholder {
+    color: transparent;
+  }
+}
+
+.textarea-field {
+  height: 146px;
+  min-height: 146px;
+  resize: none;
+  padding-top: 35px;
+}
+
+// Icon Done
+.icon-done {
+  position: absolute;
+  right: 27px;
+  top: 39px;
+  width: 27px;
+  height: 32px;
+  color: $color-creme-white;
+  pointer-events: none;
+}
+
+.message-wrapper .icon-done {
+  top: 50px;
+}
+
+// Error State
+.input-wrapper.has-error {
+  .input-field {
+    border-color: $color-error;
+  }
+
+  .input-label {
+    color: $color-error;
+  }
+}
+
+.error-message {
+  position: absolute;
+  left: 27px;
+  top: 0;
+  font-family: $font-body;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $fs-small;
+  line-height: 120%;
+  color: $color-error;
+  mix-blend-mode: normal;
+}
+
+// Privacy Wrapper
+.privacy-wrapper {
+  width: 100%;
+  max-width: 911px;
+  height: 80px;
+  position: relative;
+  flex: none;
+  order: 3;
+  flex-grow: 0;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  left: 0;
+  top: 0;
+
+  &:checked + .checkbox-label .checkbox-custom {
+    background: $color-primary-blue;
+    border-color: $color-primary-blue;
+  }
+
+  &:hover + .checkbox-label .checkbox-custom {
+    background: $color-bg-light-blue-12;
+  }
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  cursor: pointer;
+  font-family: $font-body;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $fs-small;
+  line-height: 120%;
+  color: $color-creme-white;
+}
+
+.checkbox-custom {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border: 2px solid $color-primary-blue;
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition;
+  transform: rotate(-160.9deg);
+}
+
+.checkmark {
+  width: 11px;
+  height: 8px;
+  color: $color-creme-white;
+  transform: rotate(160.9deg);
+}
+
+.checkbox-text {
+  margin-top: 5px;
+}
+
+.privacy-link {
+  color: $color-primary-blue;
+  text-decoration: none;
+  padding: 5px 4px;
+  transition: color $transition;
+
+  &:hover {
+    color: $color-creme-white;
+  }
+}
+
+.privacy-error {
+  position: absolute;
+  left: 29px;
+  top: 28px;
+}
+
+// Privacy Wrapper Error State
+.privacy-wrapper.has-error {
+  .checkbox-custom {
+    border-color: $color-error;
+  }
+}
+
+// Submit Button
+app-button {
+  position: absolute;
+  right: 0;
+  top: 32px;
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+
+    ::ng-deep button {
+      border-color: $color-creme-white;
+      color: $color-creme-white;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .contact-information {
+    gap: 32px;
+  }
+
+  .text-and-contacts {
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .contact-intro {
+    width: 100%;
+  }
+
+  .contact-details {
+    width: 100%;
+  }
+
+  .contact-form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-headline {
+    font-size: 40px;
+    margin-bottom: 60px;
+  }
+
+  .input-wrapper:not(.message-wrapper) {
+    width: 100%;
+  }
+
+  .contact-form {
+    gap: 16px;
+  }
+
+  .privacy-wrapper {
+    height: auto;
+    min-height: 100px;
+  }
+
+  app-button {
+    position: static;
+    margin-top: 16px;
+    width: 100%;
+  }
+}

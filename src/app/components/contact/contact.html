@@ -1,1 +1,139 @@
-<p>contact works!</p>
+<section class="contact-section">
+  <div class="container">
+    <h2 class="contact-headline">Contact me</h2>
+
+    <!-- Scroll to Top Arrow -->
+    <a href="#" class="scroll-to-top" (click)="scrollToTop($event)">
+      <app-arrow-btn [direction]="'up'"></app-arrow-btn>
+    </a>
+
+    <div class="contact-information">
+      <!-- Text and Contact Info -->
+      <div class="text-and-contacts">
+        <p class="contact-intro">
+          Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.<br>
+          Example: Feel free to get in touch with job offers or opportunities such as: ...
+        </p>
+
+        <div class="contact-details">
+          <!-- Email -->
+          <a href="mailto:fohrer.developer@gmail.com" class="contact-link email-link">
+            <svg class="icon-email" width="27" height="30" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0H26.19V30H0V0Z" fill="none"/>
+              <path d="M0.139 5H26.051V25H0.139V5Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M6 10L13.095 16L20 10" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>E-mail: fohrer.developer&#64;gmail.com</span>
+          </a>
+
+          <!-- Phone -->
+          <a href="tel:015712345668" class="contact-link phone-link">
+            <svg class="icon-phone" width="27" height="31" viewBox="0 0 27 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.869 1.938C1.869 1.938 7.119 -1.062 9.619 3.938C11.369 7.438 8.619 9.188 8.619 9.188C8.619 9.188 6.369 10.688 9.369 15.438C12.369 20.188 15.119 19.938 15.119 19.938C15.119 19.938 18.619 18.938 20.619 22.438C23.119 26.938 18.119 29.938 18.119 29.938C13.869 31.688 1.869 21.938 1.869 21.938C-3.631 16.188 1.869 1.938 1.869 1.938Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>Tel: 0157 123 456 68</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+        <!-- Name Input -->
+        <div class="input-wrapper" [class.has-value]="isValid('name')" [class.has-error]="hasError('name')">
+          <label for="name" class="input-label">Your name</label>
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            class="input-field"
+            [class.filled]="name?.value"
+          />
+          @if (isValid('name')) {
+            <svg class="icon-done" width="27" height="32" viewBox="0 0 27 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 16L10 22L23 9" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          }
+          @if (hasError('name')) {
+            <span class="error-message">Your name is required</span>
+          }
+        </div>
+
+        <!-- Email Input -->
+        <div class="input-wrapper" [class.has-value]="isValid('email')" [class.has-error]="hasError('email')">
+          <label for="email" class="input-label">Your Email</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="input-field"
+            [class.filled]="email?.value"
+          />
+          @if (isValid('email')) {
+            <svg class="icon-done" width="27" height="32" viewBox="0 0 27 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 16L10 22L23 9" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          }
+          @if (hasError('email')) {
+            <span class="error-message">Your Email is required</span>
+          }
+        </div>
+
+        <!-- Message Input -->
+        <div class="input-wrapper message-wrapper" [class.has-value]="isValid('message')" [class.has-error]="hasError('message')">
+          <label for="message" class="input-label">Your Message</label>
+          <textarea
+            id="message"
+            formControlName="message"
+            class="input-field textarea-field"
+            rows="5"
+            [class.filled]="message?.value"
+          ></textarea>
+          @if (isValid('message')) {
+            <svg class="icon-done" width="27" height="32" viewBox="0 0 27 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 16L10 22L23 9" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          }
+          @if (hasError('message')) {
+            <span class="error-message">Your Message is required</span>
+          }
+        </div>
+
+        <!-- Privacy Policy Checkbox -->
+        <div class="privacy-wrapper" [class.has-error]="hasError('privacyAccepted')">
+          <div class="checkbox-container">
+            <input
+              type="checkbox"
+              id="privacy"
+              formControlName="privacyAccepted"
+              class="checkbox-input"
+            />
+            <label for="privacy" class="checkbox-label">
+              <span class="checkbox-custom">
+                @if (privacyAccepted?.value) {
+                  <svg class="checkmark" width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 4L4 7L10 1" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                }
+              </span>
+              <span class="checkbox-text">
+                I've read the
+                <a href="#" class="privacy-link">privacy policy</a>
+                and agree to the processing of my data as outlined.
+              </span>
+            </label>
+          </div>
+          @if (hasError('privacyAccepted')) {
+            <span class="error-message privacy-error">Please accept the privacy policy.</span>
+          }
+
+          <!-- Submit Button -->
+          <app-button
+            [text]="'Send'"
+            [type]="'submit'"
+            [class.disabled]="!contactForm.valid"
+          ></app-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,31 @@
-<p>references works!</p>
+<section class="references-section">
+  <h2 class="references-section__headline">
+    Need a teamplayer? Here what my colleagues said about me
+  </h2>
+
+  <div class="references-grid">
+    @for (reference of references(); track reference.id) {
+      <article class="reference-card">
+        <div class="reference-card__shape">
+          <div class="reference-card__content">
+            <div class="reference-card__header">
+              <h3 class="reference-card__name">{{ reference.name }}</h3>
+              <p class="reference-card__project">{{ reference.project }}</p>
+            </div>
+
+            <p class="reference-card__quote">{{ reference.quote }}</p>
+
+            <a
+              [href]="reference.linkedInUrl"
+              class="reference-card__link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Linked In Profile
+            </a>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>

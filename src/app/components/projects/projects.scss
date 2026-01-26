@@ -1,0 +1,283 @@
+@use '../../../styles.scss' as *;
+
+.projects-section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: $spacing-xl 0;
+
+  &__headline {
+    font-family: $font-heading;
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 400;
+    line-height: 120%;
+    color: $color-primary-blue;
+    text-align: center;
+    margin: 0 0 $spacing-xl 0;
+
+    @media (max-width: 768px) {
+      margin-bottom: $spacing-lg;
+    }
+
+    @media (max-width: 480px) {
+      margin-bottom: $spacing-md;
+    }
+  }
+}
+
+// Project Tabs Navigation
+.projects-tabs {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: center;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+  padding: 0 $spacing-md;
+  position: relative;
+  z-index: 1;
+
+  &__tab {
+    padding: $spacing-sm $spacing-lg;
+    background: transparent;
+    border: none;
+    border-radius: $radius-md $radius-md 0 0;
+    font-family: $font-body;
+    font-size: clamp(1.25rem, 2vw, 1.875rem);
+    font-weight: 500;
+    color: $color-primary-blue;
+    cursor: pointer;
+    transition: $transition;
+    white-space: nowrap;
+    position: relative;
+
+    &:hover:not(&--active) {
+      background: rgba($color-primary-dark, 0.5);
+    }
+
+    &--active {
+      background: $color-bg-light-blue;
+      color: $color-creme-white;
+      margin-bottom: -1px;
+      padding-bottom: calc($spacing-sm + 1px);
+    }
+
+    @media (max-width: 768px) {
+      padding: $spacing-xs $spacing-md;
+      font-size: 1.125rem;
+
+      &--active {
+        padding-bottom: calc($spacing-xs + 1px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      padding: $spacing-xs $spacing-sm;
+      font-size: 1rem;
+
+      &--active {
+        padding-bottom: calc($spacing-xs + 1px);
+      }
+    }
+  }
+}
+
+// Project Details Container
+.project-details {
+  background: $color-bg-light-blue;
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  margin: 0 $spacing-md;
+
+  @media (max-width: 768px) {
+    padding: $spacing-md;
+    margin: 0 $spacing-sm;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 1024px) {
+      gap: $spacing-lg;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: $spacing-md;
+    }
+  }
+}
+
+// Left Column: Project Info
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  &__section {
+    display: flex;
+    gap: $spacing-md;
+    align-items: flex-start;
+  }
+
+  &__bullet {
+    flex-shrink: 0;
+    width: 29px;
+    height: 26px;
+    background: $color-primary-blue;
+    border-radius: 50%;
+    margin-top: 4px;
+  }
+
+  &__text {
+    flex: 1;
+  }
+
+  &__title-row {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__title {
+    font-family: $font-body;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-weight: 400;
+    line-height: 120%;
+    color: $color-creme-white;
+    margin: 0;
+  }
+
+  &__duration {
+    font-family: $font-body;
+    font-size: $fs-p;
+    font-weight: 400;
+    color: $color-creme-white;
+    white-space: nowrap;
+  }
+
+  &__description {
+    font-family: $font-body;
+    font-size: $fs-p;
+    font-weight: 400;
+    line-height: 120%;
+    color: $color-creme-white;
+    margin: 0;
+  }
+}
+
+// Right Column: Showcase
+.project-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  position: relative;
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    border-radius: $radius-md;
+    overflow: hidden;
+    background: $color-bg-dark-grey;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// Technologies Section
+.project-technologies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm 0;
+
+  &__label {
+    font-family: $font-body;
+    font-size: $fs-p;
+    color: $color-creme-white;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__icons {
+    display: flex;
+    gap: $spacing-md;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(73%) sepia(17%) saturate(872%) hue-rotate(163deg) brightness(95%) contrast(88%);
+    }
+  }
+}
+
+// Action Buttons
+.project-buttons {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+
+  button {
+    padding: 13px 30px;
+    font-family: $font-body;
+    font-size: $fs-p;
+    font-weight: 400;
+    line-height: 120%;
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: $transition;
+    border: none;
+    white-space: nowrap;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($color-primary-blue, 0.3);
+    }
+  }
+
+  .btn-primary {
+    background: $color-primary-blue;
+    color: $color-primary-dark;
+
+    &:hover {
+      background: lighten($color-primary-blue, 5%);
+    }
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: $color-primary-blue;
+    border: 1px solid $color-primary-blue;
+
+    &:hover {
+      background: rgba($color-primary-blue, 0.1);
+    }
+  }
+}
