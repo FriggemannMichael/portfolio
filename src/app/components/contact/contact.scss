@@ -261,14 +261,10 @@
   height: 24px;
   left: 0;
   top: 0;
+  z-index: 2;
 
   &:checked + .checkbox-label .checkbox-custom {
-    background: $color-primary-blue;
-    border-color: $color-primary-blue;
-  }
-
-  &:hover + .checkbox-label .checkbox-custom {
-    background: $color-bg-light-blue-12;
+    background-image: url('/icon/checkboxChecked.svg');
   }
 }
 
@@ -283,6 +279,10 @@
   font-size: $fs-small;
   line-height: 120%;
   color: $color-creme-white;
+
+  &:hover .checkbox-custom {
+    background-image: url('/icon/checkboxhover.svg');
+  }
 }
 
 .checkbox-custom {
@@ -290,21 +290,16 @@
   width: 24px;
   height: 24px;
   min-width: 24px;
-  border: 2px solid $color-primary-blue;
-  border-radius: 50%;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all $transition;
-  transform: rotate(-160.9deg);
+  background-image: url('/icon/checkbox.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.3s ease;
 }
 
-.checkmark {
-  width: 11px;
-  height: 8px;
-  color: $color-creme-white;
-  transform: rotate(160.9deg);
+// Checked + Hover State
+.checkbox-input:checked + .checkbox-label:hover .checkbox-custom {
+  background-image: url('/icon/checkboxChecked.svg');
 }
 
 .checkbox-text {
@@ -331,7 +326,11 @@
 // Privacy Wrapper Error State
 .privacy-wrapper.has-error {
   .checkbox-custom {
-    border-color: $color-error;
+    background-image: url('/icon/checkboxerror.svg');
+  }
+
+  .checkbox-input:checked + .checkbox-label .checkbox-custom {
+    background-image: url('/icon/checkboxerror.svg');
   }
 }
 

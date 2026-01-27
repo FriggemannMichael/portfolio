@@ -6,7 +6,9 @@
   <div class="references-grid">
     @for (reference of references(); track reference.id) {
       <article class="reference-card">
-        <div class="reference-card__shape">
+        <app-hover-ellipse
+          [defaultSvg]="'/icon/refeelips01.svg'"
+          [hoverSvg]="'/icon/refelips02.svg'">
           <div class="reference-card__content">
             <div class="reference-card__header">
               <h3 class="reference-card__name">{{ reference.name }}</h3>
@@ -24,7 +26,7 @@
               Linked In Profile
             </a>
           </div>
-        </div>
+        </app-hover-ellipse>
       </article>
     }
   </div>

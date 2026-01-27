@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SkillEllipse } from '../../shared/skill-ellipse/skill-ellipse';
 
 interface Skill {
   name: string;
@@ -8,9 +9,10 @@ interface Skill {
 
 @Component({
   selector: 'app-skills',
-  imports: [CommonModule],
+  imports: [CommonModule, SkillEllipse],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Skills {
   skills = signal<Skill[]>([
@@ -30,6 +32,4 @@ export class Skills {
     { name: 'React', icon: 'react.svg' },
     { name: 'Vue Js', icon: 'vue.svg' },
   ]);
-
-  isLearningHovered = signal(false);
 }

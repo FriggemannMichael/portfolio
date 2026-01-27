@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { HoverEllipse } from '../../shared/hover-ellipse/hover-ellipse';
 
 interface Reference {
   id: number;
@@ -10,6 +11,7 @@ interface Reference {
 
 @Component({
   selector: 'app-references',
+  imports: [HoverEllipse],
   templateUrl: './references.html',
   styleUrl: './references.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

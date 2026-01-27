@@ -121,62 +121,31 @@
     width: 343px;
     height: 147px;
   }
+
+  app-skill-ellipse {
+    display: block;
+    width: 100%;
+    height: 380px;
+
+    @media (max-width: 768px) {
+      height: 147px;
+    }
+  }
 }
 
-.learning-ellipse {
+.learning-content {
   position: relative;
-  width: 380px;
-  height: 380px;
-  background: $color-bg-light-blue;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: $spacing-lg;
   box-sizing: border-box;
-  transition: background $transition;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background-image: url('/icon/shapelearningdefault.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 1;
-    transition: opacity $transition;
-  }
-
-  &.hovered::before {
-    opacity: 0;
-  }
-
-  &.hovered::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background-image: url('/icon/shapelearninghover.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 1;
-  }
 
   @media (max-width: 768px) {
-    width: 343px;
-    height: 147px;
-    background: transparent;
-    border-radius: 0;
     padding: 0;
-
-    &::before,
-    &::after {
-      display: none;
-    }
   }
 }
 
