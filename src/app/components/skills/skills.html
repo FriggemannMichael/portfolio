@@ -17,22 +17,27 @@
     <div class="currently-learning">
       <app-skill-ellipse>
         <div class="learning-content">
-          <p class="learning-title">currently learning...</p>
+          <p class="learning-title">What I am currently learning</p>
 
-          <div class="learning-icons">
-            @for (skill of learningSkills(); track skill.name) {
-              <div class="learning-item">
-                <div class="learning-icon">
-                  <img [src]="'icon/' + skill.icon" [alt]="skill.name" />
+          <div class="learning-body">
+            <p class="learning-text">
+              I am currently expanding my knowledge by learning React and Vue.js to broaden my frontend
+              development skills and stay up-to-date with modern frameworks.
+            </p>
+
+            <div class="learning-icons">
+              @for (skill of learningSkills(); track skill.name) {
+                <div class="learning-item">
+                  <div class="learning-icon">
+                    <img [src]="'icon/' + skill.icon" [alt]="skill.name" />
+                  </div>
+                  <span class="learning-name">{{ skill.name }}</span>
                 </div>
-              </div>
-            }
+              }
+            </div>
           </div>
 
-          <p class="learning-text">
-            I am currently expanding my knowledge by learning React and Vue.js to broaden my frontend
-            development skills and stay up-to-date with modern frameworks.
-          </p>
+          <app-button />
         </div>
       </app-skill-ellipse>
     </div>

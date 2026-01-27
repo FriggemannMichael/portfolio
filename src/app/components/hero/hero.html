@@ -1,6 +1,7 @@
 <section class="hero">
   <app-burger-menu
-    class="hero__burger-menu"
+    [class.hero__burger-menu]="!isMenuOpen()"
+    [class.hero__burger-menu--open]="isMenuOpen()"
     (navigate)="onNavigate($event)"
     (languageChange)="onLanguageChange($event)"
     (menuToggle)="onMenuToggle($event)"
@@ -10,19 +11,13 @@
 
   <app-social-media class="hero__social" />
 
+  <div class="hero__content">
+    <h1 class="hero__name">Michael Friggemann</h1>
+    <h2 class="hero__title">FRONTEND DEVELOPER</h2>
+  </div>
+
   @if (!isMenuOpen()) {
-    <div class="hero__content">
-      <h1 class="hero__name">Michael Friggemann</h1>
-      <h2 class="hero__title">FRONTEND DEVELOPER</h2>
-    </div>
-
     <app-hero-image class="hero__image" />
-  }
-
-  @if (isMenuOpen()) {
-    <div class="hero__menu-overlay">
-      <!-- Overlay nimmt die Grid-Position des Hero-Images ein -->
-    </div>
   }
 
   <app-arrow-btn direction="down" class="hero__arrow" (click)="scrollToNext()" />

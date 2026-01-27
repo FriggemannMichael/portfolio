@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SkillEllipse } from '../../shared/skill-ellipse/skill-ellipse';
+import { Button } from '../../shared/button/button';
 
 interface Skill {
   name: string;
@@ -9,7 +10,7 @@ interface Skill {
 
 @Component({
   selector: 'app-skills',
-  imports: [CommonModule, SkillEllipse],
+  imports: [CommonModule, SkillEllipse, Button],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

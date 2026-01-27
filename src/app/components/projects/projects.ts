@@ -121,4 +121,15 @@ export class Projects {
   get currentProject(): Project {
     return this.projects()[this.currentProjectIndex()];
   }
+
+  get formattedTechnologies(): string {
+    const techNames: Record<string, string> = {
+      'angular.svg': 'Angular',
+      'ts.svg': 'TypeScript',
+      'firebase.svg': 'Firebase',
+    };
+    return this.currentProject.technologies
+      .map(tech => techNames[tech] || tech.replace('.svg', ''))
+      .join(', ');
+  }
 }

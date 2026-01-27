@@ -1,5 +1,6 @@
-@import '../../../styles.scss';
+@use '../../../styles.scss' as *;
 
+// Mobile-first approach
 .contact-section {
   position: relative;
   padding: $spacing-2xl 0;
@@ -17,20 +18,20 @@
   font-family: $font-heading;
   font-style: normal;
   font-weight: 400;
-  font-size: 54px;
+  font-size: clamp(2.5rem, 5vw, 3.375rem);
   line-height: 120%;
   color: $color-primary-blue;
   text-align: center;
-  margin-bottom: 133px;
+  margin-bottom: clamp(3.75rem, 10vw, 8.3125rem);
 }
 
 // Scroll to Top Button
 .scroll-to-top {
-  position: absolute;
-  right: 40px;
-  top: 80px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 3rem;
   text-decoration: none;
-  z-index: 10;
   transition: transform $transition;
 
   &:hover {
@@ -44,22 +45,33 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 0;
-  gap: 48px;
+  gap: 2rem;
   width: 100%;
+
+  @include tablet {
+    gap: 3rem;
+  }
 }
 
 // Text and Contact Details
 .text-and-contacts {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 0;
-  gap: 36px;
+  gap: 1.5rem;
   width: 100%;
+
+  @include desktop {
+    flex-direction: row;
+    align-items: center;
+    gap: 2.25rem;
+  }
 }
 
 .contact-intro {
-  width: 429px;
+  width: 100%;
+  max-width: 429px;
   font-family: $font-body;
   font-style: normal;
   font-weight: 400;
@@ -67,47 +79,41 @@
   line-height: 120%;
   text-align: justify;
   color: $color-creme-white;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }
 
 .contact-details {
   display: flex;
   flex-direction: column;
-  gap: 46px;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
+  gap: 1rem;
+  width: 100%;
+
+  @include desktop {
+    gap: 2.875rem;
+  }
 }
 
 // Contact Links (Email & Phone)
 .contact-link {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
   text-decoration: none;
   color: $color-creme-white;
   font-family: $font-body;
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 120%;
   transition: color $transition;
 
-  svg {
+  img {
     width: 26.25px;
     height: 30.94px;
-    color: $color-creme-white;
-    transition: color $transition;
+    transition: filter $transition;
   }
 
   &:hover {
     color: $color-primary-blue;
-
-    svg {
-      color: $color-primary-blue;
-    }
   }
 }
 
@@ -119,9 +125,13 @@
   align-items: flex-start;
   align-content: flex-start;
   padding: 0;
-  gap: 16px 21px;
+  gap: 1rem;
   width: 100%;
-  max-width: 911px;
+
+  @include tablet {
+    gap: 1rem 1.3125rem;
+    max-width: 911px;
+  }
 }
 
 // Input Wrapper
@@ -130,18 +140,25 @@
   flex: none;
   order: 0;
   flex-grow: 0;
+  width: 100%;
+  height: 80px;
 
-  &:not(.message-wrapper) {
-    width: 445px;
-    height: 80px;
+  @include tablet {
+    &:not(.message-wrapper) {
+      width: calc(50% - 0.65625rem);
+      max-width: 445px;
+    }
   }
 
   &.message-wrapper {
-    width: 100%;
-    max-width: 911px;
+    max-width: 100%;
     height: auto;
     min-height: 164px;
     order: 2;
+
+    @include tablet {
+      max-width: 911px;
+    }
   }
 }
 
@@ -238,19 +255,29 @@
 
 // Privacy Wrapper
 .privacy-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   width: 100%;
-  max-width: 911px;
-  height: 80px;
+  height: auto;
+  min-height: 100px;
   position: relative;
   flex: none;
   order: 3;
   flex-grow: 0;
+
+  @include tablet {
+    max-width: 911px;
+    height: 80px;
+    min-height: auto;
+  }
 }
 
 .checkbox-container {
   display: flex;
   align-items: flex-start;
   gap: 5px;
+  width: 100%;
 }
 
 .checkbox-input {
@@ -336,9 +363,18 @@
 
 // Submit Button
 app-button {
-  position: absolute;
-  right: 0;
-  top: 32px;
+  position: static;
+  margin-top: 1rem;
+  margin-left: auto;
+  width: auto;
+
+  @include tablet {
+    position: absolute;
+    right: 0;
+    top: 32px;
+    margin-top: 0;
+    margin-left: 0;
+  }
 
   &.disabled {
     opacity: 0.5;
@@ -348,56 +384,5 @@ app-button {
       border-color: $color-creme-white;
       color: $color-creme-white;
     }
-  }
-}
-
-// Responsive Design
-@media (max-width: 1024px) {
-  .contact-information {
-    gap: 32px;
-  }
-
-  .text-and-contacts {
-    flex-direction: column;
-    gap: 24px;
-    align-items: flex-start;
-  }
-
-  .contact-intro {
-    width: 100%;
-  }
-
-  .contact-details {
-    width: 100%;
-  }
-
-  .contact-form {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-headline {
-    font-size: 40px;
-    margin-bottom: 60px;
-  }
-
-  .input-wrapper:not(.message-wrapper) {
-    width: 100%;
-  }
-
-  .contact-form {
-    gap: 16px;
-  }
-
-  .privacy-wrapper {
-    height: auto;
-    min-height: 100px;
-  }
-
-  app-button {
-    position: static;
-    margin-top: 16px;
-    width: 100%;
   }
 }
