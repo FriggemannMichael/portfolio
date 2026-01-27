@@ -1,20 +1,21 @@
 @use '../../../styles.scss' as *;
 
+// Mobile-first approach
 .skills-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 180px;
-  padding-bottom: $spacing-2xl;
-  gap: $spacing-2xl;
-  max-width: 869px;
+  padding: 2rem 0.25rem 3rem;
+  gap: 2rem;
+  width: 100%;
+  max-width: 343px;
   margin: 0 auto;
 
-  @media (max-width: 768px) {
-    padding: 16px 4px 0;
-    gap: 40px;
-    width: 343px;
-    max-width: 343px;
+  @include tablet {
+    padding-top: clamp(5rem, 15vw, 11.25rem);
+    padding-bottom: $spacing-2xl;
+    gap: $spacing-2xl;
+    max-width: 869px;
   }
 }
 
@@ -22,29 +23,30 @@
   font-family: $font-heading;
   font-style: normal;
   font-weight: 400;
-  font-size: $fs-h2;
+  font-size: clamp(2rem, 5vw, 3.75rem);
   line-height: 120%;
   text-align: center;
   color: $color-primary-blue;
   margin: 0;
+  width: 100%;
+  max-width: 335px;
 
-  @media (max-width: 768px) {
-    font-size: 32px;
-    width: 335px;
+  @include tablet {
+    max-width: 100%;
   }
 }
 
 .skills-content {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 79px;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
   width: 100%;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 40px;
-    align-items: center;
+  @include tablet {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: clamp(2.5rem, 8vw, 4.9375rem);
   }
 }
 
@@ -54,15 +56,17 @@
   flex-wrap: wrap;
   align-items: flex-start;
   align-content: flex-start;
-  gap: $spacing-lg;
-  width: 409px;
+  justify-content: center;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 298px;
+  position: relative;
+  min-height: 199px;
 
-  @media (max-width: 768px) {
-    width: 298px;
-    gap: 40px;
-    justify-content: center;
-    position: relative;
-    height: 199px;
+  @include tablet {
+    max-width: 409px;
+    gap: $spacing-lg;
+    min-height: auto;
   }
 }
 
@@ -71,10 +75,10 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  gap: 0;
 
-  @media (max-width: 768px) {
-    gap: 0;
+  @include tablet {
+    gap: 10px;
   }
 }
 
@@ -82,8 +86,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
 
   img {
     width: 100%;
@@ -91,9 +95,9 @@
     object-fit: contain;
   }
 
-  @media (max-width: 768px) {
-    width: 45px;
-    height: 45px;
+  @include tablet {
+    width: 60px;
+    height: 60px;
   }
 }
 
@@ -106,95 +110,117 @@
   color: $color-primary-blue;
   margin: 0;
   text-align: center;
+  display: none;
 
-  @media (max-width: 768px) {
-    display: none;
+  @include tablet {
+    display: block;
   }
 }
 
 .currently-learning {
-  position: relative;
-  width: 380px;
-  height: 391px;
+  width: 100%;
+  max-width: 343px;
 
-  @media (max-width: 768px) {
-    width: 343px;
-    height: 147px;
+  @include tablet {
+    max-width: 380px;
   }
 
   app-skill-ellipse {
     display: block;
     width: 100%;
-    height: 380px;
 
-    @media (max-width: 768px) {
-      height: 147px;
+    @include tablet {
+      height: 380px;
     }
   }
 }
 
 .learning-content {
-  position: relative;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: $spacing-lg;
-  box-sizing: border-box;
+  gap: 1rem;
+  width: 100%;
 
-  @media (max-width: 768px) {
-    padding: 0;
+  @include tablet {
+    padding: $spacing-lg;
+  }
+
+  app-button {
+    margin-top: 1rem;
+
+    .secondary-button {
+      background: $color-primary-blue;
+      color: $color-primary-dark;
+      border: none;
+      border-radius: 30px;
+      font-size: 0.875rem;
+      height: 43px;
+      min-width: 118px;
+
+      @include tablet {
+        background: transparent;
+        color: $color-primary-blue;
+        border: 1px solid $color-primary-blue;
+        border-radius: $radius-md;
+        font-size: $fs-p;
+        height: 48px;
+        min-width: 134px;
+      }
+    }
   }
 }
 
 .learning-title {
-  position: absolute;
-  top: 81px;
   font-family: $font-body;
   font-style: normal;
   font-weight: 400;
-  font-size: $fs-p;
+  font-size: 1rem;
   line-height: 120%;
-  color: $color-creme-white;
+  color: $color-primary-blue;
   margin: 0;
+  text-align: center;
 
-  @media (max-width: 768px) {
-    top: 0;
-    left: 61px;
-    font-size: 16px;
-    color: $color-primary-blue;
-    width: 213px;
+  @include tablet {
+    font-size: $fs-p;
+    color: $color-creme-white;
+  }
+}
+
+.learning-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+
+  @include tablet {
+    flex-direction: column;
+    gap: $spacing-md;
   }
 }
 
 .learning-icons {
-  position: absolute;
-  top: 123px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  gap: $spacing-md;
+  align-items: center;
+  width: 123px;
+  min-height: 128px;
+  gap: 10px;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  background: url('/img/Ellipse 24.svg') no-repeat center / contain;
+  flex-shrink: 0;
 
-  @media (max-width: 768px) {
-    top: 51px;
-    left: 223px;
-    width: 112px;
-    height: 96px;
-    gap: 15px;
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: 113.12px;
-      height: 96.5px;
-      left: -1px;
-      top: -1px;
-      background: $color-bg-light-blue;
-      border-radius: 50%;
-    }
+  @include tablet {
+    flex-direction: row;
+    width: auto;
+    min-height: auto;
+    gap: $spacing-md;
+    padding: 0;
+    background: none;
   }
 }
 
@@ -204,11 +230,6 @@
   justify-content: flex-end;
   align-items: center;
   gap: 5px;
-
-  @media (max-width: 768px) {
-    position: relative;
-    z-index: 1;
-  }
 }
 
 .learning-icon {
@@ -223,37 +244,42 @@
     height: 100%;
     object-fit: contain;
   }
+
+  @include tablet {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .learning-name {
   font-family: $font-body;
   font-style: normal;
   font-weight: 400;
-  font-size: $fs-small;
+  font-size: 0.875rem;
   line-height: 120%;
   text-align: center;
   color: $color-creme-white;
   margin: 0;
+
+  @include tablet {
+    font-size: $fs-small;
+  }
 }
 
 .learning-text {
-  position: absolute;
-  top: 196px;
-  width: 307px;
+  flex: 1;
   font-family: $font-body;
   font-style: normal;
   font-weight: 400;
-  font-size: $fs-p;
+  font-size: 1rem;
   line-height: 120%;
-  text-align: center;
+  text-align: left;
   color: $color-white;
   margin: 0;
 
-  @media (max-width: 768px) {
-    top: 51px;
-    left: 0;
-    width: 214px;
-    font-size: 16px;
-    text-align: left;
+  @include tablet {
+    max-width: 307px;
+    font-size: $fs-p;
+    text-align: center;
   }
 }

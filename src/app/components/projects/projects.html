@@ -9,57 +9,42 @@
         class="projects-tabs__tab"
         [class.projects-tabs__tab--active]="currentProjectIndex() === i"
         (click)="selectProject(i)">
-        {{ project.name }}
+        {{ i + 1 }}. Project
       </button>
     }
   </div>
 
   <!-- Project Details -->
   <div class="project-details">
-    <div class="project-details__content">
-      <!-- Left Column: Project Info -->
-      <div class="project-info">
-        @for (section of currentProject.sections; track section.title; let i = $index) {
-          <div class="project-info__section">
-            <div class="project-info__bullet"></div>
-            <div class="project-info__text">
-              <div class="project-info__title-row">
-                <h3 class="project-info__title">{{ section.title }}</h3>
-                @if (i === 0) {
-                  <span class="project-info__duration">Duration: {{ currentProject.duration }}</span>
-                }
-              </div>
-              <p class="project-info__description">{{ section.description }}</p>
-            </div>
-          </div>
-        }
-      </div>
+    <!-- Project Header: Name, Tech, Duration -->
+    <div class="project-header">
+      <h3 class="project-header__name">{{ currentProject.name }}</h3>
+      <p class="project-header__tech">Technologies: {{ formattedTechnologies }}</p>
+      <p class="project-header__duration">Duration: {{ currentProject.duration }}</p>
+    </div>
 
-      <!-- Right Column: Image, Tech Stack, Buttons -->
-      <div class="project-showcase">
-        <!-- Technologies -->
-        <div class="project-technologies">
-          <p class="project-technologies__label">Technologies</p>
-          <div class="project-technologies__icons">
-            @for (tech of currentProject.technologies; track tech) {
-              <div class="project-technologies__icon">
-                <img [src]="'icon/' + tech" [alt]="tech" />
-              </div>
-            }
+    <!-- Project Screenshot -->
+    <div class="project-screenshot">
+      <img [src]="currentProject.image" [alt]="currentProject.name" />
+    </div>
+
+    <!-- Project Info Sections -->
+    <div class="project-info">
+      @for (section of currentProject.sections; track section.title) {
+        <div class="project-info__section">
+          <div class="project-info__bullet"></div>
+          <div class="project-info__text">
+            <h4 class="project-info__title">{{ section.title }}</h4>
+            <p class="project-info__description">{{ section.description }}</p>
           </div>
         </div>
+      }
+    </div>
 
-        <!-- Project Screenshot -->
-        <div class="project-showcase__image">
-          <img [src]="currentProject.image" [alt]="currentProject.name" />
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="project-buttons">
-          <button class="btn-primary">Contact me</button>
-          <button class="btn-secondary">Let's talk</button>
-        </div>
-      </div>
+    <!-- Action Buttons -->
+    <div class="project-buttons">
+      <button class="btn-primary">Live Test</button>
+      <button class="btn-secondary">GitHub</button>
     </div>
   </div>
 </section>

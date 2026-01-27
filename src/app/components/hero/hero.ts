@@ -3,12 +3,12 @@ import { HeroImageComponent } from './hero-image/hero-image';
 import { ArrowBtnComponent } from '../../shared/arrow-btn/arrow-btn';
 import { SocialMedia } from '../../shared/social-media/social-media';
 import { Logo } from '../../shared/logo/logo';
-import { BurgerMenu } from '../../shared/burger-menu/burger-menu';
 import { CommonModule } from '@angular/common';
+import { BurgerMenu } from '../../shared/burger-menu/burger-menu';
 
 @Component({
   selector: 'app-hero',
-  imports: [HeroImageComponent, ArrowBtnComponent, SocialMedia, Logo, BurgerMenu, CommonModule],
+  imports: [HeroImageComponent, ArrowBtnComponent, SocialMedia, Logo, CommonModule, BurgerMenu],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
