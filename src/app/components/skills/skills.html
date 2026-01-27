@@ -15,29 +15,26 @@
 
     <!-- Currently Learning -->
     <div class="currently-learning">
-      <div
-        class="learning-ellipse"
-        [class.hovered]="isLearningHovered()"
-        (mouseenter)="isLearningHovered.set(true)"
-        (mouseleave)="isLearningHovered.set(false)"
-      >
-        <p class="learning-title">currently learning...</p>
+      <app-skill-ellipse>
+        <div class="learning-content">
+          <p class="learning-title">currently learning...</p>
 
-        <div class="learning-icons">
-          @for (skill of learningSkills(); track skill.name) {
-            <div class="learning-item">
-              <div class="learning-icon">
-                <img [src]="'icon/' + skill.icon" [alt]="skill.name" />
+          <div class="learning-icons">
+            @for (skill of learningSkills(); track skill.name) {
+              <div class="learning-item">
+                <div class="learning-icon">
+                  <img [src]="'icon/' + skill.icon" [alt]="skill.name" />
+                </div>
               </div>
-            </div>
-          }
-        </div>
+            }
+          </div>
 
-        <p class="learning-text">
-          I am currently expanding my knowledge by learning React and Vue.js to broaden my frontend
-          development skills and stay up-to-date with modern frameworks.
-        </p>
-      </div>
+          <p class="learning-text">
+            I am currently expanding my knowledge by learning React and Vue.js to broaden my frontend
+            development skills and stay up-to-date with modern frameworks.
+          </p>
+        </div>
+      </app-skill-ellipse>
     </div>
   </div>
 </section>

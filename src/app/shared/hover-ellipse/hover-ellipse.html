@@ -1,0 +1,12 @@
+<div
+  class="hover-ellipse"
+  [class.hover-ellipse--auto-size]="!width() && !height()"
+  [style.width.px]="width() || null"
+  [style.height.px]="height() || null"
+  [style.--default-svg]="'url(' + defaultSvg() + ')'"
+  [style.--hover-svg]="'url(' + hoverSvg() + ')'">
+  <div class="hover-ellipse__background"></div>
+  <div class="hover-ellipse__content">
+    <ng-content></ng-content>
+  </div>
+</div>

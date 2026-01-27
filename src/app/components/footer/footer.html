@@ -1,1 +1,42 @@
-<p>footer works!</p>
+<footer class="footer">
+  <div class="footer-content">
+    <!-- Legal Info Left -->
+    <div class="footer-info">
+      <a href="/legal-notice" class="legal-link">Legal notice</a>
+      <span class="copyright">© Claudia Fohrer {{ currentYear }}</span>
+    </div>
+
+    <!-- Logo Center -->
+    <div class="footer-logo">
+      <img
+        ngSrc="mobil/hero/Logodarkmob.svg"
+        alt="C.Fohrer Developer Logo"
+        width="58"
+        height="72"
+        priority
+      />
+    </div>
+
+    <!-- Social Links Right -->
+    <nav class="social-links" aria-label="Social Media Links">
+      @for (link of socialLinks; track link.name) {
+        <a
+          [href]="link.url"
+          [attr.aria-label]="link.name"
+          class="social-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img [ngSrc]="link.icon" [alt]="link.name" width="30" height="30" class="icon-default" />
+          <img
+            [ngSrc]="link.hoverIcon"
+            [alt]="link.name"
+            width="30"
+            height="30"
+            class="icon-hover"
+          />
+        </a>
+      }
+    </nav>
+  </div>
+</footer>

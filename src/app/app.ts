@@ -7,10 +7,21 @@ import { Skills } from './components/skills/skills';
 import { Projects } from './components/projects/projects';
 import { References } from './components/references/references';
 import { Contact } from './components/contact/contact';
+import { Footer } from './components/footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Hero, Whyme, NavigationComponent, Skills, Projects, References, Contact],
+  imports: [
+    RouterOutlet,
+    Hero,
+    Whyme,
+    NavigationComponent,
+    Skills,
+    Projects,
+    References,
+    Contact,
+    Footer,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
