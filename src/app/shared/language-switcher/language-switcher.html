@@ -1,20 +1,22 @@
 <!-- language-switcher.html -->
-<div class="language-switcher">
+<div class="language-switcher" *transloco="let t">
   <button
     class="language-btn"
-    [class.active]="currentLanguage() === 'DE'"
-    (click)="selectLanguage('DE')"
+    [class.active]="isGerman()"
+    (click)="selectLanguage('de')"
     type="button"
-    aria-label="Deutsch wählen"
+    [attr.aria-label]="t('languageSwitcher.selectGerman')"
+    [attr.aria-pressed]="isGerman()"
   >
     DE
   </button>
   <button
     class="language-btn"
-    [class.active]="currentLanguage() === 'EN'"
-    (click)="selectLanguage('EN')"
+    [class.active]="isEnglish()"
+    (click)="selectLanguage('en')"
     type="button"
-    aria-label="Select English"
+    [attr.aria-label]="t('languageSwitcher.selectEnglish')"
+    [attr.aria-pressed]="isEnglish()"
   >
     EN
   </button>

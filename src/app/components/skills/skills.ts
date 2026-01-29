@@ -1,7 +1,8 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SkillEllipse } from '../../shared/skill-ellipse/skill-ellipse';
 import { Button } from '../../shared/button/button';
+import { TranslocoDirective } from '@jsverse/transloco';
+import { ScrollAnimateDirective } from '../../shared/scroll-animate/scroll-animate.directive';
 
 interface Skill {
   name: string;
@@ -10,7 +11,7 @@ interface Skill {
 
 @Component({
   selector: 'app-skills',
-  imports: [CommonModule, SkillEllipse, Button],
+  imports: [SkillEllipse, Button, TranslocoDirective, ScrollAnimateDirective],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

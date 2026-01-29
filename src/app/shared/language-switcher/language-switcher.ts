@@ -1,20 +1,23 @@
-import { Component, signal, output } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-type Language = 'DE' | 'EN';
+import { Component, computed, inject, output } from '@angular/core';
+import { LanguageService, Language } from '../../core/services/language.service';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-language-switcher',
-  imports: [CommonModule],
+  imports: [TranslocoDirective],
   templateUrl: './language-switcher.html',
   styleUrl: './language-switcher.scss',
 })
 export class LanguageSwitcherComponent {
-  currentLanguage = signal<Language>('DE');
-  languageChange = output<Language>();
+  private readonly languageService = inject(LanguageService);
+
+  readonly isGerman = computed(() => this.languageService.currentLanguage() === 'de');
+  readonly isEnglish = computed(() => this.languageService.currentLanguage() === 'en');
+
+  languageChange = output<'DE' | 'EN'>();
 
   selectLanguage(lang: Language): void {
-    this.currentLanguage.set(lang);
-    this.languageChange.emit(lang);
+    this.languageService.setLanguage(lang);
+    this.languageChange.emit(lang === 'de' ? 'DE' : 'EN');
   }
 }

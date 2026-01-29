@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="hero" *transloco="let t">
   <app-burger-menu
     [class.hero__burger-menu]="!isMenuOpen()"
     [class.hero__burger-menu--open]="isMenuOpen()"
@@ -12,8 +12,8 @@
   <app-social-media class="hero__social" />
 
   <div class="hero__content">
-    <h1 class="hero__name">Michael Friggemann</h1>
-    <h2 class="hero__title">FRONTEND DEVELOPER</h2>
+    <h1 class="hero__name">{{ t('hero.name') }}</h1>
+    <h2 class="hero__title">{{ t('hero.title') }}</h2>
   </div>
 
   @if (!isMenuOpen()) {

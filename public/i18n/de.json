@@ -1,0 +1,145 @@
+{
+    "header": {
+        "nav": {
+            "about": "Über mich",
+            "skills": "Skills",
+            "projects": "Projekte",
+            "portfolio": "Portfolio",
+            "contact": "Kontakt"
+        }
+    },
+    "languageSwitcher": {
+        "selectGerman": "Deutsch wählen",
+        "selectEnglish": "Englisch wählen"
+    },
+    "hero": {
+        "name": "Michael Friggemann",
+        "title": "FRONTEND DEVELOPER"
+    },
+    "skills": {
+        "headline": "Meine Skills",
+        "learning": {
+            "title": "Was ich gerade lerne",
+            "description": "Ich erweitere derzeit mein Wissen, indem ich React und Vue.js lerne, um meine Frontend-Entwicklungsfähigkeiten zu erweitern und mit modernen Frameworks auf dem neuesten Stand zu bleiben."
+        }
+    },
+    "projects": {
+        "headline": "Meine Projekte",
+        "tab": "Projekt",
+        "technologies": "Technologien",
+        "duration": "Dauer",
+        "buttons": {
+            "liveTest": "Live Test",
+            "github": "GitHub"
+        },
+        "sections": {
+            "about": "Über das Projekt",
+            "workProcess": "Wie ich meinen Arbeitsprozess organisiert habe",
+            "groupWork": "Meine Erfahrung mit Teamarbeit"
+        },
+        "durations": {
+            "threeWeeks": "3 Wochen",
+            "twoWeeks": "2 Wochen",
+            "fiveWeeks": "5 Wochen",
+            "threeMonths": "3 Monate",
+            "twoMonths": "2 Monate",
+            "oneMonth": "1 Monat",
+            "inProgress": "In Arbeit"
+        },
+        "items": {
+            "dabubble": {
+                "name": "DA Bubble",
+                "about": "Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und Zusammenarbeit mit einer intuitiven Benutzeroberfläche, Echtzeit-Messaging und robuster Kanalorganisation.",
+                "workProcess": "Wie halte ich meinen Code sauber und wartbar? Habe ich das Projekt in separate Module oder Komponenten aufgeteilt? Fokus auf Dokumentation, Benennung von Variablen, Klassen und Testing.",
+                "groupWork": "Wie viele Personen waren im Team und was war meine Rolle? Beschreibung in 1-2 Sätzen. Zum Beispiel: Login-Formular, Dashboard oder Chat-Funktionalität. Welche Technologien wurden verwendet? Gute Teamarbeit und Zusammenarbeit erwähnen."
+            },
+            "sharkie": {
+                "name": "Sharkie",
+                "about": "Ein unterhaltsames 2D-Sidescrolling-Spiel, in dem du einen Hai durch Unterwasser-Hindernisse steuerst. Entwickelt mit JavaScript und Canvas-Animationen.",
+                "workProcess": "Objektorientierter Programmieransatz mit modularen Spielklassen, Sprite-Animationen und Kollisionserkennungssystemen.",
+                "groupWork": "Einzelprojekt mit Fokus auf Spielentwicklungs-Grundlagen und Performance-Optimierung."
+            },
+            "join": {
+                "name": "Join",
+                "about": "Task-Manager inspiriert vom Kanban-System. Erstellen und organisieren Sie Aufgaben mit Drag-and-Drop-Funktionen, weisen Sie Benutzer und Kategorien zu.",
+                "workProcess": "Agile Entwicklung mit klarer Aufgabenverteilung, Git-Versionskontrolle und regelmäßigen Code-Reviews für hohe Codequalität.",
+                "groupWork": "Zusammenarbeit im Team mit täglichen Abstimmungen und gemeinsamer Problemlösung."
+            },
+            "pokedex": {
+                "name": "Pokédex",
+                "about": "Eine interaktive Pokémon-Enzyklopädie, die Daten von der PokéAPI abruft. Durchsuchen, filtern und entdecken Sie Details zu allen Pokémon.",
+                "workProcess": "API-Integration mit asynchronen Requests, modulare Codestruktur und responsive Design-Umsetzung.",
+                "groupWork": "Eigenständiges Projekt mit Fokus auf sauberen, wartbaren Code."
+            },
+            "elpolloloco": {
+                "name": "El Pollo Loco",
+                "about": "Ein Jump-and-Run-Browserspiel mit objektorientiertem JavaScript. Sammle Münzen, wirf Flaschen und besiege den verrückten Endboss-Hahn!",
+                "workProcess": "Objektorientierte Programmierung mit Klassen, Kollisionserkennung und Spiellogik-Implementierung.",
+                "groupWork": "Solo-Projekt mit Schwerpunkt auf Game-Mechaniken und Animation."
+            },
+            "ongoing": {
+                "name": "Laufendes Projekt",
+                "about": "Arbeite derzeit an diesem Projekt",
+                "workProcess": "Beschreibung des Arbeitsprozesses",
+                "groupWork": "Erfahrung mit Teamarbeit"
+            }
+        }
+    },
+    "whyme": {
+        "headline": "Warum ich",
+        "iAm": "Ich bin",
+        "location": {
+            "ahaus": "ansässig in Ahaus.",
+            "remote": "offen für Remote-Arbeit...",
+            "relocate": "nicht bereit umzuziehen!"
+        },
+        "description": "Warum begeistert mich das Programmieren? Ich liebe es, komplexe Probleme durch analytisches Denken und kreative Lösungsansätze zu lösen. Meine Hartnäckigkeit treibt mich an, auch bei schwierigen Herausforderungen dranzubleiben, bis ich die beste Lösung gefunden habe. Dabei schätze ich die Zusammenarbeit im Team – denn die besten Ergebnisse entstehen gemeinsam. Mit meiner lösungsorientierten Denkweise bringe ich einen echten Mehrwert in jedes Projekt.",
+        "button": "Lass uns reden"
+    },
+    "references": {
+        "headline": "Brauchst du einen Teamplayer? Das sagen meine Kollegen über mich",
+        "linkedInLink": "LinkedIn Profil",
+        "items": {
+            "sahraMueller": {
+                "name": "Sahra Mueller",
+                "project": "Projekt DA Bubble",
+                "quote": "Claudia musste Inhalte in Zusammenarbeit mit den Teammitgliedern entwickeln, formatieren und liefern. Sie ist eine zuverlässige und freundliche Person."
+            },
+            "jamesRugman": {
+                "name": "James Rugman",
+                "project": "Projekt Join",
+                "quote": "Claudia ist eine zuverlässige und freundliche Person. Arbeitet strukturiert und schreibt klaren Code. Ich empfehle sie als Kollegin."
+            },
+            "evelynMarx": {
+                "name": "Evelyn Marx",
+                "project": "Projekt Sharkie",
+                "quote": "Sie ist ein vertrauenswürdiger Teamplayer und kann mit dem Stress von Deadlines umgehen. Strukturierte Arbeit und klarer Code."
+            }
+        }
+    },
+    "contact": {
+        "headline": "Kontaktiere mich",
+        "intro": "Ermutige die Leute, dich zu kontaktieren und beschreibe, welche Rolle dich interessiert. Zeige, dass du durch deine Arbeit einen Mehrwert für ihre Projekte schaffst.\nBeispiel: Kontaktiere mich gerne bei Jobangeboten oder Möglichkeiten wie: ...",
+        "form": {
+            "name": "Dein Name",
+            "email": "Deine E-Mail",
+            "message": "Deine Nachricht",
+            "submit": "Senden"
+        },
+        "errors": {
+            "nameRequired": "Dein Name ist erforderlich",
+            "emailRequired": "Deine E-Mail ist erforderlich",
+            "messageRequired": "Deine Nachricht ist erforderlich",
+            "privacyRequired": "Bitte akzeptiere die Datenschutzrichtlinie."
+        },
+        "privacy": {
+            "text": "Ich habe die",
+            "link": "Datenschutzrichtlinie",
+            "textAfter": "gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu."
+        }
+    },
+    "footer": {
+        "legalNotice": "Impressum",
+        "copyright": "© Claudia Fohrer"
+    }
+}

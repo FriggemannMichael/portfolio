@@ -1,33 +1,42 @@
-import { Component, ChangeDetectionStrategy, signal, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  signal,
+  OnInit,
+  OnDestroy,
+  inject,
+} from '@angular/core';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import { filter, take } from 'rxjs';
+import { ScrollAnimateDirective } from '../../shared/scroll-animate/scroll-animate.directive';
 
 interface IconTextItem {
   icon: string;
-  text: string;
+  textKey: string;
 }
 
 @Component({
   selector: 'app-whyme',
-  imports: [],
+  imports: [TranslocoDirective, ScrollAnimateDirective],
   templateUrl: './whyme.html',
   styleUrl: './whyme.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Whyme implements OnInit, OnDestroy {
+  private readonly translocoService = inject(TranslocoService);
+
   private readonly items: IconTextItem[] = [
-    { icon: '/mobil/hero/noblocation.svg', text: ' located in Ahaus.' },
-    { icon: '/mobil/hero/iconremote.svg', text: '  open to work remote ...' },
-    { icon: '/mobil/hero/iconrelocate.svg', text: ' not open to relocate!' },
+    { icon: '/mobil/hero/noblocation.svg', textKey: 'whyme.location.ahaus' },
+    { icon: '/mobil/hero/iconremote.svg', textKey: 'whyme.location.remote' },
+    { icon: '/mobil/hero/iconrelocate.svg', textKey: 'whyme.location.relocate' },
   ];
 
   private currentIndex = 0;
+  private isStarted = false;
 
   readonly displayedText = signal('');
   readonly showIcon = signal(true);
   readonly iconPath = signal(this.items[0].icon);
-
-  readonly descriptionText = signal(
-    'Your description text goes here. This is where you explain why someone should choose you.',
-  );
 
   private typingInterval?: number;
   private deletingInterval?: number;
@@ -41,20 +50,38 @@ export class Whyme implements OnInit, OnDestroy {
   private readonly ICON_HIDE_DELAY = 300;
 
   ngOnInit(): void {
-    this.startTypingEffect();
+    // Warte auf die erste Übersetzung - selectTranslate wartet automatisch auf das Laden
+    this.translocoService
+      .selectTranslate('whyme.location.ahaus')
+      .pipe(
+        filter((value) => value !== 'whyme.location.ahaus'), // Warte bis tatsächlich übersetzt
+        take(1),
+      )
+      .subscribe(() => {
+        if (!this.isStarted) {
+          this.isStarted = true;
+          this.startTypingEffect();
+        }
+      });
   }
 
   ngOnDestroy(): void {
     this.clearAllTimers();
   }
 
+  private getTranslatedText(key: string): string {
+    return this.translocoService.translate(key);
+  }
+
   private startTypingEffect(): void {
+    this.clearAllTimers();
+
     const currentItem = this.items[this.currentIndex];
     this.iconPath.set(currentItem.icon);
     this.showIcon.set(true);
 
     let charIndex = 0;
-    const fullTextValue = currentItem.text;
+    const fullTextValue = this.getTranslatedText(currentItem.textKey);
 
     this.typingInterval = window.setInterval(() => {
       if (charIndex < fullTextValue.length) {
@@ -70,12 +97,13 @@ export class Whyme implements OnInit, OnDestroy {
   }
 
   private startDeletingEffect(): void {
-    let charIndex = this.displayedText().length;
+    const currentText = this.getTranslatedText(this.items[this.currentIndex].textKey);
+    let charIndex = currentText.length;
 
     this.deletingInterval = window.setInterval(() => {
       if (charIndex > 0) {
         charIndex--;
-        this.displayedText.set(this.items[this.currentIndex].text.substring(0, charIndex));
+        this.displayedText.set(currentText.substring(0, charIndex));
       } else {
         this.clearDeletingTimer();
         this.iconHideTimeout = window.setTimeout(() => {

@@ -1,34 +1,26 @@
 // Desktop image (with ellipse)
+// Figma: Portrait 535x683 at left:25, top:22 in hero
+// BG Shape: 580x617 positioned behind portrait
 .hero-image-wrapper.desktop-image {
   position: relative;
   display: none;
-  justify-content: center;
-  align-items: center;
-  padding-top: 4rem;
-  width: 100%;
-  max-width: 594px;
+  width: 535px;
+  height: 683px;
 
   @media (min-width: 768px) {
-    display: flex;
-    max-width: 400px;
+    display: block;
   }
 
-  // Tablet landscape
-  @media (min-width: 992px) {
-    max-width: 500px;
-  }
-
-  // Desktop
-  @media (min-width: 1200px) {
-    max-width: 594px;
-  }
-
+  // BG Shape positioned behind and slightly offset from portrait
   .bg-shape {
-    position: relative;
+    position: absolute;
     z-index: 1;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    margin-top: 2rem;
+    width: 580px;
+    height: 617px;
+    // Center shape behind portrait with slight offset
+    left: -50px;
+    top: 0;
+    transform: scaleX(-1);
 
     img {
       position: absolute;
@@ -60,15 +52,13 @@
     }
   }
 
+  // Portrait: 535x683
   .portrait {
-    position: absolute;
+    position: relative;
     z-index: 2;
-    width: 115%;
-    max-width: 680px;
-    height: auto;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 535px;
+    height: 683px;
+    object-fit: contain;
   }
 }
 

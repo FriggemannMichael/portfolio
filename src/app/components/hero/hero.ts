@@ -3,12 +3,19 @@ import { HeroImageComponent } from './hero-image/hero-image';
 import { ArrowBtnComponent } from '../../shared/arrow-btn/arrow-btn';
 import { SocialMedia } from '../../shared/social-media/social-media';
 import { Logo } from '../../shared/logo/logo';
-import { CommonModule } from '@angular/common';
 import { BurgerMenu } from '../../shared/burger-menu/burger-menu';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-hero',
-  imports: [HeroImageComponent, ArrowBtnComponent, SocialMedia, Logo, CommonModule, BurgerMenu],
+  imports: [
+    HeroImageComponent,
+    ArrowBtnComponent,
+    SocialMedia,
+    Logo,
+    BurgerMenu,
+    TranslocoDirective,
+  ],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,7 +24,7 @@ export class Hero {
   isMenuOpen = signal(false);
 
   scrollToNext(): void {
-    const nextSection = document.querySelector('.about, section:nth-of-type(2)');
+    const nextSection = document.querySelector('.why-me');
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }

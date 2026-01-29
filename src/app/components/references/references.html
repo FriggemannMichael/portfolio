@@ -1,21 +1,22 @@
-<section class="references-section">
-  <h2 class="references-section__headline">
-    Need a teamplayer? Here what my colleagues said about me
+<section class="references-section" *transloco="let t">
+  <h2 class="references-section__headline" appScrollAnimate animation="fade-up">
+    {{ t('references.headline') }}
   </h2>
 
   <div class="references-grid">
-    @for (reference of references(); track reference.id) {
-      <article class="reference-card">
+    @for (reference of references(); track reference.id; let i = $index) {
+      <article class="reference-card" appScrollAnimate animation="scale-in" [delay]="i * 100">
         <app-hover-ellipse
           [defaultSvg]="'/icon/refeelips01.svg'"
-          [hoverSvg]="'/icon/refelips02.svg'">
+          [hoverSvg]="'/icon/refelips02.svg'"
+        >
           <div class="reference-card__content">
             <div class="reference-card__header">
-              <h3 class="reference-card__name">{{ reference.name }}</h3>
-              <p class="reference-card__project">{{ reference.project }}</p>
+              <h3 class="reference-card__name">{{ t(reference.nameKey) }}</h3>
+              <p class="reference-card__project">{{ t(reference.projectKey) }}</p>
             </div>
 
-            <p class="reference-card__quote">{{ reference.quote }}</p>
+            <p class="reference-card__quote">{{ t(reference.quoteKey) }}</p>
 
             <a
               [href]="reference.linkedInUrl"
@@ -23,7 +24,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              Linked In Profile
+              {{ t('references.linkedInLink') }}
             </a>
           </div>
         </app-hover-ellipse>

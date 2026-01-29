@@ -34,6 +34,14 @@
   text-decoration: none;
   transition: transform $transition;
 
+  @include tablet {
+    position: absolute;
+    top: 80px;
+    right: $spacing-md;
+    width: auto;
+    margin-top: 0;
+  }
+
   &:hover {
     transform: translateY(-5px);
   }
@@ -43,12 +51,13 @@
 .contact-information {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 0;
   gap: 2rem;
   width: 100%;
 
   @include tablet {
+    align-items: flex-start;
     gap: 3rem;
   }
 }
@@ -57,10 +66,16 @@
 .text-and-contacts {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 0;
   gap: 1.5rem;
   width: 100%;
+  max-width: 358px;
+
+  @include tablet {
+    max-width: 100%;
+    align-items: flex-start;
+  }
 
   @include desktop {
     flex-direction: row;
@@ -77,18 +92,30 @@
   font-weight: 400;
   font-size: $fs-p;
   line-height: 120%;
-  text-align: justify;
+  text-align: center;
   color: $color-creme-white;
+
+  @include tablet {
+    text-align: justify;
+  }
 }
 
 .contact-details {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 1rem;
   width: 100%;
+  padding-left: 0;
+  order: -1; // Contact über Text auf Mobile
+
+  @include tablet {
+    padding-left: 1rem;
+  }
 
   @include desktop {
-    gap: 2.875rem;
+    gap: 0.5rem;
+    order: 0; // Normale Reihenfolge auf Desktop (Text links, Contact rechts)
   }
 }
 
@@ -127,6 +154,7 @@
   padding: 0;
   gap: 1rem;
   width: 100%;
+  max-width: 358px;
 
   @include tablet {
     gap: 1rem 1.3125rem;
@@ -195,7 +223,9 @@
   line-height: 120%;
   color: $color-white;
   outline: none;
-  transition: background $transition, border $transition;
+  transition:
+    background $transition,
+    border $transition;
 
   &:focus,
   &.filled {

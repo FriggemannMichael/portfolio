@@ -1,112 +1,113 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, signal, inject, computed } from '@angular/core';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import { ScrollAnimateDirective } from '../../shared/scroll-animate/scroll-animate.directive';
 
 interface ProjectSection {
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
 }
 
 interface Project {
   id: number;
-  name: string;
+  nameKey: string;
   image: string;
   technologies: string[];
-  duration: string;
+  durationKey: string;
   sections: ProjectSection[];
+  liveUrl: string;
+  githubUrl: string;
   isOngoing?: boolean;
 }
 
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule],
+  imports: [TranslocoDirective, ScrollAnimateDirective],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Projects {
+  private readonly translocoService = inject(TranslocoService);
+
   readonly projects = signal<Project[]>([
     {
       id: 1,
-      name: 'Slack Clone',
-      image: 'icon/05-Slack Clone Desktop general view 1.jpg',
-      technologies: ['angular.svg', 'ts.svg', 'firebase.svg'],
-      duration: '3 months',
+      nameKey: 'projects.items.dabubble.name',
+      image: 'img/join.png',
+      technologies: ['angular.svg', 'ts..svg', 'fire.svg'],
+      durationKey: 'projects.durations.threeWeeks',
+      liveUrl: 'https://dabubble.example.com',
+      githubUrl: 'https://github.com/username/dabubble',
       sections: [
+        { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.dabubble.about' },
         {
-          title: 'About the project',
-          description: 'A comprehensive Slack clone built with Angular and Firebase, featuring real-time messaging, channel management, and user authentication.',
+          titleKey: 'projects.sections.workProcess',
+          descriptionKey: 'projects.items.dabubble.workProcess',
         },
         {
-          title: 'How I have organised my work process',
-          description: 'Implemented agile methodology with weekly sprints, used Git for version control, and maintained clean code practices throughout development.',
-        },
-        {
-          title: 'My group work experience',
-          description: 'Collaborated with a team of 4 developers, participated in daily standups, code reviews, and pair programming sessions.',
+          titleKey: 'projects.sections.groupWork',
+          descriptionKey: 'projects.items.dabubble.groupWork',
         },
       ],
     },
     {
       id: 2,
-      name: 'Project 02',
-      image: 'icon/placeholder.jpg',
-      technologies: ['angular.svg', 'ts.svg'],
-      duration: '2 months',
+      nameKey: 'projects.items.sharkie.name',
+      image: 'img/ellpollo.png',
+      technologies: ['html.svg', 'css.svg', 'js.svg'],
+      durationKey: 'projects.durations.twoWeeks',
+      liveUrl: 'https://sharkie.example.com',
+      githubUrl: 'https://github.com/username/sharkie',
       sections: [
+        { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.sharkie.about' },
         {
-          title: 'About the project',
-          description: 'Description for project 02',
+          titleKey: 'projects.sections.workProcess',
+          descriptionKey: 'projects.items.sharkie.workProcess',
         },
         {
-          title: 'How I have organised my work process',
-          description: 'Work process description',
-        },
-        {
-          title: 'My group work experience',
-          description: 'Group work experience',
+          titleKey: 'projects.sections.groupWork',
+          descriptionKey: 'projects.items.sharkie.groupWork',
         },
       ],
     },
     {
       id: 3,
-      name: 'Project 03',
-      image: 'icon/placeholder.jpg',
-      technologies: ['angular.svg'],
-      duration: '1 month',
+      nameKey: 'projects.items.join.name',
+      image: 'img/join.png',
+      technologies: ['html.svg', 'css.svg', 'js.svg', 'fire.svg'],
+      durationKey: 'projects.durations.fiveWeeks',
+      liveUrl: 'https://join.example.com',
+      githubUrl: 'https://github.com/username/join',
       sections: [
+        { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.join.about' },
         {
-          title: 'About the project',
-          description: 'Description for project 03',
+          titleKey: 'projects.sections.workProcess',
+          descriptionKey: 'projects.items.join.workProcess',
         },
         {
-          title: 'How I have organised my work process',
-          description: 'Work process description',
-        },
-        {
-          title: 'My group work experience',
-          description: 'Group work experience',
+          titleKey: 'projects.sections.groupWork',
+          descriptionKey: 'projects.items.join.groupWork',
         },
       ],
     },
     {
       id: 4,
-      name: 'Ongoing project',
-      image: 'icon/placeholder.jpg',
-      technologies: ['angular.svg', 'ts.svg'],
-      duration: 'In progress',
+      nameKey: 'projects.items.ongoing.name',
+      image: 'img/pokedex.png',
+      technologies: ['angular.svg', 'ts..svg'],
+      durationKey: 'projects.durations.inProgress',
+      liveUrl: '#',
+      githubUrl: 'https://github.com/username/ongoing-project',
       isOngoing: true,
       sections: [
+        { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.ongoing.about' },
         {
-          title: 'About the project',
-          description: 'Currently working on this project',
+          titleKey: 'projects.sections.workProcess',
+          descriptionKey: 'projects.items.ongoing.workProcess',
         },
         {
-          title: 'How I have organised my work process',
-          description: 'Work process description',
-        },
-        {
-          title: 'My group work experience',
-          description: 'Group work experience',
+          titleKey: 'projects.sections.groupWork',
+          descriptionKey: 'projects.items.ongoing.groupWork',
         },
       ],
     },
@@ -118,8 +119,16 @@ export class Projects {
     this.currentProjectIndex.set(index);
   }
 
-  get currentProject(): Project {
-    return this.projects()[this.currentProjectIndex()];
+  get currentProject() {
+    const project = this.projects()[this.currentProjectIndex()];
+    return {
+      ...project,
+      translatedName: this.translocoService.translate(project.nameKey),
+      translatedDuration: this.translocoService.translate(project.durationKey),
+      translatedSections: project.sections,
+      liveUrl: project.liveUrl,
+      githubUrl: project.githubUrl,
+    };
   }
 
   get formattedTechnologies(): string {
@@ -128,8 +137,10 @@ export class Projects {
       'ts.svg': 'TypeScript',
       'firebase.svg': 'Firebase',
     };
-    return this.currentProject.technologies
-      .map(tech => techNames[tech] || tech.replace('.svg', ''))
+    return this.projects()
+      [this.currentProjectIndex()].technologies.map(
+        (tech) => techNames[tech] || tech.replace('.svg', ''),
+      )
       .join(', ');
   }
 }

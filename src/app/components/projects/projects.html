@@ -1,50 +1,119 @@
-<section class="projects-section">
+<section class="projects-section" *transloco="let t">
   <!-- Section Headline -->
-  <h2 class="projects-section__headline">My Projects</h2>
+  <h2 class="projects-section__headline" appScrollAnimate animation="fade-up">
+    {{ t('projects.headline') }}
+  </h2>
 
   <!-- Project Tabs -->
-  <div class="projects-tabs">
+  <div class="projects-tabs" appScrollAnimate animation="fade-up" [delay]="100">
     @for (project of projects(); track project.id; let i = $index) {
       <button
         class="projects-tabs__tab"
         [class.projects-tabs__tab--active]="currentProjectIndex() === i"
-        (click)="selectProject(i)">
-        {{ i + 1 }}. Project
+        (click)="selectProject(i)"
+      >
+        {{ i + 1 }}. {{ t(project.nameKey) }}
       </button>
     }
   </div>
 
   <!-- Project Details -->
-  <div class="project-details">
-    <!-- Project Header: Name, Tech, Duration -->
-    <div class="project-header">
-      <h3 class="project-header__name">{{ currentProject.name }}</h3>
-      <p class="project-header__tech">Technologies: {{ formattedTechnologies }}</p>
-      <p class="project-header__duration">Duration: {{ currentProject.duration }}</p>
+  <div class="project-details" appScrollAnimate animation="fade-up" [delay]="200">
+    <!-- Mobile Header: Project Name, Tech, Duration -->
+    <div class="project-mobile-header">
+      <h3 class="project-mobile-header__name">{{ currentProject.translatedName }}</h3>
+      <p class="project-mobile-header__tech">
+        {{ t('projects.technologies') }}: {{ formattedTechnologies }}
+      </p>
+      <p class="project-mobile-header__duration">
+        {{ t('projects.duration') }}: {{ currentProject.translatedDuration }}
+      </p>
     </div>
 
-    <!-- Project Screenshot -->
-    <div class="project-screenshot">
-      <img [src]="currentProject.image" [alt]="currentProject.name" />
-    </div>
+    <div class="project-content">
+      <!-- Screenshot (shows first on mobile) -->
+      <div class="project-screenshot">
+        <img [src]="currentProject.image" [alt]="currentProject.translatedName" />
+      </div>
 
-    <!-- Project Info Sections -->
-    <div class="project-info">
-      @for (section of currentProject.sections; track section.title) {
-        <div class="project-info__section">
-          <div class="project-info__bullet"></div>
-          <div class="project-info__text">
-            <h4 class="project-info__title">{{ section.title }}</h4>
-            <p class="project-info__description">{{ section.description }}</p>
+      <!-- Left Column: Info Sections -->
+      <div class="project-content__left">
+        @for (
+          section of currentProject.translatedSections;
+          track section.titleKey;
+          let first = $first
+        ) {
+          <div class="project-info__section">
+            <div class="project-info__bullet"></div>
+            <div class="project-info__text">
+              <h4 class="project-info__title">
+                {{ t(section.titleKey) }}
+                @if (first) {
+                  <span class="project-info__duration">
+                    {{ t('projects.duration') }}: {{ currentProject.translatedDuration }}
+                  </span>
+                }
+              </h4>
+              <p class="project-info__description">{{ t(section.descriptionKey) }}</p>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Right Column: Technologies, Screenshot (desktop only) -->
+      <div class="project-content__right">
+        <div class="project-technologies">
+          <p class="project-technologies__label">{{ t('projects.technologies') }}</p>
+          <div class="project-technologies__icons">
+            @for (tech of currentProject.technologies; track tech) {
+              <img [src]="'icon/' + tech" [alt]="tech" class="project-technologies__icon" />
+            }
           </div>
         </div>
-      }
-    </div>
 
-    <!-- Action Buttons -->
-    <div class="project-buttons">
-      <button class="btn-primary">Live Test</button>
-      <button class="btn-secondary">GitHub</button>
+        <div class="project-screenshot project-screenshot--desktop">
+          <img [src]="currentProject.image" [alt]="currentProject.translatedName" />
+        </div>
+
+        <div class="project-buttons project-buttons--desktop">
+          <a
+            [href]="currentProject.liveUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
+            {{ t('projects.buttons.liveTest') }}
+          </a>
+          <a
+            [href]="currentProject.githubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary"
+          >
+            {{ t('projects.buttons.github') }}
+          </a>
+        </div>
+      </div>
+
+      <!-- Buttons (mobile only) -->
+      <div class="project-buttons project-buttons--mobile">
+        <a
+          [href]="currentProject.liveUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          {{ t('projects.buttons.liveTest') }}
+        </a>
+        <a
+          [href]="currentProject.githubUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary"
+        >
+          {{ t('projects.buttons.github') }}
+        </a>
+      </div>
     </div>
   </div>
 </section>

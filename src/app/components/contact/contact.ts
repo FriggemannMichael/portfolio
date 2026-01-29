@@ -1,27 +1,28 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Button } from '../../shared/button/button';
 import { ArrowBtnComponent } from '../../shared/arrow-btn/arrow-btn';
+import { TranslocoDirective } from '@jsverse/transloco';
+import { ScrollAnimateDirective } from '../../shared/scroll-animate/scroll-animate.directive';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule, Button, ArrowBtnComponent],
+  imports: [ReactiveFormsModule, Button, ArrowBtnComponent, TranslocoDirective, ScrollAnimateDirective],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Contact {
-  contactForm: FormGroup;
-  formSubmitted = false;
+  private readonly fb = inject(FormBuilder);
 
-  constructor(private fb: FormBuilder) {
-    this.contactForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [Validators.required, Validators.email]],
-      message: ['', [Validators.required, Validators.minLength(10)]],
-      privacyAccepted: [false, [Validators.requiredTrue]]
-    });
-  }
+  contactForm: FormGroup = this.fb.group({
+    name: ['', [Validators.required, Validators.minLength(2)]],
+    email: ['', [Validators.required, Validators.email]],
+    message: ['', [Validators.required, Validators.minLength(10)]],
+    privacyAccepted: [false, [Validators.requiredTrue]],
+  });
+
+  formSubmitted = false;
 
   get name() {
     return this.contactForm.get('name');
@@ -44,9 +45,6 @@ export class Contact {
 
     if (this.contactForm.valid) {
       console.log('Form Data:', this.contactForm.value);
-      // TODO: Implement form submission logic (e.g., send to backend)
-
-      // Reset form after successful submission
       this.contactForm.reset();
       this.formSubmitted = false;
     }
@@ -54,7 +52,11 @@ export class Contact {
 
   hasError(controlName: string): boolean {
     const control = this.contactForm.get(controlName);
-    return !!(control && control.invalid && (control.dirty || control.touched || this.formSubmitted));
+    return !!(
+      control &&
+      control.invalid &&
+      (control.dirty || control.touched || this.formSubmitted)
+    );
   }
 
   isValid(controlName: string): boolean {
@@ -64,9 +66,6 @@ export class Contact {
 
   scrollToTop(event: Event): void {
     event.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

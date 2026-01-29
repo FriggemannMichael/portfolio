@@ -1,9 +1,9 @@
-<section class="skills-section">
-  <h2 class="skills-headline">My Skills</h2>
+<section class="skills-section" *transloco="let t">
+  <h2 class="skills-headline" appScrollAnimate animation="fade-up">{{ t('skills.headline') }}</h2>
 
   <div class="skills-content">
     <!-- Skill Set -->
-    <div class="skill-set">
+    <div class="skill-set" appScrollAnimate animation="fade-up" [delay]="100">
       @for (skill of skills(); track skill.name) {
         <div class="skill-item">
           <div class="skill-icon">
@@ -14,16 +14,13 @@
     </div>
 
     <!-- Currently Learning -->
-    <div class="currently-learning">
+    <div class="currently-learning" appScrollAnimate animation="fade-up" [delay]="200">
       <app-skill-ellipse>
         <div class="learning-content">
-          <p class="learning-title">What I am currently learning</p>
+          <p class="learning-title">{{ t('skills.learning.title') }}</p>
 
           <div class="learning-body">
-            <p class="learning-text">
-              I am currently expanding my knowledge by learning React and Vue.js to broaden my frontend
-              development skills and stay up-to-date with modern frameworks.
-            </p>
+            <p class="learning-text">{{ t('skills.learning.description') }}</p>
 
             <div class="learning-icons">
               @for (skill of learningSkills(); track skill.name) {
@@ -36,8 +33,6 @@
               }
             </div>
           </div>
-
-          <app-button />
         </div>
       </app-skill-ellipse>
     </div>

@@ -1,35 +1,43 @@
-<section class="contact-section">
+<section class="contact-section" *transloco="let t">
   <div class="container">
-    <h2 class="contact-headline">Contact me</h2>
+    <h2 class="contact-headline" appScrollAnimate animation="fade-up">{{ t('contact.headline') }}</h2>
 
     <div class="contact-information">
       <!-- Text and Contact Info -->
-      <div class="text-and-contacts">
+      <div class="text-and-contacts" appScrollAnimate animation="fade-left" [delay]="100">
+        <p class="contact-intro">{{ t('contact.intro') }}</p>
+
         <div class="contact-details">
           <!-- Phone -->
           <a href="tel:015712345668" class="contact-link phone-link">
-            <img src="icon/phone_.svg" alt="Phone" class="icon-phone">
+            <img src="icon/phone_.svg" alt="Phone" class="icon-phone" />
             <span>Tel: 0157 123 456 68</span>
           </a>
 
           <!-- Email -->
           <a href="mailto:fohrer.developer@gmail.com" class="contact-link email-link">
-            <img src="icon/icon _email_.svg" alt="Email" class="icon-email">
+            <img src="icon/icon _email_.svg" alt="Email" class="icon-email" />
             <span>E-mail: fohrer.developer&#64;gmail.com</span>
           </a>
         </div>
-
-        <p class="contact-intro">
-          Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.<br>
-          Example: Feel free to get in touch with job offers or opportunities such as: ...
-        </p>
       </div>
 
       <!-- Contact Form -->
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+      <form
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        class="contact-form"
+        appScrollAnimate
+        animation="fade-right"
+        [delay]="200"
+      >
         <!-- Name Input -->
-        <div class="input-wrapper" [class.has-value]="isValid('name')" [class.has-error]="hasError('name')">
-          <label for="name" class="input-label">Your name</label>
+        <div
+          class="input-wrapper"
+          [class.has-value]="isValid('name')"
+          [class.has-error]="hasError('name')"
+        >
+          <label for="name" class="input-label">{{ t('contact.form.name') }}</label>
           <input
             type="text"
             id="name"
@@ -38,18 +46,29 @@
             [class.filled]="name?.value"
           />
           @if (isValid('name')) {
-            <svg class="icon-done" width="27" height="32" viewBox="0 0 27 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 16L10 22L23 9" stroke="currentColor" stroke-width="2"/>
+            <svg
+              class="icon-done"
+              width="27"
+              height="32"
+              viewBox="0 0 27 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M4 16L10 22L23 9" stroke="currentColor" stroke-width="2" />
             </svg>
           }
           @if (hasError('name')) {
-            <span class="error-message">Your name is required</span>
+            <span class="error-message">{{ t('contact.errors.nameRequired') }}</span>
           }
         </div>
 
         <!-- Email Input -->
-        <div class="input-wrapper" [class.has-value]="isValid('email')" [class.has-error]="hasError('email')">
-          <label for="email" class="input-label">Your Email</label>
+        <div
+          class="input-wrapper"
+          [class.has-value]="isValid('email')"
+          [class.has-error]="hasError('email')"
+        >
+          <label for="email" class="input-label">{{ t('contact.form.email') }}</label>
           <input
             type="email"
             id="email"
@@ -58,18 +77,29 @@
             [class.filled]="email?.value"
           />
           @if (isValid('email')) {
-            <svg class="icon-done" width="27" height="32" viewBox="0 0 27 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 16L10 22L23 9" stroke="currentColor" stroke-width="2"/>
+            <svg
+              class="icon-done"
+              width="27"
+              height="32"
+              viewBox="0 0 27 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M4 16L10 22L23 9" stroke="currentColor" stroke-width="2" />
             </svg>
           }
           @if (hasError('email')) {
-            <span class="error-message">Your Email is required</span>
+            <span class="error-message">{{ t('contact.errors.emailRequired') }}</span>
           }
         </div>
 
         <!-- Message Input -->
-        <div class="input-wrapper message-wrapper" [class.has-value]="isValid('message')" [class.has-error]="hasError('message')">
-          <label for="message" class="input-label">Your Message</label>
+        <div
+          class="input-wrapper message-wrapper"
+          [class.has-value]="isValid('message')"
+          [class.has-error]="hasError('message')"
+        >
+          <label for="message" class="input-label">{{ t('contact.form.message') }}</label>
           <textarea
             id="message"
             formControlName="message"
@@ -78,12 +108,19 @@
             [class.filled]="message?.value"
           ></textarea>
           @if (isValid('message')) {
-            <svg class="icon-done" width="27" height="32" viewBox="0 0 27 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 16L10 22L23 9" stroke="currentColor" stroke-width="2"/>
+            <svg
+              class="icon-done"
+              width="27"
+              height="32"
+              viewBox="0 0 27 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M4 16L10 22L23 9" stroke="currentColor" stroke-width="2" />
             </svg>
           }
           @if (hasError('message')) {
-            <span class="error-message">Your Message is required</span>
+            <span class="error-message">{{ t('contact.errors.messageRequired') }}</span>
           }
         </div>
 
@@ -99,19 +136,21 @@
             <label for="privacy" class="checkbox-label">
               <span class="checkbox-custom"></span>
               <span class="checkbox-text">
-                I've read the
-                <a href="#" class="privacy-link">privacy policy</a>
-                and agree to the processing of my data as outlined.
+                {{ t('contact.privacy.text') }}
+                <a href="#" class="privacy-link">{{ t('contact.privacy.link') }}</a>
+                {{ t('contact.privacy.textAfter') }}
               </span>
             </label>
           </div>
           @if (hasError('privacyAccepted')) {
-            <span class="error-message privacy-error">Please accept the privacy policy.</span>
+            <span class="error-message privacy-error">{{
+              t('contact.errors.privacyRequired')
+            }}</span>
           }
 
           <!-- Submit Button -->
           <app-button
-            [text]="'Send'"
+            [text]="t('contact.form.submit')"
             [type]="'submit'"
             [class.disabled]="!contactForm.valid"
           ></app-button>
@@ -119,7 +158,7 @@
       </form>
     </div>
 
-    <!-- Scroll to Top Arrow - centered below contact -->
+    <!-- Scroll to Top Arrow -->
     <a href="#" class="scroll-to-top" (click)="scrollToTop($event)">
       <app-arrow-btn [direction]="'up'"></app-arrow-btn>
     </a>

@@ -1,0 +1,145 @@
+{
+    "header": {
+        "nav": {
+            "about": "About me",
+            "skills": "Skills",
+            "projects": "Projects",
+            "portfolio": "Portfolio",
+            "contact": "Contact"
+        }
+    },
+    "languageSwitcher": {
+        "selectGerman": "Select German",
+        "selectEnglish": "Select English"
+    },
+    "hero": {
+        "name": "Michael Friggemann",
+        "title": "FRONTEND DEVELOPER"
+    },
+    "skills": {
+        "headline": "My Skills",
+        "learning": {
+            "title": "What I am currently learning",
+            "description": "I am currently expanding my knowledge by learning React and Vue.js to broaden my frontend development skills and stay up-to-date with modern frameworks."
+        }
+    },
+    "projects": {
+        "headline": "My Projects",
+        "tab": "Project",
+        "technologies": "Technologies",
+        "duration": "Duration",
+        "buttons": {
+            "liveTest": "Live Test",
+            "github": "GitHub"
+        },
+        "sections": {
+            "about": "About the project",
+            "workProcess": "How I have organised my work process",
+            "groupWork": "My group work experience"
+        },
+        "durations": {
+            "threeWeeks": "3 weeks",
+            "twoWeeks": "2 weeks",
+            "fiveWeeks": "5 weeks",
+            "threeMonths": "3 months",
+            "twoMonths": "2 months",
+            "oneMonth": "1 month",
+            "inProgress": "In progress"
+        },
+        "items": {
+            "dabubble": {
+                "name": "DA Bubble",
+                "about": "This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.",
+                "workProcess": "How do you keep your code clean and maintainable? Have you broken the project down into separate modules or components? Focus on documentation naming like variables, classes and testing.",
+                "groupWork": "How many people were in the team and what was your role? Describe your work in 1-2 sentences. For example: Login Form, dashboard or chat functionality. What technologies did you use? It is nice to mention good teamwork and cooperation."
+            },
+            "sharkie": {
+                "name": "Sharkie",
+                "about": "A fun 2D side-scrolling game where you control a shark navigating through underwater obstacles. Built with JavaScript and canvas animations.",
+                "workProcess": "Object-oriented programming approach with modular game classes, sprite animations, and collision detection systems.",
+                "groupWork": "Solo project focusing on game development fundamentals and performance optimization."
+            },
+            "join": {
+                "name": "Join",
+                "about": "Task manager inspired by the Kanban system. Create and organize tasks with drag-and-drop features, assign users and categories.",
+                "workProcess": "Agile development with clear task distribution, Git version control and regular code reviews for high code quality.",
+                "groupWork": "Team collaboration with daily sync-ups and joint problem solving."
+            },
+            "pokedex": {
+                "name": "Pokédex",
+                "about": "An interactive Pokémon encyclopedia fetching data from the PokéAPI. Browse, filter and discover details about all Pokémon.",
+                "workProcess": "API integration with async requests, modular code structure and responsive design implementation.",
+                "groupWork": "Independent project focusing on clean, maintainable code."
+            },
+            "elpolloloco": {
+                "name": "El Pollo Loco",
+                "about": "A jump-and-run browser game built with object-oriented JavaScript. Collect coins, throw bottles and defeat the crazy final boss chicken!",
+                "workProcess": "Object-oriented programming with classes, collision detection and game logic implementation.",
+                "groupWork": "Solo project with focus on game mechanics and animation."
+            },
+            "ongoing": {
+                "name": "Ongoing project",
+                "about": "Currently working on this project",
+                "workProcess": "Work process description",
+                "groupWork": "Group work experience"
+            }
+        }
+    },
+    "whyme": {
+        "headline": "Why me",
+        "iAm": "I am",
+        "location": {
+            "ahaus": "located in Ahaus.",
+            "remote": "open to work remote...",
+            "relocate": "not open to relocate!"
+        },
+        "description": "Why am I passionate about coding? I love solving complex problems through analytical thinking and creative approaches. My persistence drives me to keep going even with difficult challenges until I find the best solution. I value collaboration – because the best results come from working together. With my problem-solving mindset, I bring real value to every project.",
+        "button": "Let's talk"
+    },
+    "references": {
+        "headline": "Need a teamplayer? Here what my colleagues said about me",
+        "linkedInLink": "LinkedIn Profile",
+        "items": {
+            "sahraMueller": {
+                "name": "Sahra Mueller",
+                "project": "Project DA Bubble",
+                "quote": "Claudia had to develop, format and deliver content in collaboration with the team members. She is a reliable and friendly person."
+            },
+            "jamesRugman": {
+                "name": "James Rugman",
+                "project": "Project Join",
+                "quote": "Claudia is a reliable and friendly person. Works in a structured way and write a clear code. I recommend her as a colleague."
+            },
+            "evelynMarx": {
+                "name": "Evelyn Marx",
+                "project": "Project Sharkie",
+                "quote": "She is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work and clear code."
+            }
+        }
+    },
+    "contact": {
+        "headline": "Contact me",
+        "intro": "Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.\nExample: Feel free to get in touch with job offers or opportunities such as: ...",
+        "form": {
+            "name": "Your name",
+            "email": "Your Email",
+            "message": "Your Message",
+            "submit": "Send"
+        },
+        "errors": {
+            "nameRequired": "Your name is required",
+            "emailRequired": "Your Email is required",
+            "messageRequired": "Your Message is required",
+            "privacyRequired": "Please accept the privacy policy."
+        },
+        "privacy": {
+            "text": "I've read the",
+            "link": "privacy policy",
+            "textAfter": "and agree to the processing of my data as outlined."
+        }
+    },
+    "footer": {
+        "legalNotice": "Legal notice",
+        "copyright": "© Claudia Fohrer"
+    }
+}

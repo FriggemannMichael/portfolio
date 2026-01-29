@@ -12,11 +12,9 @@
   margin: 0 auto;
 
   @include styles.tablet {
-    max-width: 860px;
-    padding: clamp(7.5rem, 12vw, 11.25rem) 0 0 0;
-    gap: 5rem;
-    height: auto;
-    min-height: 307px;
+    max-width: 1100px;
+    padding: clamp(7.5rem, 12vw, 11.25rem) 40px 80px;
+    gap: 3rem;
   }
 
   &__title {
@@ -36,50 +34,45 @@
     flex-direction: column;
     gap: 2rem;
     width: 100%;
-    padding-bottom: 2.5rem;
 
     @include styles.tablet {
       flex-direction: row;
       justify-content: space-between;
-      align-items: flex-start;
-      padding: 0;
-      gap: 3.0625rem;
-      height: auto;
-      min-height: 176px;
+      align-items: center;
+      gap: 3rem;
     }
   }
 
   &__location {
-    position: relative;
-    width: 100%;
-    max-width: 339px;
-    min-height: 48px;
     display: flex;
     align-items: center;
+    gap: 16px;
+    width: 100%;
 
     @include styles.tablet {
-      width: 429px;
-      height: 57px;
-      max-width: none;
+      flex: 0 0 auto;
+      max-width: 50%;
     }
   }
 
   &__location-icon-wrapper {
-    position: absolute;
-    left: 0;
-    top: 3px;
+    position: relative;
+    flex-shrink: 0;
+    width: 50px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @include styles.tablet {
-      width: 74.43px;
-      height: 63.28px;
-      left: 0.12px;
-      top: 2px;
+      width: 74px;
+      height: 63px;
 
       &::before {
         content: '';
         position: absolute;
-        width: 65.76px;
-        height: 51.66px;
+        width: 66px;
+        height: 52px;
         left: 0;
         top: 0;
         background: rgba(137, 188, 217, 0.12);
@@ -102,26 +95,15 @@
   }
 
   &__location-icon {
-    width: 32.5px;
+    width: 32px;
     height: 40px;
     object-fit: contain;
     animation: fadeIn styles.$transition ease-in;
-
-    @include styles.tablet {
-      position: absolute;
-      width: 33.31px;
-      height: 41px;
-      left: 19px;
-      top: 0;
-      z-index: 1;
-    }
+    position: relative;
+    z-index: 1;
   }
 
   &__location-text {
-    position: absolute;
-    min-height: 26px;
-    left: 56.5px;
-    top: 14px;
     font-family: styles.$font-body;
     font-style: normal;
     font-weight: 700;
@@ -129,13 +111,6 @@
     line-height: 120%;
     margin: 0;
     white-space: nowrap;
-
-    @include styles.tablet {
-      width: 458px;
-      height: 38px;
-      left: 82.55px;
-      top: 15px;
-    }
 
     &--highlight {
       color: styles.$color-primary-blue;
@@ -151,12 +126,12 @@
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
+    align-items: center;
 
     @include styles.tablet {
       align-items: flex-end;
-      width: 379px;
-      height: auto;
-      min-height: 176px;
+      flex: 1;
+      max-width: 400px;
     }
   }
 
@@ -166,14 +141,12 @@
     font-style: normal;
     font-weight: 400;
     font-size: clamp(1rem, 1.5vw, 1.125rem);
-    line-height: 120%;
+    line-height: 140%;
     text-align: center;
     color: styles.$color-white;
     margin: 0;
 
     @include styles.tablet {
-      width: 379px;
-      height: auto;
       text-align: left;
       color: styles.$color-creme-white;
     }

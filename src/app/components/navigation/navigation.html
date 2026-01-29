@@ -1,16 +1,16 @@
-<nav class="menu-bar">
+<nav class="menu-bar" *transloco="let t">
   <div class="logo-container">
     <img src="img/2_logo.svg" alt="Logo" class="logo" />
     <div class="logo-text"></div>
   </div>
 
   <div class="menu-system">
-    @for (item of menuItems; track item.label) {
+    @for (item of menuItems; track item.key) {
       <a [href]="item.href" class="menu-button">
-        <span class="text">{{ item.label }}</span>
+        <span class="text">{{ t(item.key) }}</span>
       </a>
     }
   </div>
 
-  <app-language-switcher (languageChange)="onLanguageChange($event)" />
+  <app-language-switcher />
 </nav>

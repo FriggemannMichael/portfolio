@@ -1,9 +1,9 @@
-<footer class="footer">
+<footer class="footer" *transloco="let t">
   <div class="footer-content">
     <!-- Legal Info Left -->
     <div class="footer-info">
-      <a href="/legal-notice" class="legal-link">Legal notice</a>
-      <span class="copyright">© Claudia Fohrer {{ currentYear }}</span>
+      <a href="/legal-notice" class="legal-link">{{ t('footer.legalNotice') }}</a>
+      <span class="copyright">{{ t('footer.copyright') }} {{ currentYear }}</span>
     </div>
 
     <!-- Logo Center -->
