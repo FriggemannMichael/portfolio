@@ -10,4 +10,5 @@ import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 export class Button {
   text = input<string>("Let's talk");
   type = input<'button' | 'submit'>('button');
+  variant = input<'default' | 'white'>('default');
 }

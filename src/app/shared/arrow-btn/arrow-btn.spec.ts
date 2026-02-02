@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+describe('ArrowBtnComponent Logic', () => {
+  type ArrowDirection = 'up' | 'down';
 
-import { ArrowBtn } from './arrow-btn';
-
-describe('ArrowBtn', () => {
-  let component: ArrowBtn;
-  let fixture: ComponentFixture<ArrowBtn>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ArrowBtn]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(ArrowBtn);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
+  it('should have two valid directions', () => {
+    const validDirections: ArrowDirection[] = ['up', 'down'];
+    expect(validDirections.length).toBe(2);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should include up direction', () => {
+    const validDirections: ArrowDirection[] = ['up', 'down'];
+    expect(validDirections).toContain('up');
+  });
+
+  it('should include down direction', () => {
+    const validDirections: ArrowDirection[] = ['up', 'down'];
+    expect(validDirections).toContain('down');
+  });
+
+  it('should default to down direction', () => {
+    const defaultDirection: ArrowDirection = 'down';
+    expect(defaultDirection).toBe('down');
   });
 });

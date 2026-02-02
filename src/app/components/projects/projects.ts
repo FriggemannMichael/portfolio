@@ -19,6 +19,12 @@ interface Project {
   isOngoing?: boolean;
 }
 
+interface TranslatedProject extends Project {
+  translatedName: string;
+  translatedDuration: string;
+  translatedSections: ProjectSection[];
+}
+
 @Component({
   selector: 'app-projects',
   imports: [TranslocoDirective, ScrollAnimateDirective],
@@ -115,11 +121,7 @@ export class Projects {
 
   readonly currentProjectIndex = signal(0);
 
-  selectProject(index: number): void {
-    this.currentProjectIndex.set(index);
-  }
-
-  get currentProject() {
+  readonly currentProject = computed<TranslatedProject>(() => {
     const project = this.projects()[this.currentProjectIndex()];
     return {
       ...project,
@@ -129,18 +131,28 @@ export class Projects {
       liveUrl: project.liveUrl,
       githubUrl: project.githubUrl,
     };
-  }
+  });
 
-  get formattedTechnologies(): string {
+  readonly formattedTechnologies = computed<string>(() => {
     const techNames: Record<string, string> = {
       'angular.svg': 'Angular',
       'ts.svg': 'TypeScript',
       'firebase.svg': 'Firebase',
+      'html.svg': 'HTML',
+      'css.svg': 'CSS',
+      'js.svg': 'JavaScript',
+      'fire.svg': 'Firebase',
+      'ts..svg': 'TypeScript',
     };
+
     return this.projects()
       [this.currentProjectIndex()].technologies.map(
         (tech) => techNames[tech] || tech.replace('.svg', ''),
       )
       .join(', ');
+  });
+
+  selectProject(index: number): void {
+    this.currentProjectIndex.set(index);
   }
 }

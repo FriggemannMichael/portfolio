@@ -7,7 +7,8 @@
   width: 535px;
   height: 683px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1025px) {
+    // Statt 768px
     display: block;
   }
 
@@ -21,6 +22,15 @@
     left: -50px;
     top: 0;
     transform: scaleX(-1);
+
+    // Responsive offset adjustments to prevent clipping with transform: scale()
+    @media (max-width: 1280px) {
+      left: -20px; // Reduced offset for smaller viewports
+    }
+
+    @media (max-width: 1024px) {
+      left: 0; // No offset for mobile layouts
+    }
 
     img {
       position: absolute;
@@ -71,7 +81,8 @@
   max-width: 300px;
   margin: 0 auto;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1025px) {
+    // Statt 768px
     display: none;
   }
 

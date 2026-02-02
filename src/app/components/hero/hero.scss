@@ -1,29 +1,40 @@
 @use '../../../styles.scss' as styles;
 
 // Hero Section - Figma Reference: 1214×705px
+// Above the Fold: 100vh requirement (Portfolio Checklist)
 .hero {
   position: relative;
   width: 100%;
   max-width: 1214px;
-  height: 705px;
+  height: 705px; // Original Figma design height
   margin: 41px auto 0;
   overflow: visible;
+  // Add padding to prevent bg-shape clipping with negative offset
+  padding-left: 50px;
 
-  // Logo: left 892, top 121
+  // On short viewports (< 850px height), ensure Hero + Nav = 100vh
+  @media (max-height: 850px) and (min-width: 1025px) {
+    height: calc(100vh - 104px - 41px); // viewport - nav - margin
+    min-height: 500px; // Minimum to prevent design breaking
+  }
+
+  // Logo: left 892, top 121 (892/1214 = 73.47%)
   &__logo {
     position: absolute;
-    left: 892px;
-    top: 121px;
+    // Prozentuale Position statt fixed px - behält Desktop-Design bei voller Größe
+    left: calc(892 / 1214 * 100%);
+    top: calc(121 / 705 * 100%);
     width: 66px;
     height: 73px;
     z-index: 10;
   }
 
-  // Social Media: left 1182, top 68
+  // Social Media: left 1182, top 68 (1182/1214 = 97.36%)
   &__social {
     position: absolute;
-    left: 1182px;
-    top: 68px;
+    // Prozentuale Position für responsive Skalierung
+    left: calc(1182 / 1214 * 100%);
+    top: calc(68 / 705 * 100%);
     width: 30px;
     height: 122px;
     z-index: 10;
@@ -33,14 +44,23 @@
   }
 
   // Image/BG Shape container: left -202 (calc), bottom 80
-  // Portrait: left 25, top 22, 535x683
+  // Portrait: left 25, top 22, 535x683 (25/1214 = 2%, 22/705 = 3.1%)
   &__image {
     position: absolute;
-    left: 25px;
-    top: 22px;
-    width: 535px;
-    height: 683px;
+    left: calc(25 / 1214 * 100%);
+    top: calc(22 / 705 * 100%);
+    // Responsive Größe: behält Aspekt-Verhältnis
+    width: calc(535 / 1214 * 100%);
+    height: calc(683 / 705 * 100%);
     z-index: 1;
+  }
+
+  // Menu Container an der gleichen Position wie das Bild
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
   }
 
   // Content wrapper for Name and Title
@@ -50,21 +70,24 @@
     flex-direction: column;
     align-items: center;
     z-index: 5;
-    // Position based on Name: left 607, top 230
-    left: 607px;
-    top: 230px;
+    // Position based on Name: left 607, top 230 (607/1214 = 50%, 230/705 = 32.6%)
+    left: calc(607 / 1214 * 100%);
+    top: calc(230 / 705 * 100%);
   }
 
   // Name: left 607, top 230, 610x81
   &__name {
-    width: 610px;
+    width: auto;
     font-family: styles.$font-heading;
-    font-size: 88px;
+    // Responsive font-size: 1.35rem (21.6px) min für 320px, 7.25vw preferred, 88px max
+    // Bei 320px Viewport: 7.25vw = 23.2px, Text passt mit ~240px Breite
+    font-size: clamp(1.35rem, 7.25vw, 88px);
     font-weight: 400;
     line-height: 120%;
     color: styles.$color-creme-white;
     text-align: center;
     margin: 0;
+    white-space: nowrap; // Verhindert Zeilenumbruch - "Michael Friggemann" bleibt einzeilig
   }
 
   // Title: left 662, top 347, 501x53
@@ -80,11 +103,11 @@
     text-align: center;
   }
 
-  // Arrow: left 906, top 540
+  // Arrow: left 906, top 540 (906/1214 = 74.6%, 540/705 = 76.6%)
   &__arrow {
     position: absolute;
-    left: 906px;
-    top: 540px;
+    left: calc(906 / 1214 * 100%);
+    top: calc(540 / 705 * 100%);
     width: 38px;
     height: 89px;
     z-index: 10;
@@ -95,21 +118,39 @@
   }
 
   // ==========================================
-  // RESPONSIVE: Scale down proportionally
+  // RESPONSIVE: Smooth scaling with percentage-based positioning
   // ==========================================
 
+  // Desktop-Tablet Übergang (1100px - 1280px) - "tote Zone" fix
   @media (max-width: 1280px) {
-    // Scale factor: viewport / 1214
-    transform: scale(calc(100vw / 1280));
-    transform-origin: top center;
     margin-top: 20px;
+    padding-left: 20px;
+    // Da Positionen jetzt prozentual sind, brauchen wir weniger aggressive Skalierung
+    // Container bleibt bei max-width: 1214px, Inhalte skalieren automatisch
+  }
+
+  // Neuer Breakpoint für "tote Zone" (768px - 1100px)
+  @media (max-width: 1100px) {
+    // Sanfte Skalierung für mittlere Bildschirme
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1214 / 705;
+    margin-top: 10px;
+    padding-left: 10px;
+
+    &__title {
+      font-size: clamp(1.5rem, 3.5vw, 40px);
+      width: auto;
+      max-width: 90%;
+    }
   }
 
   @media (max-width: 1024px) {
-    // Switch to flexible layout
-    transform: none;
+    // Switch to flexible layout - 100vh for Above the Fold
+    aspect-ratio: unset;
     height: auto;
-    min-height: 600px;
+    min-height: 100vh;
+    min-height: 100dvh; // Dynamic viewport height for mobile browsers
     margin-top: 0;
     padding: 2rem;
     display: flex;
@@ -120,7 +161,7 @@
       position: relative;
       left: auto;
       top: auto;
-      margin: 0 auto 2rem;
+      margin-bottom: 2rem;
     }
 
     &__social {
@@ -137,19 +178,13 @@
       width: 100%;
       max-width: 450px;
       height: auto;
-      margin: 0 auto;
     }
 
     &__content {
       position: relative;
       left: auto;
       top: auto;
-      margin: 2rem auto;
-    }
-
-    &__name {
-      width: auto;
-      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin: 2rem 0;
     }
 
     &__title {
@@ -166,9 +201,10 @@
     }
   }
 
-  // Mobile
+  // Mobile - 100vh for Above the Fold
   @media (max-width: 767px) {
-    min-height: auto;
+    min-height: 100vh;
+    min-height: 100dvh; // Dynamic viewport height (handles mobile address bar)
     padding: 1.5rem 1rem 2rem;
     gap: 1rem;
 
@@ -186,11 +222,7 @@
     }
 
     &__content {
-      margin: 1rem auto;
-    }
-
-    &__name {
-      font-size: clamp(1.75rem, 7vw, 2.5rem);
+      margin: 1rem 0;
     }
 
     &__title {
@@ -234,6 +266,88 @@
   img {
     width: 40px;
     height: 40px;
+  }
+}
+
+// ==========================================
+// Menu Container Styles (erscheint an Bildposition)
+// ==========================================
+.menu-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-shape {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.menu-items {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  z-index: 2;
+  padding: 0;
+  margin: 0;
+
+  @media (max-width: 480px) {
+    gap: 1.5rem;
+  }
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  text-align: center;
+
+  &:hover .menu-text {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.menu-text {
+  font-family: styles.$font-body;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 120%;
+  color: styles.$color-primary-dark;
+  transition: all styles.$transition;
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
+}
+
+.menu-language {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  @media (max-width: 480px) {
+    bottom: 1.5rem;
   }
 }
 

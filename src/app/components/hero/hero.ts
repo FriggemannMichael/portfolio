@@ -4,6 +4,7 @@ import { ArrowBtnComponent } from '../../shared/arrow-btn/arrow-btn';
 import { SocialMedia } from '../../shared/social-media/social-media';
 import { Logo } from '../../shared/logo/logo';
 import { BurgerMenu } from '../../shared/burger-menu/burger-menu';
+import { LanguageSwitcherComponent } from '../../shared/language-switcher/language-switcher';
 import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
@@ -14,6 +15,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
     SocialMedia,
     Logo,
     BurgerMenu,
+    LanguageSwitcherComponent,
     TranslocoDirective,
   ],
   templateUrl: './hero.html',
@@ -39,6 +41,13 @@ export class Hero {
 
   onMenuToggle(isOpen: boolean): void {
     this.isMenuOpen.set(isOpen);
+
+    // Body-Scroll Lock
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   }
 
   onLanguageChange(lang: 'DE' | 'EN'): void {

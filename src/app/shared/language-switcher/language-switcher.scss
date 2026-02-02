@@ -1,5 +1,28 @@
 // language-switcher.scss
-@import '../../../styles.scss';
+@use '../../../styles' as *;
+
+:host {
+  display: block;
+
+  &.compact {
+    .language-switcher {
+      width: auto;
+      height: auto;
+      padding: 6px;
+      gap: 8px;
+    }
+
+    .language-btn {
+      padding: 4px 10px;
+      font-size: 16px;
+
+      &::before {
+        width: 55px;
+        height: 36px;
+      }
+    }
+  }
+}
 
 .language-switcher {
   display: flex;

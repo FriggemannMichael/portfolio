@@ -6,12 +6,22 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: styles.$spacing-sm 109px;
-  gap: 196px;
+  // Responsive padding: min 2rem, scales with viewport, max 109px (original)
+  padding: styles.$spacing-sm clamp(2rem, 8vw, 109px);
+  // Responsive gap: min 2rem, scales with viewport, max 196px (original)
+  gap: clamp(2rem, 14vw, 196px);
   width: 100%;
   height: 104px;
   background: styles.$color-primary-blue;
   z-index: 20;
+
+  // Zusätzlicher Breakpoint für "tote Zone" (768px - 1100px)
+  @media (max-width: 1100px) {
+    padding: styles.$spacing-sm clamp(1.5rem, 6vw, 4rem);
+    gap: clamp(1.5rem, 10vw, 8rem);
+    height: auto;
+    min-height: 80px;
+  }
 
   // Auf Mobile ausblenden
   @media (max-width: 768px) {
@@ -61,7 +71,8 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 92px;
+  // Responsive gap: min 1.5rem, scales with viewport, max 92px (original)
+  gap: clamp(1.5rem, 6vw, 92px);
   flex: none;
   order: 1;
   flex-grow: 0;

@@ -1,4 +1,4 @@
-import { Component, computed, inject, output } from '@angular/core';
+import { Component, computed, inject, input, output } from '@angular/core';
 import { LanguageService, Language } from '../../core/services/language.service';
 import { TranslocoDirective } from '@jsverse/transloco';
 
@@ -7,8 +7,12 @@ import { TranslocoDirective } from '@jsverse/transloco';
   imports: [TranslocoDirective],
   templateUrl: './language-switcher.html',
   styleUrl: './language-switcher.scss',
+  host: {
+    '[class.compact]': 'variant() === "compact"',
+  },
 })
 export class LanguageSwitcherComponent {
+  readonly variant = input<'default' | 'compact'>('default');
   private readonly languageService = inject(LanguageService);
 
   readonly isGerman = computed(() => this.languageService.currentLanguage() === 'de');

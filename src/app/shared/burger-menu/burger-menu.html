@@ -11,31 +11,3 @@
     />
   </button>
 </div>
-
-@if (isOpen()) {
-  <div class="menu-container">
-    <div class="bg-shape">
-      <img src="/mobil/hero/shapebgmob.svg" alt="" />
-    </div>
-
-    <div class="menu-items">
-      <button class="menu-button" (click)="onNavigate('why-me')">
-        <span class="menu-text">Why me</span>
-      </button>
-
-      <button class="menu-button" (click)="onNavigate('skills')">
-        <span class="menu-text">Skills</span>
-      </button>
-
-      <button class="menu-button" (click)="onNavigate('projects')">
-        <span class="menu-text">Projects</span>
-      </button>
-
-      <button class="menu-button" (click)="onNavigate('contact')">
-        <span class="menu-text">Contact</span>
-      </button>
-    </div>
-
-    <app-language-switcher (languageChange)="onLanguageChange($event)" />
-  </div>
-}

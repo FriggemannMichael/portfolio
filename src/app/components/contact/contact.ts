@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Button } from '../../shared/button/button';
 import { ArrowBtnComponent } from '../../shared/arrow-btn/arrow-btn';
@@ -14,6 +15,8 @@ import { ScrollAnimateDirective } from '../../shared/scroll-animate/scroll-anima
 })
 export class Contact {
   private readonly fb = inject(FormBuilder);
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly isBrowser = isPlatformBrowser(this.platformId);
 
   contactForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
@@ -65,6 +68,10 @@ export class Contact {
   }
 
   scrollToTop(event: Event): void {
+    if (!this.isBrowser) {
+      return;
+    }
+
     event.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }

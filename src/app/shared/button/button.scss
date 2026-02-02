@@ -1,4 +1,4 @@
-@import '../../../styles.scss';
+@use '../../../styles' as *;
 
 .secondary-button {
   box-sizing: border-box;
@@ -33,5 +33,19 @@
 
   &:active {
     background: transparent;
+  }
+
+  &--white {
+    background: $color-white;
+    color: $color-primary-dark;
+    border: none;
+
+    &:hover {
+      background: $color-creme-white;
+    }
+
+    &:active {
+      background: $color-white;
+    }
   }
 }

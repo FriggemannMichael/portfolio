@@ -21,25 +21,25 @@
   <div class="project-details" appScrollAnimate animation="fade-up" [delay]="200">
     <!-- Mobile Header: Project Name, Tech, Duration -->
     <div class="project-mobile-header">
-      <h3 class="project-mobile-header__name">{{ currentProject.translatedName }}</h3>
+      <h3 class="project-mobile-header__name">{{ currentProject().translatedName }}</h3>
       <p class="project-mobile-header__tech">
-        {{ t('projects.technologies') }}: {{ formattedTechnologies }}
+        {{ t('projects.technologies') }}: {{ formattedTechnologies() }}
       </p>
       <p class="project-mobile-header__duration">
-        {{ t('projects.duration') }}: {{ currentProject.translatedDuration }}
+        {{ t('projects.duration') }}: {{ currentProject().translatedDuration }}
       </p>
     </div>
 
     <div class="project-content">
       <!-- Screenshot (shows first on mobile) -->
       <div class="project-screenshot">
-        <img [src]="currentProject.image" [alt]="currentProject.translatedName" />
+        <img [src]="currentProject().image" [alt]="currentProject().translatedName" />
       </div>
 
       <!-- Left Column: Info Sections -->
       <div class="project-content__left">
         @for (
-          section of currentProject.translatedSections;
+          section of currentProject().translatedSections;
           track section.titleKey;
           let first = $first
         ) {
@@ -50,7 +50,7 @@
                 {{ t(section.titleKey) }}
                 @if (first) {
                   <span class="project-info__duration">
-                    {{ t('projects.duration') }}: {{ currentProject.translatedDuration }}
+                    {{ t('projects.duration') }}: {{ currentProject().translatedDuration }}
                   </span>
                 }
               </h4>
@@ -65,19 +65,19 @@
         <div class="project-technologies">
           <p class="project-technologies__label">{{ t('projects.technologies') }}</p>
           <div class="project-technologies__icons">
-            @for (tech of currentProject.technologies; track tech) {
+            @for (tech of currentProject().technologies; track tech) {
               <img [src]="'icon/' + tech" [alt]="tech" class="project-technologies__icon" />
             }
           </div>
         </div>
 
         <div class="project-screenshot project-screenshot--desktop">
-          <img [src]="currentProject.image" [alt]="currentProject.translatedName" />
+          <img [src]="currentProject().image" [alt]="currentProject().translatedName" />
         </div>
 
         <div class="project-buttons project-buttons--desktop">
           <a
-            [href]="currentProject.liveUrl"
+            [href]="currentProject().liveUrl"
             target="_blank"
             rel="noopener noreferrer"
             class="btn-primary"
@@ -85,7 +85,7 @@
             {{ t('projects.buttons.liveTest') }}
           </a>
           <a
-            [href]="currentProject.githubUrl"
+            [href]="currentProject().githubUrl"
             target="_blank"
             rel="noopener noreferrer"
             class="btn-secondary"
@@ -98,7 +98,7 @@
       <!-- Buttons (mobile only) -->
       <div class="project-buttons project-buttons--mobile">
         <a
-          [href]="currentProject.liveUrl"
+          [href]="currentProject().liveUrl"
           target="_blank"
           rel="noopener noreferrer"
           class="btn-primary"
@@ -106,7 +106,7 @@
           {{ t('projects.buttons.liveTest') }}
         </a>
         <a
-          [href]="currentProject.githubUrl"
+          [href]="currentProject().githubUrl"
           target="_blank"
           rel="noopener noreferrer"
           class="btn-secondary"

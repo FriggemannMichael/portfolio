@@ -283,3 +283,14 @@
     text-align: center;
   }
 }
+
+.mobile-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-lg;
+  text-decoration: none;
+
+  @include tablet {
+    display: none;
+  }
+}

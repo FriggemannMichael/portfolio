@@ -3,11 +3,9 @@
 
   <div class="why-me__content">
     <div class="why-me__location" appScrollAnimate animation="fade-left" [delay]="100">
-      @if (showIcon()) {
-        <div class="why-me__location-icon-wrapper">
-          <img [src]="iconPath()" alt="Location icon" class="why-me__location-icon" />
-        </div>
-      }
+      <div class="why-me__location-icon-wrapper" [class.why-me__location-icon-wrapper--hidden]="!iconVisible()">
+        <img [src]="iconPath()" alt="Location icon" class="why-me__location-icon" />
+      </div>
       <p class="why-me__location-text">
         <span class="why-me__location-text--highlight">{{ t('whyme.iAm') }}</span>
         <span class="why-me__location-text--normal">{{ displayedText() }}</span>
