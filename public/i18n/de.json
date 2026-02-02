@@ -120,6 +120,11 @@
             "messageRequired": "Deine Nachricht ist erforderlich",
             "privacyRequired": "Bitte akzeptiere die Datenschutzrichtlinie."
         },
+        "status": {
+            "success": "Deine Nachricht wurde erfolgreich versendet!",
+            "error": "Nachricht konnte nicht gesendet werden. Bitte versuche es erneut.",
+            "sending": "Wird gesendet..."
+        },
         "privacy": {
             "text": "Ich habe die",
             "link": "Datenschutzrichtlinie",

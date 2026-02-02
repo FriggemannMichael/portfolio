@@ -193,6 +193,7 @@
       width: 100%;
       max-width: 450px;
       height: auto;
+      order: 1;
     }
 
     &__content {
@@ -200,6 +201,11 @@
       left: auto;
       top: auto;
       margin: 2rem 0;
+      order: 2;
+    }
+
+    &__arrow {
+      order: 3;
     }
 
     &__title {

@@ -120,6 +120,11 @@
             "messageRequired": "Your Message is required",
             "privacyRequired": "Please accept the privacy policy."
         },
+        "status": {
+            "success": "Your message has been sent successfully!",
+            "error": "Failed to send message. Please try again.",
+            "sending": "Sending..."
+        },
         "privacy": {
             "text": "I've read the",
             "link": "privacy policy",

@@ -51,18 +51,21 @@ export class Email {
   private async sendEmailViaService(data: EmailData): Promise<void> {
     const templateParams = this.buildTemplateParams(data);
 
-    await emailjs.send(
+    const response = await emailjs.send(
       this.config.serviceId,
       this.config.templateId,
       templateParams,
       this.config.publicKey,
     );
+
+    console.log('EmailJS Response:', response);
   }
 
   private buildTemplateParams(data: EmailData): Record<string, string> {
     return {
       from_name: data.name,
       from_email: data.email,
+      email: data.email,
       message: data.message,
       to_name: 'Portfolio Owner',
     };

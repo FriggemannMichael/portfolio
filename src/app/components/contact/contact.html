@@ -31,6 +31,22 @@
         animation="fade-right"
         [delay]="200"
       >
+        <!-- Success Message -->
+        @if (showSuccess()) {
+          <div class="status-message success-message">
+            {{ t('contact.status.success') }}
+          </div>
+        }
+
+        <!-- Error Message -->
+        @if (showError()) {
+          <div class="status-message error-message">
+            {{ t('contact.status.error') }}
+            @if (errorMessage()) {
+              <br><small>{{ errorMessage() }}</small>
+            }
+          </div>
+        }
         <!-- Name Input -->
         <div
           class="input-wrapper"
@@ -44,6 +60,7 @@
             formControlName="name"
             class="input-field"
             [class.filled]="name?.value"
+            [disabled]="isLoading()"
           />
           @if (isValid('name')) {
             <svg
@@ -75,6 +92,7 @@
             formControlName="email"
             class="input-field"
             [class.filled]="email?.value"
+            [disabled]="isLoading()"
           />
           @if (isValid('email')) {
             <svg
@@ -106,6 +124,7 @@
             class="input-field textarea-field"
             rows="5"
             [class.filled]="message?.value"
+            [disabled]="isLoading()"
           ></textarea>
           @if (isValid('message')) {
             <svg
@@ -132,6 +151,7 @@
               id="privacy"
               formControlName="privacyAccepted"
               class="checkbox-input"
+              [disabled]="isLoading()"
             />
             <label for="privacy" class="checkbox-label">
               <span class="checkbox-custom"></span>
@@ -150,9 +170,10 @@
 
           <!-- Submit Button -->
           <app-button
-            [text]="t('contact.form.submit')"
+            [text]="isLoading() ? t('contact.status.sending') : t('contact.form.submit')"
             [type]="'submit'"
-            [class.disabled]="!contactForm.valid"
+            [class.disabled]="!contactForm.valid || isLoading()"
+            [class.loading]="isLoading()"
           ></app-button>
         </div>
       </form>
