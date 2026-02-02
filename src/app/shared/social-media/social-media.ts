@@ -14,9 +14,9 @@ export class SocialMedia {
   linkedinHover = signal(false);
 
   readonly socialLinks = {
-    email: 'mailto:deine-email@example.com',
-    github: 'https://github.com/dein-username',
-    linkedin: 'https://linkedin.com/in/dein-profil',
+    email: 'mailto:m.friggemann@proton.me',
+    github: 'https://github.com/FriggemannMichael',
+    linkedin: 'https://www.linkedin.com/in/michael-friggemann-73b569372/',
   };
 
   setHover(platform: 'email' | 'github' | 'linkedin', isHovered: boolean): void {

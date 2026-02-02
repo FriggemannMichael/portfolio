@@ -1,4 +1,4 @@
-<section class="contact-section" *transloco="let t">
+<section id="contact" class="contact-section" *transloco="let t">
   <div class="container">
     <h2 class="contact-headline" appScrollAnimate animation="fade-up">{{ t('contact.headline') }}</h2>
 
@@ -9,15 +9,15 @@
 
         <div class="contact-details">
           <!-- Phone -->
-          <a href="tel:015712345668" class="contact-link phone-link">
+          <a href="tel:+4917123639770" class="contact-link phone-link">
             <img src="icon/phone_.svg" alt="Phone" class="icon-phone" />
-            <span>Tel: 0157 123 456 68</span>
+            <span>Tel: 0171 2363977</span>
           </a>
 
           <!-- Email -->
-          <a href="mailto:fohrer.developer@gmail.com" class="contact-link email-link">
+          <a href="mailto:m.friggemann@proton.me" class="contact-link email-link">
             <img src="icon/icon _email_.svg" alt="Email" class="icon-email" />
-            <span>E-mail: fohrer.developer&#64;gmail.com</span>
+            <span>E-mail: m.friggemann&#64;proton.me</span>
           </a>
         </div>
       </div>
@@ -58,9 +58,9 @@
             type="text"
             id="name"
             formControlName="name"
+            autocomplete="name"
             class="input-field"
             [class.filled]="name?.value"
-            [disabled]="isLoading()"
           />
           @if (isValid('name')) {
             <svg
@@ -90,9 +90,9 @@
             type="email"
             id="email"
             formControlName="email"
+            autocomplete="email"
             class="input-field"
             [class.filled]="email?.value"
-            [disabled]="isLoading()"
           />
           @if (isValid('email')) {
             <svg
@@ -124,7 +124,6 @@
             class="input-field textarea-field"
             rows="5"
             [class.filled]="message?.value"
-            [disabled]="isLoading()"
           ></textarea>
           @if (isValid('message')) {
             <svg
@@ -151,13 +150,12 @@
               id="privacy"
               formControlName="privacyAccepted"
               class="checkbox-input"
-              [disabled]="isLoading()"
             />
             <label for="privacy" class="checkbox-label">
               <span class="checkbox-custom"></span>
               <span class="checkbox-text">
                 {{ t('contact.privacy.text') }}
-                <a href="#" class="privacy-link">{{ t('contact.privacy.link') }}</a>
+                <a routerLink="/legal-notice" class="privacy-link">{{ t('contact.privacy.link') }}</a>
                 {{ t('contact.privacy.textAfter') }}
               </span>
             </label>

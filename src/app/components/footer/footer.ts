@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-footer',
-  imports: [NgOptimizedImage, TranslocoDirective],
+  imports: [NgOptimizedImage, RouterLink, TranslocoDirective],
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,19 +16,19 @@ export class Footer {
   readonly socialLinks = [
     {
       name: 'GitHub',
-      url: 'https://github.com/claudiafohrer',
+      url: 'https://github.com/FriggemannMichael',
       icon: 'mobil/Githubbutton.svg',
       hoverIcon: 'mobil/Githubbuttonhover.svg',
     },
     {
       name: 'Email',
-      url: 'mailto:contact@claudiafohrer.de',
+      url: 'mailto:m.friggemann@proton.me',
       icon: 'mobil/Mail.svg',
       hoverIcon: 'mobil/mailhover.svg',
     },
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/claudiafohrer',
+      url: 'https://www.linkedin.com/in/michael-friggemann-73b569372/',
       icon: 'mobil/Linkedinbutton.svg',
       hoverIcon: 'mobil/linkdinhover.svg',
     },

@@ -91,17 +91,17 @@
             "sahraMueller": {
                 "name": "Sahra Mueller",
                 "project": "Projekt DA Bubble",
-                "quote": "Claudia musste Inhalte in Zusammenarbeit mit den Teammitgliedern entwickeln, formatieren und liefern. Sie ist eine zuverlässige und freundliche Person."
+                "quote": "Michael musste Inhalte in Zusammenarbeit mit den Teammitgliedern entwickeln, formatieren und liefern. Er ist eine zuverlässige und freundliche Person."
             },
             "jamesRugman": {
                 "name": "James Rugman",
                 "project": "Projekt Join",
-                "quote": "Claudia ist eine zuverlässige und freundliche Person. Arbeitet strukturiert und schreibt klaren Code. Ich empfehle sie als Kollegin."
+                "quote": "Michael ist eine zuverlässige und freundliche Person. Arbeitet strukturiert und schreibt klaren Code. Ich empfehle ihn als Kollegen."
             },
             "evelynMarx": {
                 "name": "Evelyn Marx",
                 "project": "Projekt Sharkie",
-                "quote": "Sie ist ein vertrauenswürdiger Teamplayer und kann mit dem Stress von Deadlines umgehen. Strukturierte Arbeit und klarer Code."
+                "quote": "Er ist ein vertrauenswürdiger Teamplayer und kann mit dem Stress von Deadlines umgehen. Strukturierte Arbeit und klarer Code."
             }
         }
     },
@@ -126,13 +126,50 @@
             "sending": "Wird gesendet..."
         },
         "privacy": {
-            "text": "Ich habe die",
-            "link": "Datenschutzrichtlinie",
+            "text": "Ich habe das",
+            "link": "Impressum",
             "textAfter": "gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu."
         }
     },
     "footer": {
         "legalNotice": "Impressum",
-        "copyright": "© Claudia Fohrer"
+        "copyright": "© Michael Friggemann"
+    },
+    "legalNotice": {
+        "title": "Impressum",
+        "imprint": {
+            "title": "Angaben gemäß § 5 TMG",
+            "name": "Michael Friggemann",
+            "street": "Schwarzer Weg 29",
+            "city": "48683 Ahaus",
+            "country": "Deutschland",
+            "contactLabel": "Kontakt:",
+            "phone": "Tel: 0171 2363977",
+            "email": "E-Mail: m.friggemann@proton.me"
+        },
+        "acceptance": {
+            "title": "Akzeptanz der Bedingungen",
+            "content": "Durch den Zugriff und die Nutzung dieser Portfolio-Website akzeptieren Sie die Bedingungen dieser Vereinbarung und sind an diese gebunden. Wenn Sie mit diesen Bedingungen nicht einverstanden sind, nutzen Sie diese Website bitte nicht."
+        },
+        "scope": {
+            "title": "Umfang und Eigentum am Produkt",
+            "content": "Diese Portfolio-Website und alle Inhalte, Funktionen und Funktionalitäten sind Eigentum des Entwicklers und durch internationale Urheberrechts-, Marken-, Patent-, Geschäftsgeheimniss- und andere Gesetze zum Schutz des geistigen Eigentums geschützt. Die Inhalte werden nur zu Informations- und Werbezwecken bereitgestellt."
+        },
+        "proprietary": {
+            "title": "Eigentumsrechte",
+            "content": "Alle Rechte, Titel und Interessen an und auf der Website und ihren Inhalten, einschließlich, aber nicht beschränkt auf Text, Grafiken, Logos, Bilder und Software, sind und bleiben ausschließliches Eigentum des Entwicklers. Sie dürfen ohne ausdrückliche schriftliche Genehmigung nichts reproduzieren, verteilen, modifizieren oder abgeleitete Werke erstellen."
+        },
+        "use": {
+            "title": "Nutzung des Produkts",
+            "content": "Es ist Ihnen gestattet, diese Website für persönliche, nicht-kommerzielle Zwecke zu betrachten und mit ihr zu interagieren. Jegliche kommerzielle Nutzung, Vervielfältigung oder Verbreitung der Inhalte ohne vorherige schriftliche Zustimmung ist strengstens untersagt. Sie verpflichten sich, die Website nicht auf eine Weise zu nutzen, die diese beschädigen, deaktivieren oder beeinträchtigen könnte."
+        },
+        "disclaimer": {
+            "title": "Haftungsausschluss und Haftungsbeschränkung",
+            "content": "Diese Website wird 'wie besehen' und 'wie verfügbar' bereitgestellt. Der Entwickler gibt keine Zusicherungen oder Garantien jeglicher Art, weder ausdrücklich noch stillschweigend, bezüglich des Betriebs der Website oder der enthaltenen Informationen, Inhalte oder Materialien. Im gesetzlich zulässigen Umfang lehnt der Entwickler jegliche Haftung für Schäden ab, die aus der Nutzung dieser Website entstehen."
+        },
+        "indemnity": {
+            "title": "Freistellung",
+            "content": "Sie verpflichten sich, den Entwickler von allen Ansprüchen, Verbindlichkeiten, Schäden, Verlusten und Kosten, einschließlich angemessener Anwaltsgebühren, freizustellen, zu verteidigen und schadlos zu halten, die sich aus Ihrem Zugriff auf oder Ihrer Nutzung der Website oder Ihrer Verletzung dieser Bedingungen ergeben."
+        }
     }
 }

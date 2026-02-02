@@ -44,7 +44,7 @@
           let first = $first
         ) {
           <div class="project-info__section">
-            <div class="project-info__bullet"></div>
+            <img src="icon/bulletpoints.svg" alt="" class="project-info__bullet" />
             <div class="project-info__text">
               <h4 class="project-info__title">
                 {{ t(section.titleKey) }}
@@ -65,7 +65,7 @@
         <div class="project-technologies">
           <p class="project-technologies__label">{{ t('projects.technologies') }}</p>
           <div class="project-technologies__icons">
-            @for (tech of currentProject().technologies; track tech) {
+            @for (tech of currentProject().technologies; track $index) {
               <img [src]="'icon/' + tech" [alt]="tech" class="project-technologies__icon" />
             }
           </div>

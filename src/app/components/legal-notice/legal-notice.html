@@ -1,0 +1,82 @@
+<!-- Mobile Header -->
+<header class="mobile-header">
+  <app-logo class="mobile-logo" />
+  <app-burger-menu (menuToggle)="onMenuToggle($event)" />
+</header>
+
+<!-- Desktop Navigation -->
+<app-navigation></app-navigation>
+
+<section class="legal-notice-section" *transloco="let t">
+  <div class="main-container">
+    <!-- Title Container -->
+    <div class="title-container" appScrollAnimate animation="fade-up">
+      <h1 class="legal-notice-title">{{ t('legalNotice.title') }}</h1>
+    </div>
+
+    <!-- Back Arrow -->
+    <a routerLink="/" class="back-arrow">
+      <img class="arrow-icon" src="/img/Arrow_up.svg" alt="back arrow" />
+    </a>
+
+    <!-- Content Container -->
+    <div class="content-container">
+      <!-- Text Container -->
+      <div class="text-container">
+        <!-- Imprint Section -->
+        <div class="legal-section" appScrollAnimate animation="fade-up" [delay]="100">
+          <h2 class="section-header">{{ t('legalNotice.imprint.title') }}</h2>
+          <div class="section-body">
+            <p>{{ t('legalNotice.imprint.name') }}</p>
+            <p>{{ t('legalNotice.imprint.street') }}</p>
+            <p>{{ t('legalNotice.imprint.city') }}</p>
+            <p>{{ t('legalNotice.imprint.country') }}</p>
+          </div>
+          <div class="section-body">
+            <p>{{ t('legalNotice.imprint.contactLabel') }}</p>
+            <p>{{ t('legalNotice.imprint.phone') }}</p>
+            <p>{{ t('legalNotice.imprint.email') }}</p>
+          </div>
+        </div>
+
+        <!-- Acceptance of Terms Section -->
+        <div class="legal-section" appScrollAnimate animation="fade-up" [delay]="150">
+          <h2 class="section-header">{{ t('legalNotice.acceptance.title') }}</h2>
+          <p class="section-content">{{ t('legalNotice.acceptance.content') }}</p>
+        </div>
+
+        <!-- Scope and Ownership Section -->
+        <div class="legal-section" appScrollAnimate animation="fade-up" [delay]="200">
+          <h2 class="section-header">{{ t('legalNotice.scope.title') }}</h2>
+          <p class="section-content">{{ t('legalNotice.scope.content') }}</p>
+        </div>
+
+        <!-- Proprietary Rights Section -->
+        <div class="legal-section" appScrollAnimate animation="fade-up" [delay]="250">
+          <h2 class="section-header">{{ t('legalNotice.proprietary.title') }}</h2>
+          <p class="section-content">{{ t('legalNotice.proprietary.content') }}</p>
+        </div>
+
+        <!-- Use of Product Section -->
+        <div class="legal-section" appScrollAnimate animation="fade-up" [delay]="300">
+          <h2 class="section-header">{{ t('legalNotice.use.title') }}</h2>
+          <p class="section-content">{{ t('legalNotice.use.content') }}</p>
+        </div>
+
+        <!-- Disclaimer Section -->
+        <div class="legal-section" appScrollAnimate animation="fade-up" [delay]="350">
+          <h2 class="section-header">{{ t('legalNotice.disclaimer.title') }}</h2>
+          <p class="section-content">{{ t('legalNotice.disclaimer.content') }}</p>
+        </div>
+
+        <!-- Indemnity Section -->
+        <div class="legal-section" appScrollAnimate animation="fade-up" [delay]="400">
+          <h2 class="section-header">{{ t('legalNotice.indemnity.title') }}</h2>
+          <p class="section-content">{{ t('legalNotice.indemnity.content') }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

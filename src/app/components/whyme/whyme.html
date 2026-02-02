@@ -15,7 +15,7 @@
 
     <div class="why-me__info" appScrollAnimate animation="fade-right" [delay]="200">
       <p class="why-me__description">{{ t('whyme.description') }}</p>
-      <button class="why-me__button">{{ t('whyme.button') }}</button>
+      <button class="why-me__button" (click)="scrollToContact()">{{ t('whyme.button') }}</button>
     </div>
   </div>
 </section>

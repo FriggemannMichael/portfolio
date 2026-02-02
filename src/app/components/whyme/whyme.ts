@@ -203,4 +203,14 @@ export class Whyme implements OnInit, OnDestroy {
       clearTimeout(this.restartTimeout);
     }
   }
+
+  scrollToContact(): void {
+    if (!this.isBrowser) {
+      return;
+    }
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy, inject, PLATFORM_ID, computed } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, PLATFORM_ID, computed, effect } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Button } from '../../shared/button/button';
 import { ArrowBtnComponent } from '../../shared/arrow-btn/arrow-btn';
@@ -9,7 +10,7 @@ import { Email } from '../../email';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule, Button, ArrowBtnComponent, TranslocoDirective, ScrollAnimateDirective],
+  imports: [ReactiveFormsModule, RouterLink, Button, ArrowBtnComponent, TranslocoDirective, ScrollAnimateDirective],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -35,6 +36,17 @@ export class Contact {
   readonly isLoading = computed(() => this.sendStatus() === 'sending');
   readonly showSuccess = computed(() => this.sendStatus() === 'success');
   readonly showError = computed(() => this.sendStatus() === 'error');
+
+  constructor() {
+    // Handle form disable/enable based on loading state
+    effect(() => {
+      if (this.isLoading()) {
+        this.contactForm.disable();
+      } else {
+        this.contactForm.enable();
+      }
+    });
+  }
 
   get name() {
     return this.contactForm.get('name');

@@ -79,7 +79,7 @@ export class Projects {
     {
       id: 3,
       nameKey: 'projects.items.elpolloloco.name',
-      image: 'img/elpolloloco.png',
+      image: 'img/ellpollo.png',
       technologies: ['html.svg', 'css.svg', 'js.svg'],
       durationKey: 'projects.durations.threeWeeks',
       liveUrl: 'https://elpollo.friggemann.eu',
@@ -125,8 +125,8 @@ export class Projects {
     const project = this.projects()[this.currentProjectIndex()];
     return {
       ...project,
-      translatedName: this.translocoService.translate(project.nameKey),
-      translatedDuration: this.translocoService.translate(project.durationKey),
+      translatedName: this.translocoService.translate(project.nameKey) || project.nameKey,
+      translatedDuration: this.translocoService.translate(project.durationKey) || project.durationKey,
       translatedSections: project.sections,
       liveUrl: project.liveUrl,
       githubUrl: project.githubUrl,

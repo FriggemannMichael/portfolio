@@ -91,17 +91,17 @@
             "sahraMueller": {
                 "name": "Sahra Mueller",
                 "project": "Project DA Bubble",
-                "quote": "Claudia had to develop, format and deliver content in collaboration with the team members. She is a reliable and friendly person."
+                "quote": "Michael had to develop, format and deliver content in collaboration with the team members. He is a reliable and friendly person."
             },
             "jamesRugman": {
                 "name": "James Rugman",
                 "project": "Project Join",
-                "quote": "Claudia is a reliable and friendly person. Works in a structured way and write a clear code. I recommend her as a colleague."
+                "quote": "Michael is a reliable and friendly person. Works in a structured way and writes clear code. I recommend him as a colleague."
             },
             "evelynMarx": {
                 "name": "Evelyn Marx",
                 "project": "Project Sharkie",
-                "quote": "She is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work and clear code."
+                "quote": "He is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work and clear code."
             }
         }
     },
@@ -127,12 +127,49 @@
         },
         "privacy": {
             "text": "I've read the",
-            "link": "privacy policy",
+            "link": "legal notice",
             "textAfter": "and agree to the processing of my data as outlined."
         }
     },
     "footer": {
         "legalNotice": "Legal notice",
-        "copyright": "© Claudia Fohrer"
+        "copyright": "© Michael Friggemann"
+    },
+    "legalNotice": {
+        "title": "Legal Notice",
+        "imprint": {
+            "title": "Imprint",
+            "name": "Michael Friggemann",
+            "street": "Schwarzer Weg 29",
+            "city": "48683 Ahaus",
+            "country": "Germany",
+            "contactLabel": "Contact:",
+            "phone": "Phone: +49 171 2363977",
+            "email": "E-mail: m.friggemann@proton.me"
+        },
+        "acceptance": {
+            "title": "Acceptance of terms",
+            "content": "By accessing and using this portfolio website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these terms, please do not use this website."
+        },
+        "scope": {
+            "title": "Scope and ownership of the product",
+            "content": "This portfolio website and all content, features, and functionality are owned by the developer and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws. The content is provided for informational and promotional purposes only."
+        },
+        "proprietary": {
+            "title": "Proprietary rights",
+            "content": "All rights, title, and interest in and to the website and its content, including but not limited to text, graphics, logos, images, and software, are and will remain the exclusive property of the developer. You may not reproduce, distribute, modify, or create derivative works without express written permission."
+        },
+        "use": {
+            "title": "Use of the product",
+            "content": "You are permitted to view and interact with this website for personal, non-commercial purposes. Any commercial use, reproduction, or distribution of the content without prior written consent is strictly prohibited. You agree not to use the website in any way that could damage, disable, or impair the website."
+        },
+        "disclaimer": {
+            "title": "Disclaimer of warranties and limitation of liability",
+            "content": "This website is provided on an 'as is' and 'as available' basis. The developer makes no representations or warranties of any kind, express or implied, regarding the operation of the website or the information, content, or materials included. To the fullest extent permitted by law, the developer disclaims all liability for any damages arising from the use of this website."
+        },
+        "indemnity": {
+            "title": "Indemnity",
+            "content": "You agree to indemnify, defend, and hold harmless the developer from any claims, liabilities, damages, losses, and expenses, including reasonable attorney's fees, arising out of or in any way connected with your access to or use of the website, or your violation of these terms."
+        }
     }
 }

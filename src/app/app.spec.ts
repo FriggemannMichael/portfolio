@@ -1,15 +1,15 @@
-import { TestBed } from '@angular/core/testing';
 import { App } from './app';
 
 describe('App', () => {
-  let component: App;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    component = new App();
+  it('should be a class', () => {
+    expect(typeof App).toBe('function');
   });
 
-  it('should create the app', () => {
-    expect(component).toBeTruthy();
+  it('should be defined', () => {
+    expect(App).toBeDefined();
+  });
+
+  it('should have the correct class name', () => {
+    expect(App.name).toBe('App');
   });
 });

@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { filter, map } from 'rxjs';
 import { Hero } from './components/hero/hero';
 import { Whyme } from './components/whyme/whyme';
 import { NavigationComponent } from './components/navigation/navigation';
@@ -27,5 +29,19 @@ import { Footer } from './components/footer/footer';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
+  private readonly router = inject(Router);
   protected readonly title = signal('portfolio');
+
+  private readonly currentUrl = toSignal(
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      map(event => event.urlAfterRedirects)
+    ),
+    { initialValue: this.router.url }
+  );
+
+  protected readonly isHomePage = computed(() => {
+    const url = this.currentUrl();
+    return url === '/' || url === '';
+  });
 }
