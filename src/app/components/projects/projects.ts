@@ -38,52 +38,12 @@ export class Projects {
   readonly projects = signal<Project[]>([
     {
       id: 1,
-      nameKey: 'projects.items.dabubble.name',
+      nameKey: 'projects.items.join.name',
       image: 'img/join.png',
       technologies: ['angular.svg', 'ts..svg', 'fire.svg'],
       durationKey: 'projects.durations.threeWeeks',
-      liveUrl: 'https://dabubble.example.com',
-      githubUrl: 'https://github.com/username/dabubble',
-      sections: [
-        { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.dabubble.about' },
-        {
-          titleKey: 'projects.sections.workProcess',
-          descriptionKey: 'projects.items.dabubble.workProcess',
-        },
-        {
-          titleKey: 'projects.sections.groupWork',
-          descriptionKey: 'projects.items.dabubble.groupWork',
-        },
-      ],
-    },
-    {
-      id: 2,
-      nameKey: 'projects.items.sharkie.name',
-      image: 'img/ellpollo.png',
-      technologies: ['html.svg', 'css.svg', 'js.svg'],
-      durationKey: 'projects.durations.twoWeeks',
-      liveUrl: 'https://sharkie.example.com',
-      githubUrl: 'https://github.com/username/sharkie',
-      sections: [
-        { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.sharkie.about' },
-        {
-          titleKey: 'projects.sections.workProcess',
-          descriptionKey: 'projects.items.sharkie.workProcess',
-        },
-        {
-          titleKey: 'projects.sections.groupWork',
-          descriptionKey: 'projects.items.sharkie.groupWork',
-        },
-      ],
-    },
-    {
-      id: 3,
-      nameKey: 'projects.items.join.name',
-      image: 'img/join.png',
-      technologies: ['html.svg', 'css.svg', 'js.svg', 'fire.svg'],
-      durationKey: 'projects.durations.fiveWeeks',
-      liveUrl: 'https://join.example.com',
-      githubUrl: 'https://github.com/username/join',
+      liveUrl: 'https://join.friggemann.eu',
+      githubUrl: 'https://github.com/FriggemannMichael/join_mpa',
       sections: [
         { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.join.about' },
         {
@@ -97,13 +57,53 @@ export class Projects {
       ],
     },
     {
+      id: 2,
+      nameKey: 'projects.items.pokedex.name',
+      image: 'img/pokedex.png',
+      technologies: ['html.svg', 'css.svg', 'js.svg'],
+      durationKey: 'projects.durations.twoWeeks',
+      liveUrl: 'https://pokedex.friggemann.eu',
+      githubUrl: 'https://github.com/FriggemannMichael/pokedex',
+      sections: [
+        { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.pokedex.about' },
+        {
+          titleKey: 'projects.sections.workProcess',
+          descriptionKey: 'projects.items.pokedex.workProcess',
+        },
+        {
+          titleKey: 'projects.sections.groupWork',
+          descriptionKey: 'projects.items.pokedex.groupWork',
+        },
+      ],
+    },
+    {
+      id: 3,
+      nameKey: 'projects.items.elpolloloco.name',
+      image: 'img/elpolloloco.png',
+      technologies: ['html.svg', 'css.svg', 'js.svg'],
+      durationKey: 'projects.durations.threeWeeks',
+      liveUrl: 'https://elpollo.friggemann.eu',
+      githubUrl: 'https://github.com/FriggemannMichael/ElPolloLoco',
+      sections: [
+        { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.elpolloloco.about' },
+        {
+          titleKey: 'projects.sections.workProcess',
+          descriptionKey: 'projects.items.elpolloloco.workProcess',
+        },
+        {
+          titleKey: 'projects.sections.groupWork',
+          descriptionKey: 'projects.items.elpolloloco.groupWork',
+        },
+      ],
+    },
+    {
       id: 4,
       nameKey: 'projects.items.ongoing.name',
       image: 'img/pokedex.png',
       technologies: ['angular.svg', 'ts..svg'],
       durationKey: 'projects.durations.inProgress',
       liveUrl: '#',
-      githubUrl: 'https://github.com/username/ongoing-project',
+      githubUrl: 'https://github.com/username',
       isOngoing: true,
       sections: [
         { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.ongoing.about' },

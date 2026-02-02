@@ -47,18 +47,6 @@
             "inProgress": "In progress"
         },
         "items": {
-            "dabubble": {
-                "name": "DA Bubble",
-                "about": "This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.",
-                "workProcess": "How do you keep your code clean and maintainable? Have you broken the project down into separate modules or components? Focus on documentation naming like variables, classes and testing.",
-                "groupWork": "How many people were in the team and what was your role? Describe your work in 1-2 sentences. For example: Login Form, dashboard or chat functionality. What technologies did you use? It is nice to mention good teamwork and cooperation."
-            },
-            "sharkie": {
-                "name": "Sharkie",
-                "about": "A fun 2D side-scrolling game where you control a shark navigating through underwater obstacles. Built with JavaScript and canvas animations.",
-                "workProcess": "Object-oriented programming approach with modular game classes, sprite animations, and collision detection systems.",
-                "groupWork": "Solo project focusing on game development fundamentals and performance optimization."
-            },
             "join": {
                 "name": "Join",
                 "about": "Task manager inspired by the Kanban system. Create and organize tasks with drag-and-drop features, assign users and categories.",
@@ -78,7 +66,7 @@
                 "groupWork": "Solo project with focus on game mechanics and animation."
             },
             "ongoing": {
-                "name": "Ongoing project",
+                "name": "Ongoing",
                 "about": "Currently working on this project",
                 "workProcess": "Work process description",
                 "groupWork": "Group work experience"
@@ -86,12 +74,12 @@
         }
     },
     "whyme": {
-        "headline": "Why me",
-        "iAm": "I am",
+        "headline": " Why me",
+        "iAm": " I am",
         "location": {
-            "ahaus": "located in Ahaus.",
-            "remote": "open to work remote...",
-            "relocate": "not open to relocate!"
+            "ahaus": " located in Ahaus.",
+            "remote": " open to work remote...",
+            "relocate": " not open to relocate!"
         },
         "description": "Why am I passionate about coding? I love solving complex problems through analytical thinking and creative approaches. My persistence drives me to keep going even with difficult challenges until I find the best solution. I value collaboration – because the best results come from working together. With my problem-solving mindset, I bring real value to every project.",
         "button": "Let's talk"

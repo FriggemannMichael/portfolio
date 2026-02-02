@@ -23,15 +23,28 @@
 }
 
 .references-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: $spacing-md;
   width: 100%;
   max-width: 1209px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: $spacing-sm;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @include tablet {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: $spacing-lg;
+    overflow-x: visible;
+    scroll-snap-type: none;
   }
 
   @include desktop {
@@ -42,10 +55,16 @@
 
 .reference-card {
   position: relative;
-  width: 100%;
+  flex: 0 0 85%;
   aspect-ratio: 1 / 1;
   max-width: 400px;
   margin: 0 auto;
+  scroll-snap-align: center;
+
+  @include tablet {
+    flex: none;
+    width: 100%;
+  }
 
   app-hover-ellipse {
     display: block;
@@ -116,6 +135,40 @@
       outline: 2px solid $color-primary-blue;
       outline-offset: 4px;
       border-radius: $radius-sm;
+    }
+  }
+}
+
+.references-pagination {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-sm;
+
+  @include tablet {
+    display: none;
+  }
+
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid $color-primary-blue;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: $transition;
+
+    &--active {
+      background: $color-primary-blue;
+    }
+
+    &:hover {
+      background: rgba($color-primary-blue, 0.5);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary-blue;
+      outline-offset: 2px;
     }
   }
 }

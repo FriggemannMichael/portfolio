@@ -8,17 +8,27 @@
     .language-switcher {
       width: auto;
       height: auto;
-      padding: 6px;
-      gap: 8px;
+      padding: 0;
+      gap: 1rem;
     }
 
     .language-btn {
-      padding: 4px 10px;
-      font-size: 16px;
+      padding: 0.5rem 1rem;
+      font-size: 28px;
 
       &::before {
-        width: 55px;
-        height: 36px;
+        width: 75px;
+        height: 50px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 18px;
+        padding: 0.5rem 0.75rem;
+
+        &::before {
+          width: 60px;
+          height: 40px;
+        }
       }
     }
   }

@@ -18,7 +18,12 @@
     min-height: 500px; // Minimum to prevent design breaking
   }
 
-  // Logo: left 892, top 121 (892/1214 = 73.47%)
+  // Header container for Logo and Burger Menu (Mobile)
+  &__header {
+    display: none; // Hidden on desktop, shown on mobile
+  }
+
+  // Logo: left 892, top 121 (892/1214 = 73.47%) - Desktop only
   &__logo {
     position: absolute;
     // Prozentuale Position statt fixed px - behält Desktop-Design bei voller Größe
@@ -114,7 +119,7 @@
   }
 
   &__burger-menu {
-    display: none;
+    display: none; // Hidden on desktop
   }
 
   // ==========================================
@@ -152,16 +157,26 @@
     min-height: 100vh;
     min-height: 100dvh; // Dynamic viewport height for mobile browsers
     margin-top: 0;
-    padding: 2rem;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    // Header container for Logo and Burger Menu
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 1.5rem 2rem;
+      z-index: 1000;
+    }
 
     &__logo {
       position: relative;
       left: auto;
       top: auto;
-      margin-bottom: 2rem;
+      margin: 0;
     }
 
     &__social {
@@ -199,18 +214,36 @@
       top: auto;
       margin: 2rem auto 0;
     }
+
+    &__burger-menu {
+      display: block;
+      position: relative;
+    }
   }
 
   // Mobile - 100vh for Above the Fold
   @media (max-width: 767px) {
     min-height: 100vh;
     min-height: 100dvh; // Dynamic viewport height (handles mobile address bar)
-    padding: 1.5rem 1rem 2rem;
+    padding: 0;
     gap: 1rem;
 
+    // Header container with Logo (left) and Burger Menu (right)
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 1rem;
+      z-index: 1000;
+    }
+
     &__logo {
+      position: relative;
+      left: auto;
+      top: auto;
       transform: scale(0.85);
-      margin-bottom: 1rem;
+      margin: 0;
     }
 
     &__social {
@@ -235,39 +268,16 @@
 
     &__burger-menu {
       display: block;
+      position: relative;
     }
   }
 }
 
 // ==========================================
-// Burger Menu Styles
+// Burger Menu Styles (for desktop if needed)
 // ==========================================
-.burger-menu-wrapper {
-  position: fixed;
-  top: 1.5rem;
-  right: 1.5rem;
-  z-index: 1000;
-
-  @media (max-width: 768px) {
-    top: 1rem;
-    right: 1rem;
-  }
-}
-
-.burger-icon {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  img {
-    width: 40px;
-    height: 40px;
-  }
-}
+// Removed duplicate burger-menu-wrapper styles
+// Burger menu positioning is now handled by hero__header container on mobile
 
 // ==========================================
 // Menu Container Styles (erscheint an Bildposition)
@@ -340,14 +350,12 @@
 }
 
 .menu-language {
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  margin-top: 2rem;
   z-index: 2;
 
   @media (max-width: 480px) {
-    bottom: 1.5rem;
+    margin-top: 1.5rem;
   }
 }
 

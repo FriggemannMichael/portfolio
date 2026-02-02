@@ -3,7 +3,7 @@
     {{ t('references.headline') }}
   </h2>
 
-  <div class="references-grid">
+  <div class="references-grid" #gridRef (scroll)="onScroll($event)">
     @for (reference of references(); track reference.id; let i = $index) {
       <article class="reference-card" appScrollAnimate animation="scale-in" [delay]="i * 100">
         <app-hover-ellipse
@@ -31,4 +31,17 @@
       </article>
     }
   </div>
+
+  <nav class="references-pagination" aria-label="Reference navigation">
+    @for (reference of references(); track reference.id; let i = $index) {
+      <button
+        type="button"
+        class="references-pagination__dot"
+        [class.references-pagination__dot--active]="activeIndex() === i"
+        (click)="scrollToSlide(i)"
+        [attr.aria-label]="'Go to reference ' + (i + 1)"
+        [attr.aria-current]="activeIndex() === i ? 'true' : null"
+      ></button>
+    }
+  </nav>
 </section>

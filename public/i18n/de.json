@@ -47,18 +47,6 @@
             "inProgress": "In Arbeit"
         },
         "items": {
-            "dabubble": {
-                "name": "DA Bubble",
-                "about": "Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und Zusammenarbeit mit einer intuitiven Benutzeroberfläche, Echtzeit-Messaging und robuster Kanalorganisation.",
-                "workProcess": "Wie halte ich meinen Code sauber und wartbar? Habe ich das Projekt in separate Module oder Komponenten aufgeteilt? Fokus auf Dokumentation, Benennung von Variablen, Klassen und Testing.",
-                "groupWork": "Wie viele Personen waren im Team und was war meine Rolle? Beschreibung in 1-2 Sätzen. Zum Beispiel: Login-Formular, Dashboard oder Chat-Funktionalität. Welche Technologien wurden verwendet? Gute Teamarbeit und Zusammenarbeit erwähnen."
-            },
-            "sharkie": {
-                "name": "Sharkie",
-                "about": "Ein unterhaltsames 2D-Sidescrolling-Spiel, in dem du einen Hai durch Unterwasser-Hindernisse steuerst. Entwickelt mit JavaScript und Canvas-Animationen.",
-                "workProcess": "Objektorientierter Programmieransatz mit modularen Spielklassen, Sprite-Animationen und Kollisionserkennungssystemen.",
-                "groupWork": "Einzelprojekt mit Fokus auf Spielentwicklungs-Grundlagen und Performance-Optimierung."
-            },
             "join": {
                 "name": "Join",
                 "about": "Task-Manager inspiriert vom Kanban-System. Erstellen und organisieren Sie Aufgaben mit Drag-and-Drop-Funktionen, weisen Sie Benutzer und Kategorien zu.",
@@ -87,11 +75,11 @@
     },
     "whyme": {
         "headline": "Warum ich",
-        "iAm": "Ich bin",
+        "iAm": " Ich bin",
         "location": {
-            "ahaus": "ansässig in Ahaus.",
-            "remote": "offen für Remote-Arbeit...",
-            "relocate": "nicht bereit umzuziehen!"
+            "ahaus": " ansässig in Ahaus.",
+            "remote": " offen für Remote-Arbeit...",
+            "relocate": " nicht bereit umzuziehen!"
         },
         "description": "Warum begeistert mich das Programmieren? Ich liebe es, komplexe Probleme durch analytisches Denken und kreative Lösungsansätze zu lösen. Meine Hartnäckigkeit treibt mich an, auch bei schwierigen Herausforderungen dranzubleiben, bis ich die beste Lösung gefunden habe. Dabei schätze ich die Zusammenarbeit im Team – denn die besten Ergebnisse entstehen gemeinsam. Mit meiner lösungsorientierten Denkweise bringe ich einen echten Mehrwert in jedes Projekt.",
         "button": "Lass uns reden"

@@ -1,9 +1,8 @@
 @use '../../../styles.scss' as styles;
 
 .burger-menu-wrapper {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
+  // Removed position: fixed - now flows in normal document layout
+  // Positioning is handled by parent container (hero__header)
   z-index: 1001;
 }
 
