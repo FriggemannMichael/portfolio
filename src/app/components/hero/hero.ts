@@ -6,6 +6,7 @@ import { Logo } from '../../shared/logo/logo';
 import { BurgerMenu } from '../../shared/burger-menu/burger-menu';
 import { LanguageSwitcherComponent } from '../../shared/language-switcher/language-switcher';
 import { TranslocoDirective } from '@jsverse/transloco';
+import { NavigationComponent } from '../navigation/navigation';
 
 @Component({
   selector: 'app-hero',
@@ -17,6 +18,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
     BurgerMenu,
     LanguageSwitcherComponent,
     TranslocoDirective,
+    NavigationComponent
   ],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',

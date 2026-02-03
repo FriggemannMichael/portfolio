@@ -6,17 +6,15 @@
   position: relative;
   width: 100%;
   max-width: 1214px;
-  height: 705px; // Original Figma design height
-  margin: 41px auto 0;
+  // Full viewport height - navigation is now inside hero section
+  height: 100vh;
+  height: 100dvh; // Dynamic viewport height for mobile browsers
+  min-height: 600px; // Minimum to prevent design breaking (increased for nav)
+  max-height: 900px; // Cap to maintain proportions on tall screens (increased for nav)
+  margin: 0 auto;
   overflow: visible;
   // Add padding to prevent bg-shape clipping with negative offset
   padding-left: 50px;
-
-  // On short viewports (< 850px height), ensure Hero + Nav = 100vh
-  @media (max-height: 850px) and (min-width: 1025px) {
-    height: calc(100vh - 104px - 41px); // viewport - nav - margin
-    min-height: 500px; // Minimum to prevent design breaking
-  }
 
   // Header container for Logo and Burger Menu (Mobile)
   &__header {
@@ -48,15 +46,17 @@
     gap: 16px;
   }
 
-  // Image/BG Shape container: left -202 (calc), bottom 80
-  // Portrait: left 25, top 22, 535x683 (25/1214 = 2%, 22/705 = 3.1%)
+  // Image/BG Shape container - positioned from bottom to align with navigation
+  // Portrait: left 25, 535x683
   &__image {
     position: absolute;
     left: calc(25 / 1214 * 100%);
-    top: calc(22 / 705 * 100%);
+    bottom: 104px; // Directly above navigation (104px height)
+    top: auto;
     // Responsive Größe: behält Aspekt-Verhältnis
     width: calc(535 / 1214 * 100%);
-    height: calc(683 / 705 * 100%);
+    height: auto;
+    aspect-ratio: 535 / 683;
     z-index: 1;
   }
 
@@ -121,6 +121,16 @@
     display: none; // Hidden on desktop
   }
 
+  // Navigation positioning within hero section - absolute at bottom, full viewport width
+  app-navigation {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw; // Full viewport width, breaks out of container
+    z-index: 20;
+  }
+
   // ==========================================
   // RESPONSIVE: Smooth scaling with percentage-based positioning
   // ==========================================
@@ -150,16 +160,16 @@
   }
 
   @media (max-width: 1024px) {
-    // Switch to flexible layout - 100vh for Above the Fold
+    // Switch to flexible layout
     aspect-ratio: unset;
     height: auto;
-    min-height: 100vh;
-    min-height: 100dvh; // Dynamic viewport height for mobile browsers
+    min-height: auto; // Remove forced 100vh to prevent large gaps
     margin-top: 0;
-    padding: 0;
+    padding: 0 1rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
 
     // Header container for Logo and Burger Menu
     &__header {
@@ -189,22 +199,28 @@
       position: relative;
       left: auto;
       top: auto;
+      bottom: auto; // Reset desktop bottom positioning
       width: 100%;
       max-width: 450px;
       height: auto;
       order: 1;
+      margin-top: 1rem;
     }
 
     &__content {
       position: relative;
       left: auto;
       top: auto;
-      margin: 2rem 0;
+      margin: 1.5rem 0;
       order: 2;
     }
 
     &__arrow {
       order: 3;
+      position: relative;
+      left: auto;
+      top: auto;
+      margin: 1rem auto 2rem;
     }
 
     &__title {
@@ -213,25 +229,22 @@
       margin-top: 1rem;
     }
 
-    &__arrow {
-      position: relative;
-      left: auto;
-      top: auto;
-      margin: 2rem auto 0;
-    }
-
     &__burger-menu {
       display: block;
       position: relative;
     }
+
+    // Navigation on tablet - hide and use burger menu instead
+    app-navigation {
+      display: none;
+    }
   }
 
-  // Mobile - 100vh for Above the Fold
+  // Mobile layout
   @media (max-width: 767px) {
-    min-height: 100vh;
-    min-height: 100dvh; // Dynamic viewport height (handles mobile address bar)
-    padding: 0;
-    gap: 1rem;
+    min-height: auto; // Remove forced 100vh to prevent large gaps
+    padding: 0 1rem 1.5rem;
+    gap: 0.5rem;
 
     // Header container with Logo (left) and Burger Menu (right)
     &__header {
@@ -257,6 +270,8 @@
 
     &__image {
       max-width: 300px;
+      bottom: auto; // Reset desktop positioning
+      margin-top: 0.5rem;
     }
 
     &__content {
@@ -268,12 +283,17 @@
     }
 
     &__arrow {
-      margin-top: 1rem;
+      margin: 1rem auto 1.5rem;
     }
 
     &__burger-menu {
       display: block;
       position: relative;
+    }
+
+    // Navigation on mobile - hide and use burger menu instead
+    app-navigation {
+      display: none;
     }
   }
 }

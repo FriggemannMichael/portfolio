@@ -8,8 +8,14 @@
   height: 683px;
 
   @media (min-width: 1025px) {
-    // Statt 768px
     display: block;
+  }
+
+  // Responsive scaling for intermediate breakpoints (1025px - 1280px)
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    width: clamp(400px, 44vw, 535px);
+    height: auto;
+    aspect-ratio: 535 / 683;
   }
 
   // BG Shape positioned behind and slightly offset from portrait
@@ -23,13 +29,20 @@
     top: 0;
     transform: scaleX(-1);
 
-    // Responsive offset adjustments to prevent clipping with transform: scale()
-    @media (max-width: 1280px) {
-      left: -20px; // Reduced offset for smaller viewports
+    // Responsive offset adjustments to prevent clipping
+    @media (max-width: 1440px) {
+      left: -30px;
+      width: 108%; // Scale with container
+      height: auto;
+      aspect-ratio: 580 / 617;
     }
 
-    @media (max-width: 1024px) {
-      left: 0; // No offset for mobile layouts
+    @media (max-width: 1280px) {
+      left: -15px; // Reduced offset for smaller viewports
+    }
+
+    @media (max-width: 1100px) {
+      left: 0; // No offset for intermediate layouts
     }
 
     img {
@@ -66,8 +79,8 @@
   .portrait {
     position: relative;
     z-index: 2;
-    width: 535px;
-    height: 683px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
   }
 }

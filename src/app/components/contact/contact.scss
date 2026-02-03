@@ -57,7 +57,6 @@
   width: 100%;
 
   @include tablet {
-    align-items: flex-start;
     gap: 3rem;
   }
 }
@@ -69,11 +68,8 @@
   align-items: center;
   padding: 0;
   gap: 1.5rem;
-  width: 100%;
-  max-width: 358px;
 
   @include tablet {
-    max-width: 100%;
     align-items: flex-start;
   }
 
@@ -105,16 +101,18 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  width: 100%;
+  width: auto;
   padding-left: 0;
   order: -1; // Contact über Text auf Mobile
 
   @include tablet {
     padding-left: 1rem;
+    width: 100%;
   }
 
   @include desktop {
     gap: 0.5rem;
+    width: auto;
     order: 0; // Normale Reihenfolge auf Desktop (Text links, Contact rechts)
   }
 }
@@ -160,6 +158,7 @@
   @include tablet {
     gap: 1rem 1.3125rem;
     max-width: 911px;
+    margin: 0 auto;
   }
 }
 
@@ -191,6 +190,7 @@
 
   @include tablet {
     max-width: 911px;
+    margin: 0 auto;
   }
 
   &.success-message {
@@ -292,6 +292,25 @@
     cursor: not-allowed;
     background: rgba(255, 255, 255, 0.05);
   }
+}
+
+// Webkit Autofill Override
+.input-field:-webkit-autofill,
+.input-field:-webkit-autofill:hover,
+.input-field:-webkit-autofill:focus,
+.input-field:-webkit-autofill:active {
+  -webkit-text-fill-color: $color-white !important;
+  -webkit-box-shadow: 0 0 0 1000px $color-bg-light-blue-12 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.textarea-field:-webkit-autofill,
+.textarea-field:-webkit-autofill:hover,
+.textarea-field:-webkit-autofill:focus,
+.textarea-field:-webkit-autofill:active {
+  -webkit-text-fill-color: $color-white !important;
+  -webkit-box-shadow: 0 0 0 1000px $color-bg-light-blue-12 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .textarea-field {

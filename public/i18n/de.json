@@ -116,8 +116,11 @@
         },
         "errors": {
             "nameRequired": "Dein Name ist erforderlich",
+            "nameMinLength": "Dein Name muss mindestens 2 Zeichen haben",
             "emailRequired": "Deine E-Mail ist erforderlich",
+            "emailInvalid": "Bitte gib eine gültige E-Mail-Adresse ein",
             "messageRequired": "Deine Nachricht ist erforderlich",
+            "messageMinLength": "Deine Nachricht muss mindestens 10 Zeichen haben",
             "privacyRequired": "Bitte akzeptiere die Datenschutzrichtlinie."
         },
         "status": {

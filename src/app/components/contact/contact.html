@@ -33,14 +33,14 @@
       >
         <!-- Success Message -->
         @if (showSuccess()) {
-          <div class="status-message success-message">
+          <div class="status-message success-message" role="status" aria-live="polite">
             {{ t('contact.status.success') }}
           </div>
         }
 
         <!-- Error Message -->
         @if (showError()) {
-          <div class="status-message error-message">
+          <div class="status-message error-message" role="alert" aria-live="assertive">
             {{ t('contact.status.error') }}
             @if (errorMessage()) {
               <br><small>{{ errorMessage() }}</small>
@@ -61,6 +61,8 @@
             autocomplete="name"
             class="input-field"
             [class.filled]="name?.value"
+            [attr.aria-invalid]="hasError('name')"
+            [attr.aria-describedby]="hasError('name') ? 'name-error' : null"
           />
           @if (isValid('name')) {
             <svg
@@ -75,7 +77,13 @@
             </svg>
           }
           @if (hasError('name')) {
-            <span class="error-message">{{ t('contact.errors.nameRequired') }}</span>
+            <span id="name-error" class="error-message" role="alert">
+              @if (name?.errors?.['required']) {
+                {{ t('contact.errors.nameRequired') }}
+              } @else if (name?.errors?.['minlength']) {
+                {{ t('contact.errors.nameMinLength') }}
+              }
+            </span>
           }
         </div>
 
@@ -93,6 +101,8 @@
             autocomplete="email"
             class="input-field"
             [class.filled]="email?.value"
+            [attr.aria-invalid]="hasError('email')"
+            [attr.aria-describedby]="hasError('email') ? 'email-error' : null"
           />
           @if (isValid('email')) {
             <svg
@@ -107,7 +117,13 @@
             </svg>
           }
           @if (hasError('email')) {
-            <span class="error-message">{{ t('contact.errors.emailRequired') }}</span>
+            <span id="email-error" class="error-message" role="alert">
+              @if (email?.errors?.['required']) {
+                {{ t('contact.errors.emailRequired') }}
+              } @else if (email?.errors?.['email']) {
+                {{ t('contact.errors.emailInvalid') }}
+              }
+            </span>
           }
         </div>
 
@@ -124,6 +140,8 @@
             class="input-field textarea-field"
             rows="5"
             [class.filled]="message?.value"
+            [attr.aria-invalid]="hasError('message')"
+            [attr.aria-describedby]="hasError('message') ? 'message-error' : null"
           ></textarea>
           @if (isValid('message')) {
             <svg
@@ -138,7 +156,13 @@
             </svg>
           }
           @if (hasError('message')) {
-            <span class="error-message">{{ t('contact.errors.messageRequired') }}</span>
+            <span id="message-error" class="error-message" role="alert">
+              @if (message?.errors?.['required']) {
+                {{ t('contact.errors.messageRequired') }}
+              } @else if (message?.errors?.['minlength']) {
+                {{ t('contact.errors.messageMinLength') }}
+              }
+            </span>
           }
         </div>
 
@@ -150,6 +174,8 @@
               id="privacy"
               formControlName="privacyAccepted"
               class="checkbox-input"
+              [attr.aria-invalid]="hasError('privacyAccepted')"
+              [attr.aria-describedby]="hasError('privacyAccepted') ? 'privacy-error' : null"
             />
             <label for="privacy" class="checkbox-label">
               <span class="checkbox-custom"></span>
@@ -161,7 +187,7 @@
             </label>
           </div>
           @if (hasError('privacyAccepted')) {
-            <span class="error-message privacy-error">{{
+            <span id="privacy-error" class="error-message privacy-error" role="alert">{{
               t('contact.errors.privacyRequired')
             }}</span>
           }

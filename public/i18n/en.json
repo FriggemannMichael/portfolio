@@ -116,8 +116,11 @@
         },
         "errors": {
             "nameRequired": "Your name is required",
-            "emailRequired": "Your Email is required",
-            "messageRequired": "Your Message is required",
+            "nameMinLength": "Your name must be at least 2 characters",
+            "emailRequired": "Your email is required",
+            "emailInvalid": "Please enter a valid email address",
+            "messageRequired": "Your message is required",
+            "messageMinLength": "Your message must be at least 10 characters",
             "privacyRequired": "Please accept the privacy policy."
         },
         "status": {
