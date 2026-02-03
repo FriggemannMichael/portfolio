@@ -246,7 +246,6 @@
   left: 27px;
   top: 3px;
   font-family: $font-body;
-  font-style: normal;
   font-weight: 400;
   font-size: $fs-small;
   line-height: 120%;
@@ -268,7 +267,6 @@
   border: 1px solid $color-primary-blue;
   border-radius: $radius-md;
   font-family: $font-body;
-  font-style: normal;
   font-weight: 400;
   font-size: $fs-p;
   line-height: 120%;
@@ -298,12 +296,7 @@
 .input-field:-webkit-autofill,
 .input-field:-webkit-autofill:hover,
 .input-field:-webkit-autofill:focus,
-.input-field:-webkit-autofill:active {
-  -webkit-text-fill-color: $color-white !important;
-  -webkit-box-shadow: 0 0 0 1000px $color-bg-light-blue-12 inset !important;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
+.input-field:-webkit-autofill:active,
 .textarea-field:-webkit-autofill,
 .textarea-field:-webkit-autofill:hover,
 .textarea-field:-webkit-autofill:focus,
@@ -359,7 +352,6 @@ span.error-message {
   bottom: -2px;
   top: auto;
   font-family: $font-body;
-  font-style: normal;
   font-weight: 400;
   font-size: $fs-small;
   line-height: 120%;
@@ -417,11 +409,10 @@ span.error-message {
 
   &:disabled {
     cursor: not-allowed;
-  }
-
-  &:disabled + .checkbox-label {
-    opacity: 0.6;
-    cursor: not-allowed;
+    & + .checkbox-label {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
   }
 }
 
@@ -431,7 +422,6 @@ span.error-message {
   gap: 5px;
   cursor: pointer;
   font-family: $font-body;
-  font-style: normal;
   font-weight: 400;
   font-size: $fs-small;
   line-height: 120%;
@@ -482,10 +472,7 @@ span.error-message {
 
 // Privacy Wrapper Error State
 .privacy-wrapper.has-error {
-  .checkbox-custom {
-    background-image: url('/icon/checkboxerror.svg');
-  }
-
+  .checkbox-custom,
   .checkbox-input:checked + .checkbox-label .checkbox-custom {
     background-image: url('/icon/checkboxerror.svg');
   }
@@ -517,30 +504,28 @@ app-button {
     }
   }
 
-  &.loading {
-    ::ng-deep button {
-      position: relative;
-      color: transparent;
+  &.loading ::ng-deep button {
+    position: relative;
+    color: transparent;
 
-      &::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 20px;
-        height: 20px;
-        border: 2px solid $color-primary-blue;
-        border-top-color: transparent;
-        border-radius: 50%;
-        animation: spin 0.6s linear infinite;
-      }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      border: 2px solid $color-primary-blue;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
     }
+  }
+}
 
-    @keyframes spin {
-      to {
-        transform: translate(-50%, -50%) rotate(360deg);
-      }
-    }
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
