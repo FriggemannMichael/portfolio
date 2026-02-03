@@ -8,7 +8,7 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 $spacing-md;
 }
@@ -451,7 +451,7 @@ span.error-message {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  transition: background-image 0.3s ease;
+  transition: background-image $transition;
 }
 
 // Checked + Hover State

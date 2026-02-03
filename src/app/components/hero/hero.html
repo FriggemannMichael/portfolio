@@ -1,6 +1,7 @@
 <section class="hero" *transloco="let t">
+  <app-logo class="hero__logo" />
+
   <div class="hero__header">
-    <app-logo class="hero__logo" />
     <app-burger-menu
       [class.hero__burger-menu]="!isMenuOpen()"
       [class.hero__burger-menu--open]="isMenuOpen()"

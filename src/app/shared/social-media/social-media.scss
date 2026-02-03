@@ -1,3 +1,5 @@
+@use '../../../styles.scss' as styles;
+
 .social-media {
   display: flex;
   flex-direction: column;
@@ -14,7 +16,7 @@
   height: 30px;
   flex: none;
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform styles.$transition;
 
   &:hover {
     transform: scale(1.1);

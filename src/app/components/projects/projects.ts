@@ -1,29 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal, inject, computed } from '@angular/core';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { ScrollAnimateDirective } from '../../shared/scroll-animate/scroll-animate.directive';
-
-interface ProjectSection {
-  titleKey: string;
-  descriptionKey: string;
-}
-
-interface Project {
-  id: number;
-  nameKey: string;
-  image: string;
-  technologies: string[];
-  durationKey: string;
-  sections: ProjectSection[];
-  liveUrl: string;
-  githubUrl: string;
-  isOngoing?: boolean;
-}
-
-interface TranslatedProject extends Project {
-  translatedName: string;
-  translatedDuration: string;
-  translatedSections: ProjectSection[];
-}
+import { Project, TranslatedProject, PROJECTS, TECH_NAMES } from './projects.config';
 
 @Component({
   selector: 'app-projects',
@@ -35,89 +13,7 @@ interface TranslatedProject extends Project {
 export class Projects {
   private readonly translocoService = inject(TranslocoService);
 
-  readonly projects = signal<Project[]>([
-    {
-      id: 1,
-      nameKey: 'projects.items.join.name',
-      image: 'img/join.png',
-      technologies: ['angular.svg', 'ts..svg', 'fire.svg'],
-      durationKey: 'projects.durations.threeWeeks',
-      liveUrl: 'https://join.friggemann.eu',
-      githubUrl: 'https://github.com/FriggemannMichael/join_mpa',
-      sections: [
-        { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.join.about' },
-        {
-          titleKey: 'projects.sections.workProcess',
-          descriptionKey: 'projects.items.join.workProcess',
-        },
-        {
-          titleKey: 'projects.sections.groupWork',
-          descriptionKey: 'projects.items.join.groupWork',
-        },
-      ],
-    },
-    {
-      id: 2,
-      nameKey: 'projects.items.pokedex.name',
-      image: 'img/pokedex.png',
-      technologies: ['html.svg', 'css.svg', 'js.svg'],
-      durationKey: 'projects.durations.twoWeeks',
-      liveUrl: 'https://pokedex.friggemann.eu',
-      githubUrl: 'https://github.com/FriggemannMichael/pokedex',
-      sections: [
-        { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.pokedex.about' },
-        {
-          titleKey: 'projects.sections.workProcess',
-          descriptionKey: 'projects.items.pokedex.workProcess',
-        },
-        {
-          titleKey: 'projects.sections.groupWork',
-          descriptionKey: 'projects.items.pokedex.groupWork',
-        },
-      ],
-    },
-    {
-      id: 3,
-      nameKey: 'projects.items.elpolloloco.name',
-      image: 'img/ellpollo.png',
-      technologies: ['html.svg', 'css.svg', 'js.svg'],
-      durationKey: 'projects.durations.threeWeeks',
-      liveUrl: 'https://elpollo.friggemann.eu',
-      githubUrl: 'https://github.com/FriggemannMichael/ElPolloLoco',
-      sections: [
-        { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.elpolloloco.about' },
-        {
-          titleKey: 'projects.sections.workProcess',
-          descriptionKey: 'projects.items.elpolloloco.workProcess',
-        },
-        {
-          titleKey: 'projects.sections.groupWork',
-          descriptionKey: 'projects.items.elpolloloco.groupWork',
-        },
-      ],
-    },
-    {
-      id: 4,
-      nameKey: 'projects.items.ongoing.name',
-      image: 'img/pokedex.png',
-      technologies: ['angular.svg', 'ts..svg'],
-      durationKey: 'projects.durations.inProgress',
-      liveUrl: '#',
-      githubUrl: 'https://github.com/username',
-      isOngoing: true,
-      sections: [
-        { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.ongoing.about' },
-        {
-          titleKey: 'projects.sections.workProcess',
-          descriptionKey: 'projects.items.ongoing.workProcess',
-        },
-        {
-          titleKey: 'projects.sections.groupWork',
-          descriptionKey: 'projects.items.ongoing.groupWork',
-        },
-      ],
-    },
-  ]);
+  readonly projects = signal<Project[]>(PROJECTS);
 
   readonly currentProjectIndex = signal(0);
 
@@ -134,23 +30,15 @@ export class Projects {
   });
 
   readonly formattedTechnologies = computed<string>(() => {
-    const techNames: Record<string, string> = {
-      'angular.svg': 'Angular',
-      'ts.svg': 'TypeScript',
-      'firebase.svg': 'Firebase',
-      'html.svg': 'HTML',
-      'css.svg': 'CSS',
-      'js.svg': 'JavaScript',
-      'fire.svg': 'Firebase',
-      'ts..svg': 'TypeScript',
-    };
-
-    return this.projects()
-      [this.currentProjectIndex()].technologies.map(
-        (tech) => techNames[tech] || tech.replace('.svg', ''),
-      )
-      .join(', ');
+    const technologies = this.projects()[this.currentProjectIndex()].technologies;
+    return this.formatTechNames(technologies);
   });
+
+  private formatTechNames(technologies: string[]): string {
+    return technologies
+      .map((tech) => TECH_NAMES[tech] || tech.replace('.svg', ''))
+      .join(', ');
+  }
 
   selectProject(index: number): void {
     this.currentProjectIndex.set(index);

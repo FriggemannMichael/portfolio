@@ -51,14 +51,12 @@ export class Email {
   private async sendEmailViaService(data: EmailData): Promise<void> {
     const templateParams = this.buildTemplateParams(data);
 
-    const response = await emailjs.send(
+    await emailjs.send(
       this.config.serviceId,
       this.config.templateId,
       templateParams,
       this.config.publicKey,
     );
-
-    console.log('EmailJS Response:', response);
   }
 
   private buildTemplateParams(data: EmailData): Record<string, string> {
@@ -78,6 +76,5 @@ export class Email {
   private handleError(error: unknown): void {
     this.sendStatus.set('error');
     this.errorMessage.set('Failed to send email. Please try again.');
-    console.error('Email sending error:', error);
   }
 }

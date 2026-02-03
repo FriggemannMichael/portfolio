@@ -43,16 +43,14 @@ export class Hero {
 
   onMenuToggle(isOpen: boolean): void {
     this.isMenuOpen.set(isOpen);
+    this.toggleBodyScroll(isOpen);
+  }
 
-    // Body-Scroll Lock
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+  private toggleBodyScroll(lock: boolean): void {
+    document.body.style.overflow = lock ? 'hidden' : '';
   }
 
   onLanguageChange(lang: 'DE' | 'EN'): void {
-    console.log('Sprache gewechselt zu:', lang);
+    // Language change handled by LanguageSwitcher
   }
 }

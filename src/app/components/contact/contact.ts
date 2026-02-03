@@ -64,28 +64,27 @@ export class Contact {
     return this.contactForm.get('privacyAccepted');
   }
 
-  async onSubmit() {
+  async onSubmit(): Promise<void> {
     this.formSubmitted = true;
+    if (!this.contactForm.valid) return;
 
-    if (this.contactForm.valid) {
-      const formData = this.contactForm.value;
+    const success = await this.submitFormData();
+    if (success) this.resetFormAfterSuccess();
+  }
 
-      const success = await this.emailService.sendEmail({
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-      });
+  private async submitFormData(): Promise<boolean> {
+    const formData = this.contactForm.value;
+    return this.emailService.sendEmail({
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    });
+  }
 
-      if (success) {
-        this.contactForm.reset();
-        this.formSubmitted = false;
-
-        // Reset status after 5 seconds
-        setTimeout(() => {
-          this.emailService.resetStatus();
-        }, 5000);
-      }
-    }
+  private resetFormAfterSuccess(): void {
+    this.contactForm.reset();
+    this.formSubmitted = false;
+    setTimeout(() => this.emailService.resetStatus(), 5000);
   }
 
   hasError(controlName: string): boolean {

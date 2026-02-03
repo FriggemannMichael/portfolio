@@ -78,14 +78,14 @@
         "iAm": " I am",
         "location": {
             "ahaus": " located in Ahaus.",
-            "remote": " open to work remote...",
+            "remote": " open to working remotely...",
             "relocate": " not open to relocate!"
         },
         "description": "Why am I passionate about coding? I love solving complex problems through analytical thinking and creative approaches. My persistence drives me to keep going even with difficult challenges until I find the best solution. I value collaboration – because the best results come from working together. With my problem-solving mindset, I bring real value to every project.",
         "button": "Let's talk"
     },
     "references": {
-        "headline": "Need a teamplayer? Here what my colleagues said about me",
+        "headline": "Need a teamplayer? Here's what my colleagues said about me",
         "linkedInLink": "LinkedIn Profile",
         "items": {
             "sahraMueller": {

@@ -15,7 +15,7 @@
     padding-top: clamp(5rem, 15vw, 11.25rem);
     padding-bottom: $spacing-2xl;
     gap: $spacing-2xl;
-    max-width: 869px;
+    max-width: 1440px;
   }
 }
 
@@ -45,7 +45,7 @@
 
   @include tablet {
     flex-direction: row;
-    align-items: flex-start;
+    justify-content: center;
     gap: clamp(2.5rem, 8vw, 4.9375rem);
   }
 }

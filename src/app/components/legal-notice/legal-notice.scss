@@ -67,7 +67,7 @@
 .back-arrow {
   display: inline-block;
   text-decoration: none;
-  transition: transform 0.3s ease;
+  transition: transform $transition;
   border: none;
   background: none;
   padding: 0;
