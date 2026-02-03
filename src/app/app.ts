@@ -4,7 +4,6 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map } from 'rxjs';
 import { Hero } from './components/hero/hero';
 import { Whyme } from './components/whyme/whyme';
-import { NavigationComponent } from './components/navigation/navigation';
 import { Skills } from './components/skills/skills';
 import { Projects } from './components/projects/projects';
 import { References } from './components/references/references';
@@ -17,7 +16,6 @@ import { Footer } from './components/footer/footer';
     RouterOutlet,
     Hero,
     Whyme,
-    NavigationComponent,
     Skills,
     Projects,
     References,

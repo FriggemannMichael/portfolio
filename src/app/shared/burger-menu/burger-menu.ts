@@ -1,10 +1,9 @@
 import { Component, output, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LanguageSwitcherComponent } from '../language-switcher/language-switcher';
 
 @Component({
   selector: 'app-burger-menu',
-  imports: [CommonModule, LanguageSwitcherComponent],
+  imports: [CommonModule],
   templateUrl: './burger-menu.html',
   styleUrl: './burger-menu.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

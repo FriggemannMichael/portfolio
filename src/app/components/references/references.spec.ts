@@ -18,32 +18,7 @@ describe('References', () => {
     let instance: References;
 
     beforeEach(() => {
-      instance = Object.create(References.prototype);
-      // Initialize the signals manually for testing
-      instance.references = signal([
-        {
-          id: 1,
-          nameKey: 'references.items.sahraMueller.name',
-          projectKey: 'references.items.sahraMueller.project',
-          quoteKey: 'references.items.sahraMueller.quote',
-          linkedInUrl: '#',
-        },
-        {
-          id: 2,
-          nameKey: 'references.items.jamesRugman.name',
-          projectKey: 'references.items.jamesRugman.project',
-          quoteKey: 'references.items.jamesRugman.quote',
-          linkedInUrl: '#',
-        },
-        {
-          id: 3,
-          nameKey: 'references.items.evelynMarx.name',
-          projectKey: 'references.items.evelynMarx.project',
-          quoteKey: 'references.items.evelynMarx.quote',
-          linkedInUrl: '#',
-        },
-      ]);
-      instance.activeIndex = signal(0);
+      instance = new References();
     });
 
     it('should have 3 references', () => {

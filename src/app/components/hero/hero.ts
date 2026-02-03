@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  signal,
+  HostListener,
+  ViewChild,
+} from '@angular/core';
 import { HeroImageComponent } from './hero-image/hero-image';
 import { ArrowBtnComponent } from '../../shared/arrow-btn/arrow-btn';
 import { SocialMedia } from '../../shared/social-media/social-media';
@@ -26,6 +32,36 @@ import { NavigationComponent } from '../navigation/navigation';
 })
 export class Hero {
   isMenuOpen = signal(false);
+
+  @ViewChild(BurgerMenu) burgerMenu!: BurgerMenu;
+
+  @HostListener('window:resize')
+  onResize(): void {
+    if (this.isMenuOpen()) {
+      this.closeMenu();
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    if (!this.isMenuOpen()) return;
+
+    const target = event.target as HTMLElement;
+    const clickedInsideMenu = target.closest('.menu-container');
+    const clickedBurgerButton = target.closest('.burger-icon');
+
+    if (!clickedInsideMenu && !clickedBurgerButton) {
+      this.closeMenu();
+    }
+  }
+
+  closeMenu(): void {
+    this.isMenuOpen.set(false);
+    this.toggleBodyScroll(false);
+    if (this.burgerMenu) {
+      this.burgerMenu.isOpen.set(false);
+    }
+  }
 
   scrollToNext(): void {
     const nextSection = document.querySelector('.why-me');

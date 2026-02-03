@@ -13,21 +13,21 @@
     }
 
     .language-btn {
-      padding: 0.5rem 1rem;
-      font-size: 28px;
+      padding: 8px 14px;
+      font-size: 20px;
 
       &::before {
-        width: 75px;
-        height: 50px;
+        width: 58px;
+        height: 38px;
       }
 
       @media (max-width: 480px) {
-        font-size: 18px;
-        padding: 0.5rem 0.75rem;
+        font-size: 16px;
+        padding: 6px 12px;
 
         &::before {
-          width: 60px;
-          height: 40px;
+          width: 48px;
+          height: 32px;
         }
       }
     }
@@ -36,12 +36,10 @@
 
 .language-switcher {
   display: flex;
-  gap: 16px;
+  gap: 8px;
   align-items: center;
-  padding: 11px;
+  padding: 4px;
   border-radius: $radius-sm;
-  width: 123px;
-  height: 52px;
 }
 
 .language-btn {
@@ -54,7 +52,7 @@
   line-height: 120%;
   color: $color-primary-dark;
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 6px 12px;
   transition: $transition;
   z-index: 1;
 
@@ -64,8 +62,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-2.14deg);
-    width: 85px;
-    height: 56px;
+    width: 52px;
+    height: 34px;
     background-image: url('/icon/languagswitch.svg');
     background-size: contain;
     background-repeat: no-repeat;
