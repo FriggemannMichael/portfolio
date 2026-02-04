@@ -107,7 +107,7 @@
     },
     "contact": {
         "headline": "Kontaktiere mich",
-        "intro": "Ermutige die Leute, dich zu kontaktieren und beschreibe, welche Rolle dich interessiert. Zeige, dass du durch deine Arbeit einen Mehrwert für ihre Projekte schaffst.\nBeispiel: Kontaktiere mich gerne bei Jobangeboten oder Möglichkeiten wie: ...",
+        "intro": "Kontaktiere mich gern bei spannenden Jobangeboten oder Projektmöglichkeiten – ob kurzfristige Unterstützung oder langfristige Zusammenarbeit. Ich bringe Struktur, kreative Lösungen und verlässliche Umsetzung ein und helfe dabei, Ideen in greifbare Ergebnisse zu verwandeln. Wenn du Mehrwert für dein Projekt suchst: Schreib mir.",
         "form": {
             "name": "Dein Name",
             "email": "Deine E-Mail",
@@ -129,13 +129,14 @@
             "sending": "Wird gesendet..."
         },
         "privacy": {
-            "text": "Ich habe das",
-            "link": "Impressum",
-            "textAfter": "gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu."
+            "text": "Ich habe die ",
+            "privacyLink": "Datenschutzerklärung",
+            "textAfter": " gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu."
         }
     },
     "footer": {
         "legalNotice": "Impressum",
+        "privacyPolicy": "Datenschutz",
         "copyright": "© Michael Friggemann"
     },
     "legalNotice": {
@@ -173,6 +174,51 @@
         "indemnity": {
             "title": "Freistellung",
             "content": "Sie verpflichten sich, den Entwickler von allen Ansprüchen, Verbindlichkeiten, Schäden, Verlusten und Kosten, einschließlich angemessener Anwaltsgebühren, freizustellen, zu verteidigen und schadlos zu halten, die sich aus Ihrem Zugriff auf oder Ihrer Nutzung der Website oder Ihrer Verletzung dieser Bedingungen ergeben."
+        }
+    },
+    "privacyPolicy": {
+        "title": "Datenschutzerklärung",
+        "introduction": {
+            "title": "Einleitung",
+            "content": "Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen. Ich behandle Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung. Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten innerhalb meines Onlineangebotes und der mit ihm verbundenen Webseiten, Funktionen und Inhalte auf."
+        },
+        "responsibleParty": {
+            "title": "Verantwortlicher",
+            "name": "Michael Friggemann",
+            "street": "Schwarzer Weg 29",
+            "city": "48683 Ahaus",
+            "country": "Deutschland",
+            "contactLabel": "Kontakt:",
+            "phone": "Tel: 0171 2363977",
+            "email": "E-Mail: m.friggemann@proton.me"
+        },
+        "dataCollection": {
+            "title": "Erhebung und Speicherung personenbezogener Daten",
+            "content": "Beim Besuch der Website werden durch den Hosting-Provider automatisch Informationen erfasst, die Ihr Browser übermittelt. Dies sind: IP-Adresse, Datum und Uhrzeit der Anfrage, Zeitzonendifferenz zur Greenwich Mean Time (GMT), Inhalt der Anforderung (konkrete Seite), Zugriffsstatus/HTTP-Statuscode, jeweils übertragene Datenmenge, Webseite von der die Anforderung kommt, Browser, Betriebssystem und dessen Oberfläche, Sprache und Version der Browsersoftware. Diese Daten werden in Logfiles gespeichert und nach 7 Tagen gelöscht."
+        },
+        "contactForm": {
+            "title": "Kontaktformular",
+            "content": "Bei der Nutzung des Kontaktformulars werden Ihre Angaben (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei mir gespeichert. Diese Daten gebe ich nicht ohne Ihre Einwilligung weiter. Die Verarbeitung erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Sie können diese Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bereits erfolgten Datenverarbeitungsvorgänge bleibt vom Widerruf unberührt."
+        },
+        "cookies": {
+            "title": "Cookies",
+            "content": "Diese Website verwendet keine Cookies. Sollte in Zukunft die Verwendung von Cookies erforderlich werden, werden Sie an dieser Stelle darüber informiert und können der Verwendung widersprechen."
+        },
+        "serverLogs": {
+            "title": "Server-Log-Dateien",
+            "content": "Der Provider dieser Website erhebt und speichert automatisch Informationen in Server-Log-Dateien, die Ihr Browser automatisch übermittelt. Dies sind: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und IP-Adresse. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Daten werden nach einer statistischen Auswertung nach 7 Tagen gelöscht."
+        },
+        "rights": {
+            "title": "Ihre Rechte",
+            "content": "Sie haben das Recht auf Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger sowie den Zweck der Datenverarbeitung. Sie haben außerdem ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit unter der im Impressum angegebenen Adresse an mich wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu."
+        },
+        "security": {
+            "title": "Datensicherheit",
+            "content": "Ich setze technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre durch mich verwalteten Daten gegen zufällige oder vorsätzliche Manipulationen, Verlust, Zerstörung oder gegen den Zugriff unberechtigter Personen zu schützen. Meine Sicherheitsmaßnahmen werden entsprechend der technologischen Entwicklung fortlaufend verbessert."
+        },
+        "changes": {
+            "title": "Änderungen der Datenschutzerklärung",
+            "content": "Ich behalte mir vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen meiner Leistungen in der Datenschutzerklärung umzusetzen. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung."
         }
     }
 }

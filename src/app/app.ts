@@ -40,6 +40,7 @@ export class App {
 
   protected readonly isHomePage = computed(() => {
     const url = this.currentUrl();
-    return url === '/' || url === '';
+    // Hauptseite: /, leer, oder mit Fragment (z.B. /#about)
+    return url === '/' || url === '' || url.startsWith('/#');
   });
 }

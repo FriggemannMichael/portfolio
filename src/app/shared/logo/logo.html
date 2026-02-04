@@ -1,3 +1,7 @@
-<a href="#" class="logo" aria-label="Home">
-  <img ngSrc="/img/1_logo.svg" alt="Logo" width="45" height="50" priority />
+<a routerLink="/" class="logo" aria-label="Home">
+  @if (priority()) {
+    <img [ngSrc]="logoSrc()" alt="Logo" width="58" height="72" priority />
+  } @else {
+    <img [ngSrc]="logoSrc()" alt="Logo" width="58" height="72" />
+  }
 </a>

@@ -106,18 +106,18 @@
 }
 
 .skill-name {
+  display: none;
   font-family: $font-body;
   font-style: normal;
   font-weight: 400;
-  font-size: $fs-p;
   line-height: 120%;
   color: $color-primary-blue;
   margin: 0;
   text-align: center;
-  display: none;
 
   @include tablet {
     display: block;
+    font-size: $fs-p;
   }
 }
 

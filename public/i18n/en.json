@@ -107,7 +107,7 @@
     },
     "contact": {
         "headline": "Contact me",
-        "intro": "Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.\nExample: Feel free to get in touch with job offers or opportunities such as: ...",
+        "intro": "Feel free to reach out about exciting job offers or project opportunities – whether short-term support or long-term collaboration. I bring structure, creative solutions, and reliable execution, helping turn ideas into tangible results. If you're looking to add value to your project: Get in touch.",
         "form": {
             "name": "Your name",
             "email": "Your Email",
@@ -129,13 +129,14 @@
             "sending": "Sending..."
         },
         "privacy": {
-            "text": "I've read the",
-            "link": "legal notice",
-            "textAfter": "and agree to the processing of my data as outlined."
+            "text": "I've read the ",
+            "privacyLink": "privacy policy",
+            "textAfter": " and agree to the processing of my data as outlined."
         }
     },
     "footer": {
         "legalNotice": "Legal notice",
+        "privacyPolicy": "Privacy policy",
         "copyright": "© Michael Friggemann"
     },
     "legalNotice": {
@@ -173,6 +174,51 @@
         "indemnity": {
             "title": "Indemnity",
             "content": "You agree to indemnify, defend, and hold harmless the developer from any claims, liabilities, damages, losses, and expenses, including reasonable attorney's fees, arising out of or in any way connected with your access to or use of the website, or your violation of these terms."
+        }
+    },
+    "privacyPolicy": {
+        "title": "Privacy Policy",
+        "introduction": {
+            "title": "Introduction",
+            "content": "The protection of your personal data is of particular concern to me. I treat your personal data confidentially and in accordance with legal data protection regulations and this privacy policy. This privacy policy informs you about the type, scope and purpose of the processing of personal data within my online offering and the websites, functions and content associated with it."
+        },
+        "responsibleParty": {
+            "title": "Responsible Party",
+            "name": "Michael Friggemann",
+            "street": "Schwarzer Weg 29",
+            "city": "48683 Ahaus",
+            "country": "Germany",
+            "contactLabel": "Contact:",
+            "phone": "Phone: +49 171 2363977",
+            "email": "E-mail: m.friggemann@proton.me"
+        },
+        "dataCollection": {
+            "title": "Collection and Storage of Personal Data",
+            "content": "When you visit the website, information is automatically collected by the hosting provider that your browser transmits. These are: IP address, date and time of the request, time zone difference to Greenwich Mean Time (GMT), content of the request (specific page), access status/HTTP status code, amount of data transferred in each case, website from which the request comes, browser, operating system and its interface, language and version of browser software. This data is stored in log files and deleted after 7 days."
+        },
+        "contactForm": {
+            "title": "Contact Form",
+            "content": "When using the contact form, your information (name, email address, message) will be stored by me to process your request and in case of follow-up questions. I will not share this data without your consent. The processing is based on your consent (Art. 6 para. 1 lit. a GDPR). You can revoke this consent at any time. The legality of the data processing operations that have already taken place remains unaffected by the revocation."
+        },
+        "cookies": {
+            "title": "Cookies",
+            "content": "This website does not use cookies. Should the use of cookies become necessary in the future, you will be informed here and can object to their use."
+        },
+        "serverLogs": {
+            "title": "Server Log Files",
+            "content": "The provider of this website automatically collects and stores information in server log files that your browser automatically transmits. These are: browser type and version, operating system used, referrer URL, hostname of the accessing computer, time of server request and IP address. This data is not merged with other data sources. The data is deleted after statistical evaluation after 7 days."
+        },
+        "rights": {
+            "title": "Your Rights",
+            "content": "You have the right to information about your stored personal data, its origin and recipients as well as the purpose of data processing. You also have a right to correction, blocking or deletion of this data. For this purpose, as well as for further questions on the subject of data protection, you can contact me at any time at the address given in the legal notice. Furthermore, you have the right to lodge a complaint with the competent supervisory authority."
+        },
+        "security": {
+            "title": "Data Security",
+            "content": "I use technical and organizational security measures to protect the data managed by me against accidental or intentional manipulation, loss, destruction or against access by unauthorized persons. My security measures are continuously improved in line with technological developments."
+        },
+        "changes": {
+            "title": "Changes to the Privacy Policy",
+            "content": "I reserve the right to adapt this privacy policy so that it always complies with current legal requirements or to implement changes to my services in the privacy policy. The new privacy policy will then apply to your next visit."
         }
     }
 }

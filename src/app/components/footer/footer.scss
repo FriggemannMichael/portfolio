@@ -57,12 +57,12 @@
   @include tablet {
     align-items: flex-start;
     order: 0;
-    width: 202px;
-    height: 57px;
+    width: auto;
+    height: auto;
   }
 }
 
-.legal-link {
+.footer__legal-link {
   font-family: 'Josefin Sans', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -72,6 +72,7 @@
   opacity: 0.8;
   text-decoration: none;
   transition: opacity $transition;
+  white-space: nowrap;
 
   &:hover,
   &:focus-visible {
@@ -85,7 +86,7 @@
   }
 }
 
-.copyright {
+.footer__copyright {
   font-family: 'Josefin Sans', sans-serif;
   font-style: normal;
   font-weight: 400;

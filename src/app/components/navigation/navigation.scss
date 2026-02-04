@@ -1,46 +1,68 @@
 @use '../../../styles.scss' as styles;
 
+// ===========================================
+// NAVIGATION BAR - Untere Leiste (Grid Zeile 2)
+// Volle Breite, blaue Hintergrundfarbe
+// Zentrierte Links ohne absolute Positionierung
+// ===========================================
+
+// Host-Element ohne Default-Spacing
+:host {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
 .menu-bar {
-  position: relative;
+  // Flexbox für horizontale Zentrierung der Elemente
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  // Responsive padding: min 2rem, scales with viewport, max 109px (original)
+
+  // Responsive Spacing
   padding: styles.$spacing-sm clamp(2rem, 8vw, 109px);
-  // Responsive gap: min 2rem, scales with viewport, max 196px (original)
-  gap: clamp(2rem, 14vw, 196px);
+  gap: clamp(2rem, 12vw, 196px);
+  margin: 0; // Kein Margin - direkt am Content
+
+  // Dimensionen
   width: 100%;
-  height: 104px;
+  min-height: clamp(80px, 10vh, 104px); // Fluid height basierend auf Viewport
+
+  // Styling
   background: styles.$color-primary-blue;
+
+  // Z-Index für Layering
   z-index: 20;
 
-  // Zusätzlicher Breakpoint für "tote Zone" (768px - 1100px)
+  // Zusätzlicher Breakpoint für mittlere Viewports (768px - 1100px)
   @media (max-width: 1100px) {
     padding: styles.$spacing-sm clamp(1.5rem, 6vw, 4rem);
-    gap: clamp(1.5rem, 10vw, 8rem);
-    height: auto;
+    gap: clamp(1.5rem, 8vw, 8rem);
     min-height: 80px;
   }
 
-  // Auf Mobile ausblenden
+  // Auf Mobile komplett ausblenden (Mobile nutzt Burger Menu)
   @media (max-width: 768px) {
     display: none;
   }
 }
 
+// ===========================================
+// LOGO CONTAINER - Linke Seite der Navigation
+// ===========================================
 .logo-container {
   display: flex;
   align-items: flex-end;
   gap: styles.$spacing-xs;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+  flex-shrink: 0; // Verhindert Schrumpfen bei wenig Platz
 }
 
 .logo {
-  width: 58px;
-  height: 72px;
+  width: clamp(52px, 5vw, 58px);
+  height: auto;
+  aspect-ratio: 58 / 72;
+  object-fit: contain;
 }
 
 .logo-text {
@@ -51,7 +73,6 @@
 
 .name {
   font-family: styles.$font-heading;
-  font-style: normal;
   font-weight: 400;
   font-size: styles.$fs-small;
   line-height: 120%;
@@ -60,97 +81,71 @@
 
 .role {
   font-family: styles.$font-body;
-  font-style: normal;
   font-weight: 300;
   font-size: styles.$fs-small;
   line-height: 120%;
   color: styles.$color-primary-dark;
 }
 
+// ===========================================
+// MENU SYSTEM - Zentraler Bereich
+// Links sind horizontal zentriert
+// ===========================================
 .menu-system {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  // Responsive gap: min 1.5rem, scales with viewport, max 92px (original)
-  gap: clamp(1.5rem, 6vw, 92px);
-  flex: none;
-  order: 1;
-  flex-grow: 0;
+  align-items: center;
+  justify-content: center;
+
+  // Responsive gap zwischen Links
+  gap: clamp(1.5rem, 5vw, 92px);
+
+  flex-shrink: 1; // Kann schrumpfen bei wenig Platz
 }
 
 .menu-button {
-  display: flex;
-  flex-direction: row;
+  display: inline-flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: 0;
+  align-items: center;
+  padding: clamp(0.25rem, 0.5vh, 0.5rem) clamp(0.5rem, 1vw, 1rem);
+  border: none;
+  background: none;
   text-decoration: none;
   cursor: pointer;
-  transition: opacity styles.$transition;
+  border-radius: styles.$radius-sm;
+
+  // Smooth Transition für Hover-Effekt
+  transition: opacity styles.$transition, transform styles.$transition;
 
   &:hover {
-    opacity: 0.8;
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid styles.$color-primary-dark;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   .text {
     font-family: styles.$font-body;
-    font-style: normal;
     font-weight: 500;
-    font-size: styles.$fs-h6;
+    font-size: clamp(14px, 1.6vw, styles.$fs-h6);
     line-height: 120%;
     text-align: center;
     color: styles.$color-primary-dark;
+    white-space: nowrap; // Verhindert Umbruch
   }
 }
 
-.lang-ellipse {
-  position: absolute;
-  left: 55.43%;
-  right: 4.57%;
-  top: 9.68%;
-  bottom: 12.9%;
-  background: styles.$color-bg-dark-grey;
-  border-radius: 50%;
-  transform: rotate(-2.14deg);
-  transition: left styles.$transition;
-}
-
-.lang-option {
-  position: absolute;
-  top: 19.35%;
-  font-family: styles.$font-body;
-  font-style: normal;
-  font-weight: 400;
-  font-size: styles.$fs-p;
-  line-height: 120%;
-  transition: color styles.$transition;
-
-  &:first-of-type {
-    left: 15.22%;
-    color: styles.$color-primary-dark;
-  }
-
-  &:last-of-type {
-    left: 59.78%;
-    color: styles.$color-creme-white;
-  }
-
-  &.active {
-    &:first-of-type {
-      color: styles.$color-creme-white;
-    }
-    &:last-of-type {
-      color: styles.$color-primary-dark;
-    }
-  }
-}
-
-.change-language:has(.lang-option.active:last-of-type) .lang-ellipse {
-  left: 15.22%;
-}
-
+// ===========================================
+// LANGUAGE SWITCHER - Rechte Seite der Navigation
+// ===========================================
 app-language-switcher {
-  flex: none;
-  order: 2;
-  flex-grow: 0;
+  flex-shrink: 0; // Verhindert Schrumpfen
 }
+

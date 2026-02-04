@@ -1,20 +1,41 @@
-import { Component, output, signal, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, output, signal, ChangeDetectionStrategy, effect, inject, DestroyRef, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
+import { LanguageSwitcherComponent } from '../language-switcher/language-switcher';
 
 @Component({
   selector: 'app-burger-menu',
-  imports: [CommonModule],
+  imports: [LanguageSwitcherComponent],
   templateUrl: './burger-menu.html',
   styleUrl: './burger-menu.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BurgerMenu {
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly router = inject(Router);
+  private readonly platformId = inject(PLATFORM_ID);
+
   isOpen = signal(false);
 
   navigate = output<string>();
-  languageChange = output<'DE' | 'EN'>();
   menuToggle = output<boolean>();
   close = output<void>();
+
+  constructor() {
+    // Body scroll lock effect
+    effect(() => {
+      if (this.isOpen()) {
+        document.body.classList.add('mobile-menu-open');
+      } else {
+        document.body.classList.remove('mobile-menu-open');
+      }
+    });
+
+    // Cleanup on destroy
+    this.destroyRef.onDestroy(() => {
+      document.body.classList.remove('mobile-menu-open');
+    });
+  }
 
   toggleMenu() {
     this.isOpen.update((value) => !value);
@@ -25,13 +46,23 @@ export class BurgerMenu {
   }
 
   onNavigate(section: string) {
-    this.navigate.emit(section);
     this.isOpen.set(false);
     this.menuToggle.emit(false);
     this.close.emit();
-  }
 
-  onLanguageChange(lang: 'DE' | 'EN') {
-    this.languageChange.emit(lang);
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    const element = document.getElementById(section);
+    if (element) {
+      // Element exists on current page - scroll to it
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // On subpage - navigate to home with fragment
+      this.router.navigate(['/'], { fragment: section });
+    }
+
+    this.navigate.emit(section);
   }
 }

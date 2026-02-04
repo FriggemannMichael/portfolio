@@ -1,338 +1,299 @@
 @use '../../../styles.scss' as styles;
 
-// Hero Section - Figma Reference: 1214×705px
-// Above the Fold: 100vh requirement (Portfolio Checklist)
+// ===========================================
+// HERO SECTION - CSS Grid Layout (Senior Frontend Clean Code)
+// Strikt auf 100vh/100dvh begrenzt, kein Scroll
+// Grid-basiertes Layout ohne position: absolute
+// ===========================================
+
 .hero {
-  position: relative;
+  // ===========================================
+  // ÄUSSERES GRID: 2 Zeilen
+  // Zeile 1: Main Content (1fr) - nimmt verfügbaren Raum
+  // Zeile 2: Navigation (auto) - passt sich Inhalt an
+  // ===========================================
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 0; // Kein Abstand zwischen Main und Navigation
   width: 100%;
-  max-width: 1214px;
-  // Full viewport height - navigation is now inside hero section
-  height: 100vh;
-  height: 100dvh; // Dynamic viewport height for mobile browsers
-  min-height: 600px; // Minimum to prevent design breaking (increased for nav)
-  max-height: 900px; // Cap to maintain proportions on tall screens (increased for nav)
+  max-width: 1440px;
+  height: 100vh; // Fallback für ältere Browser
+  height: 100dvh; // Modern: berücksichtigt Mobile Browser UI
   margin: 0 auto;
-  overflow: visible;
-  // Add padding to prevent bg-shape clipping with negative offset
-  padding-left: 50px;
+  padding: 0; // Überschreibt globales section padding (80px)
+  overflow: hidden; // Verhindert vertikalen Scroll
 
-  // Header container for Logo and Burger Menu (Mobile)
+  // Mobile Header - nur auf Mobile sichtbar
   &__header {
-    display: none; // Hidden on desktop, shown on mobile
+    display: none;
   }
 
-  // Logo: left 892, top 121 (892/1214 = 73.47%) - Desktop only
-  &__logo {
-    position: absolute;
-    // Prozentuale Position statt fixed px - behält Desktop-Design bei voller Größe
-    left: calc(892 / 1214 * 100%);
-    top: calc(121 / 705 * 100%);
-    width: 66px;
-    height: 73px;
-    z-index: 10;
+  // ===========================================
+  // MAIN GRID (Zeile 1): 2 Spalten auf Desktop
+  // Spalte 1 (1fr): Bild links
+  // Spalte 2 (1fr): Content rechts
+  // ===========================================
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center; // Content vertikal zentriert
+    padding: 0 clamp(1.5rem, 3vw, 3rem);
+    gap: clamp(1rem, 2vw, 2rem);
+    min-height: 0; // Kritisch: Verhindert Grid-Overflow bei langen Inhalten
   }
 
-  // Social Media: left 1182, top 68 (1182/1214 = 97.36%)
-  &__social {
-    position: absolute;
-    // Prozentuale Position für responsive Skalierung
-    left: calc(1182 / 1214 * 100%);
-    top: calc(68 / 705 * 100%);
-    width: 30px;
-    height: 122px;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  // Image/BG Shape container - positioned from bottom to align with navigation
-  // Portrait: left 25, 535x683
+  // ===========================================
+  // LINKE SPALTE: Bild-Container
+  // ===========================================
   &__image {
-    position: absolute;
-    left: calc(25 / 1214 * 100%);
-    bottom: 104px; // Directly above navigation (104px height)
-    top: auto;
-    // Responsive Größe: behält Aspekt-Verhältnis
-    width: calc(535 / 1214 * 100%);
+    width: 100%;
+    max-width: 535px;
     height: auto;
     aspect-ratio: 535 / 683;
-    z-index: 1;
+    justify-self: end; // Richtet Bild nach rechts (zur Mitte) aus
+    align-self: end; // Bild unten bündig mit Navigation
+    object-fit: contain;
   }
 
-  // Menu Container an der gleichen Position wie das Bild
+  // Mobile Menu im Bild-Container
   &__menu {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
   }
 
-  // Content wrapper for Name and Title
+  // ===========================================
+  // RECHTE SPALTE: Content mit 3-Zonen-Grid
+  // Nested Grid für präzise vertikale Kontrolle
+  // ===========================================
   &__content {
-    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 5;
-    // Position based on Name: left 607, top 230 (607/1214 = 50%, 230/705 = 32.6%)
-    left: calc(607 / 1214 * 100%);
-    top: calc(230 / 705 * 100%);
+    height: 683px; // Gleiche Höhe wie Bild für vertikale Zentrierung
+    max-height: 100%;
+    align-self: end; // Unten bündig wie das Bild
+    min-height: 0; // Kritisch: Verhindert Overflow
   }
 
-  // Name: left 607, top 230, 610x81
+  // -------------------------------------------
+  // OBERE ZONE: Logo zentriert, Social Icons rechts
+  // 3-Spalten-Grid: [Leer (1fr)] [Logo (auto)] [Social (1fr)]
+  // -------------------------------------------
+  &__zone-top {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    width: 100%;
+    gap: 1rem;
+    margin-top: auto; // Flexbox-Trick: Schiebt Content zur Mitte
+    margin-bottom: clamp(0.75rem, 1.5vh, 1.5rem); // Abstand zu h1/h2
+  }
+
+  &__logo {
+    grid-column: 2; // Mittlere Spalte
+    justify-self: center;
+    width: clamp(56px, 5vw, 66px);
+    height: auto;
+    aspect-ratio: 66 / 73;
+  }
+
+  &__social {
+    grid-column: 3; // Rechte Spalte
+    justify-self: end;
+    align-self: start;
+    display: flex;
+    flex-direction: column; // Icons vertikal stapeln
+    gap: clamp(12px, 1.5vh, 16px);
+    padding-right: clamp(0.5rem, 1vw, 1rem);
+  }
+
+  // -------------------------------------------
+  // MITTLERE ZONE: Name & Titel zentriert
+  // place-items: center für perfekte Zentrierung
+  // -------------------------------------------
+  &__zone-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center; // Horizontal zentriert
+    text-align: center;
+    padding: 0 clamp(0.5rem, 2vw, 2rem);
+    gap: clamp(0.25rem, 0.5vh, 0.5rem); // Kleiner Abstand zwischen h1 und h2
+  }
+
   &__name {
-    width: auto;
-    max-width: 100%;
     font-family: styles.$font-heading;
-    // Responsive font-size: scales with container, capped at 72px for 1440px+ viewports
-    font-size: clamp(1.35rem, 5.9vw, 72px);
+    font-size: clamp(2rem, 4.5vw, 72px); // Fluid Typography
     font-weight: 400;
     line-height: 120%;
     color: styles.$color-creme-white;
-    text-align: center;
     margin: 0;
-    white-space: nowrap; // Desktop: einzeilig
-    overflow-wrap: break-word;
+    white-space: nowrap;
 
-    // Auf kleineren Bildschirmen Umbruch erlauben
+    // Breakpoint für Textumbruch bei engeren Viewports
     @media (max-width: 1199px) {
       white-space: normal;
     }
   }
 
-  // Title: left 662, top 347, 501x53
-  // Relative to content: top 347 - 230 = 117px offset
   &__title {
-    width: auto;
-    max-width: min(501px, 90vw); // Desktop: max 501px, Mobile: max 90% Viewport
-    margin-top: 36px; // 347 - 230 - 81 = 36
     font-family: styles.$font-body;
-    font-size: clamp(1.25rem, 3.3vw, 40px); // Desktop: 40px, skaliert runter
+    font-size: clamp(1.25rem, 2.5vw, 40px); // Fluid Typography
     font-weight: 400;
     line-height: 120%;
     color: styles.$color-creme-white;
-    text-align: center;
-    overflow-wrap: break-word;
+    margin: 0; // Margin entfernt, gap regelt den Abstand
   }
 
-  // Arrow: left 906, top 540 (906/1214 = 74.6%, 540/705 = 76.6%)
+  // -------------------------------------------
+  // UNTERE ZONE: Scroll-Arrow zentriert
+  // Schwebt optisch über der Navigation
+  // -------------------------------------------
+  &__zone-bottom {
+    margin-top: clamp(1rem, 2vh, 2rem); // Kleiner Abstand zum Text
+    margin-bottom: auto; // Balanciert margin-top:auto von zone-top → zentriert die Gruppe
+  }
+
   &__arrow {
-    position: absolute;
-    left: calc(906 / 1214 * 100%);
-    top: calc(540 / 705 * 100%);
-    width: 38px;
-    height: 89px;
-    z-index: 10;
+    width: clamp(32px, 3vw, 38px);
+    height: auto;
+    aspect-ratio: 38 / 89;
+    cursor: pointer;
+    transition: transform styles.$transition;
+
+    &:hover {
+      transform: translateY(4px);
+    }
   }
 
-  &__burger-menu {
-    display: none; // Hidden on desktop
-  }
-
-  // Navigation positioning within hero section - absolute at bottom, full viewport width
+  // ===========================================
+  // NAVIGATION (Zeile 2): Volle Breite
+  // Bricht aus max-width Container aus
+  // ===========================================
   app-navigation {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw; // Full viewport width, breaks out of container
-    z-index: 20;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%); // Trick: Volle Breite trotz max-width Container
   }
 
-  // ==========================================
-  // RESPONSIVE: Smooth scaling with percentage-based positioning
-  // ==========================================
-
-  // Desktop-Tablet Übergang (1100px - 1280px) - "tote Zone" fix
-  @media (max-width: 1280px) {
-    margin-top: 20px;
-    padding-left: 20px;
-    // Da Positionen jetzt prozentual sind, brauchen wir weniger aggressive Skalierung
-    // Container bleibt bei max-width: 1214px, Inhalte skalieren automatisch
+  // Burger Menu - versteckt auf Desktop
+  &__burger-menu {
+    display: none;
   }
 
-  // Neuer Breakpoint für "tote Zone" (768px - 1100px)
-  @media (max-width: 1100px) {
-    // Sanfte Skalierung für mittlere Bildschirme
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 1214 / 705;
-    margin-top: 10px;
-    padding-left: 10px;
-
-    &__social {
-      left: auto;
-      right: 1rem; // Fester Abstand vom rechten Rand statt prozentual
-    }
-
-    &__arrow {
-      // Prozentual positioniert, bleibt unter Content und über Navigation
-      top: 68%;
-      bottom: auto;
-    }
-
-    &__title {
-      font-size: clamp(1.5rem, 3.5vw, 40px);
-      width: auto;
-      max-width: 90%;
-    }
-  }
-
+  // ===========================================
+  // RESPONSIVE: Tablet & Mobile (< 1024px)
+  // Layout wechselt auf 1-Spalten-Grid
+  // Bild über Content
+  // ===========================================
   @media (max-width: 1024px) {
-    // Switch to flexible layout
-    aspect-ratio: unset;
+    // Äußeres Grid: Header + Main (Navigation wird versteckt)
+    grid-template-rows: auto 1fr;
     height: auto;
-    min-height: auto; // Remove forced 100vh to prevent large gaps
-    margin-top: 0;
-    padding: 0 1rem 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    min-height: 100vh;
+    min-height: 100dvh;
 
-    // Header container for Burger Menu only
+    // Mobile Header wird sichtbar
     &__header {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
-      width: 100%;
-      padding: 1.5rem 2rem;
-      z-index: 1000;
+      padding: clamp(1rem, 2vh, 1.5rem) clamp(1rem, 3vw, 2rem);
+      gap: 1rem;
     }
 
-    &__logo {
-      position: absolute;
-      left: 2rem;
-      top: 1.5rem;
-      z-index: 1001;
-    }
-
-    &__social {
-      display: none; // Social Icons auf Tablet verstecken
-    }
-
-    &__image {
-      position: relative;
-      left: auto;
-      top: auto;
-      bottom: auto; // Reset desktop bottom positioning
-      width: 100%;
-      max-width: 450px;
+    &__logo--mobile {
+      width: clamp(48px, 8vw, 56px);
       height: auto;
-      order: 1;
-      margin-top: 1rem;
+      aspect-ratio: 56 / 62;
     }
 
-    &__menu {
-      margin-bottom: 2rem;
-    }
-
-    &__content {
-      position: relative;
-      left: auto;
-      top: auto;
-      margin: 1.5rem 0;
-      order: 2;
-    }
-
-    &__arrow {
-      order: 3;
-      position: relative;
-      left: auto;
-      top: auto;
-      margin: 1rem auto 2rem;
-    }
-
-    &__title {
-      width: auto;
-      font-size: clamp(1.25rem, 3vw, 2rem);
-      margin-top: 1rem;
+    &__social--mobile {
+      display: none; // Social Icons im Header ausblenden
     }
 
     &__burger-menu {
       display: block;
-      position: relative;
     }
 
-    // Navigation on tablet - hide and use burger menu instead
+    // Desktop-Obere-Zone verstecken (Logo + Social)
+    &__zone-top {
+      display: none;
+    }
+
+    // Main Grid: 1 Spalte, Bild über Content
+    &__main {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr; // Bild (auto), Content (1fr)
+      justify-items: center;
+      padding: 0 clamp(1rem, 3vw, 2rem);
+      gap: clamp(1rem, 2vh, 1.5rem);
+    }
+
+    &__image {
+      max-width: min(450px, 80vw);
+      justify-self: center;
+    }
+
+    &__content {
+      justify-content: space-between; // Auf Mobile: Content oben, Arrow unten
+      text-align: center;
+      width: 100%;
+    }
+
+    &__zone-center {
+      padding: clamp(1rem, 3vh, 2rem) 0;
+    }
+
+    &__zone-bottom {
+      margin-top: clamp(1.5rem, 3vh, 2rem);
+      margin-bottom: auto;
+    }
+
+    // Navigation versteckt auf Mobile
     app-navigation {
       display: none;
     }
   }
 
-  // Mobile layout
-  @media (max-width: 767px) {
-    min-height: auto; // Remove forced 100vh to prevent large gaps
-    padding: 0 1rem 1.5rem;
-    gap: 0.5rem;
-
-    // Header container for Burger Menu only
+  // ===========================================
+  // RESPONSIVE: Small Mobile (< 768px)
+  // ===========================================
+  @media (max-width: 768px) {
     &__header {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      width: 100%;
       padding: 1rem;
-      z-index: 1000;
     }
 
-    &__logo {
-      position: absolute;
-      left: 1rem;
-      top: 1rem;
-      transform: scale(0.85);
-      z-index: 1001;
+    &__logo--mobile {
+      width: 48px;
     }
 
-    &__social {
-      display: none;
-    }
 
     &__image {
-      max-width: 300px;
-      bottom: auto; // Reset desktop positioning
-      margin-top: 0.5rem;
+      max-width: min(300px, 90vw);
     }
 
-    &__menu {
-      margin-bottom: 1.5rem;
-    }
-
-    &__content {
-      margin: 1rem 0;
+    &__name {
+      font-size: clamp(1.5rem, 6vw, 2.5rem);
     }
 
     &__title {
-      font-size: clamp(1rem, 4vw, 1.25rem);
+      font-size: clamp(1rem, 4vw, 1.5rem);
     }
 
     &__arrow {
-      margin: 1rem auto 1.5rem;
+      width: clamp(28px, 6vw, 32px);
     }
 
-    &__burger-menu {
-      display: block;
-      position: relative;
-    }
-
-    // Navigation on mobile - hide and use burger menu instead
-    app-navigation {
-      display: none;
+    &__zone-bottom {
+      margin-top: 1.5rem;
+      margin-bottom: auto;
     }
   }
 }
 
-// ==========================================
-// Burger Menu Styles (for desktop if needed)
-// ==========================================
-// Removed duplicate burger-menu-wrapper styles
-// Burger menu positioning is now handled by hero__header container on mobile
-
-// ==========================================
-// Menu Container Styles (erscheint an Bildposition)
-// ==========================================
-// Menu Container - uses SVG background shape (312x326 aspect ratio)
+// ===========================================
+// MOBILE MENU STYLES
+// ===========================================
 .menu-container {
   position: relative;
   width: min(312px, 80vw);
@@ -341,20 +302,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
 
   @media (max-width: 480px) {
     width: min(280px, 85vw);
-    margin-top: 1.5rem;
   }
 }
 
 .bg-shape {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
+  inset: 0;
   z-index: 1;
 
   img {

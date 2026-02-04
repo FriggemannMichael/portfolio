@@ -71,10 +71,11 @@ export class Hero {
   }
 
   onNavigate(section: string): void {
-    const sectionElement = document.querySelector(`.${section}`);
+    const sectionElement = document.getElementById(section);
     if (sectionElement) {
       sectionElement.scrollIntoView({ behavior: 'smooth' });
     }
+    this.closeMenu();
   }
 
   onMenuToggle(isOpen: boolean): void {

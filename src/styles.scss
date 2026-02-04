@@ -5,9 +5,11 @@
 // Breakpoints
 $breakpoint-small-mobile: 360px;
 $breakpoint-mobile: 320px;
+$breakpoint-medium-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
 $breakpoint-intermediate: 1100px; // Neuer Breakpoint für "tote Zone"
+$breakpoint-large-desktop: 1280px;
 $breakpoint-wide: 1440px;
 
 @mixin mobile {
@@ -197,12 +199,21 @@ p {
   align-items: center;
   justify-content: center;
 
+  &:focus-visible {
+    outline: 2px solid $color-primary-blue;
+    outline-offset: 2px;
+  }
+
   &-primary {
     background: $color-primary-blue;
     color: $color-primary-dark;
 
     &:hover {
       background: $color-creme-white;
+    }
+
+    &:focus-visible {
+      outline-color: $color-creme-white;
     }
   }
 

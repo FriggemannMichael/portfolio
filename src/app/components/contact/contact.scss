@@ -11,12 +11,6 @@
   }
 }
 
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 $spacing-md;
-}
-
 // Headline
 .contact-headline {
   font-family: $font-heading;
@@ -409,6 +403,11 @@ span.error-message {
 
   &:checked + .checkbox-label .checkbox-custom {
     background-image: url('/icon/checkboxChecked.svg');
+  }
+
+  &:focus-visible + .checkbox-label .checkbox-custom {
+    outline: 2px solid $color-primary-blue;
+    outline-offset: 2px;
   }
 
   &:disabled {

@@ -6,9 +6,9 @@
 
   <div class="menu-system">
     @for (item of menuItems; track item.key) {
-      <a [href]="item.href" class="menu-button">
+      <button type="button" class="menu-button" (click)="scrollTo(item.target)">
         <span class="text">{{ t(item.key) }}</span>
-      </a>
+      </button>
     }
   </div>
 

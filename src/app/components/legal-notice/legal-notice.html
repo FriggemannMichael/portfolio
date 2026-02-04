@@ -1,14 +1,16 @@
 <!-- Mobile Header -->
 <header class="mobile-header">
-  <app-logo class="mobile-logo" />
-  <app-burger-menu (menuToggle)="onMenuToggle($event)" />
+  <app-logo class="mobile-header__logo" variant="dark" />
+  <div class="mobile-header__burger">
+    <app-burger-menu (menuToggle)="onMenuToggle($event)" />
+  </div>
 </header>
 
 <!-- Desktop Navigation -->
 <app-navigation></app-navigation>
 
 <section class="legal-notice-section" *transloco="let t">
-  <div class="main-container">
+  <div class="container">
     <!-- Title Container -->
     <div class="title-container" appScrollAnimate animation="fade-up">
       <h1 class="legal-notice-title">{{ t('legalNotice.title') }}</h1>

@@ -1,21 +1,7 @@
 @use '../../../styles.scss' as *;
+@use '../../styles/mobile-header' as *;
 
-// Mobile Header (Logo left, Burger Menu right)
-.mobile-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 1rem 1.5rem;
-  background: $color-bg-dark-grey;
-  z-index: 1000;
-
-  // Hide on desktop (navigation is shown instead)
-  @include tablet {
-    display: none;
-  }
-}
-
+// Mobile logo adjustment (if needed)
 .mobile-logo {
   flex-shrink: 0;
 }

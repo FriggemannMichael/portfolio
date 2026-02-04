@@ -1,7 +1,9 @@
 <!-- Mobile Header -->
 <header class="mobile-header">
-  <app-logo class="mobile-logo" />
-  <app-burger-menu (menuToggle)="onMenuToggle($event)" />
+  <app-logo class="mobile-header__logo" variant="dark" />
+  <div class="mobile-header__burger">
+    <app-burger-menu (menuToggle)="onMenuToggle($event)" />
+  </div>
 </header>
 
 <!-- Desktop Navigation -->

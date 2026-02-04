@@ -1,13 +1,37 @@
-<div class="burger-menu-wrapper">
+<div class="burger-menu">
+  <!-- BEM Block: burger-menu -->
   <button
-    class="burger-icon"
+    class="burger-menu__button"
     (click)="toggleMenu()"
     [attr.aria-label]="isOpen() ? 'Menü schließen' : 'Menü öffnen'"
     [attr.aria-expanded]="isOpen()"
   >
     <img
+      class="burger-menu__icon"
       [src]="isOpen() ? '/mobil/hero/burgermenuclose.svg' : '/mobil/hero/burgermenudefaul.svg'"
       alt="Menü"
     />
   </button>
+
+  <!-- Mobile Menu Overlay -->
+  <nav class="burger-menu__overlay" [class.burger-menu__overlay--open]="isOpen()">
+    <ul class="burger-menu__nav">
+      <li>
+        <a class="burger-menu__link" (click)="onNavigate('about')" tabindex="0">About me</a>
+      </li>
+      <li>
+        <a class="burger-menu__link" (click)="onNavigate('skills')" tabindex="0">My skills</a>
+      </li>
+      <li>
+        <a class="burger-menu__link" (click)="onNavigate('portfolio')" tabindex="0">Portfolio</a>
+      </li>
+      <li>
+        <a class="burger-menu__link" (click)="onNavigate('contact')" tabindex="0">Contact</a>
+      </li>
+    </ul>
+
+    <div class="burger-menu__language">
+      <app-language-switcher variant="compact" />
+    </div>
+  </nav>
 </div>

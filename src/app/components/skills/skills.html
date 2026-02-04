@@ -1,4 +1,4 @@
-<section class="skills-section" *transloco="let t">
+<section id="skills" class="skills-section" *transloco="let t">
   <h2 class="skills-headline" appScrollAnimate animation="fade-up">{{ t('skills.headline') }}</h2>
 
   <div class="skills-content">
@@ -9,6 +9,7 @@
           <div class="skill-icon">
             <img [src]="'icon/' + skill.icon" [alt]="skill.name" />
           </div>
+          <span class="skill-name">{{ skill.name }}</span>
         </div>
       }
     </div>

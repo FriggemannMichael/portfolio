@@ -1,12 +1,18 @@
 import { Component, ChangeDetectionStrategy, inject, PLATFORM_ID, computed, effect } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Button } from '../../shared/button/button';
 import { ArrowBtnComponent } from '../../shared/arrow-btn/arrow-btn';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { ScrollAnimateDirective } from '../../shared/scroll-animate/scroll-animate.directive';
 import { Email } from '../../email';
+
+function strictEmailValidator(control: AbstractControl): ValidationErrors | null {
+  if (!control.value) return null;
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]{2,}\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(control.value) ? null : { email: true };
+}
 
 @Component({
   selector: 'app-contact',
@@ -23,7 +29,7 @@ export class Contact {
 
   contactForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, strictEmailValidator]],
     message: ['', [Validators.required, Validators.minLength(10)]],
     privacyAccepted: [false, [Validators.requiredTrue]],
   });
