@@ -5,17 +5,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 0.25rem 3rem;
-  gap: 2rem;
+  padding: 2rem 0.25rem 2rem;
+  gap: 1.5rem;
   width: 100%;
   max-width: 343px;
   margin: 0 auto;
 
   @include tablet {
-    padding-top: clamp(5rem, 15vw, 11.25rem);
-    padding-bottom: $spacing-2xl;
-    gap: $spacing-2xl;
+    padding: clamp(2.5rem, 5vw, 3.5rem) 0 clamp(2rem, 4vw, 3rem);
+    gap: $spacing-xl;
     max-width: 1440px;
+  }
+
+  @include desktop {
+    padding: 3rem 0 2.5rem;
+    gap: $spacing-lg;
   }
 }
 

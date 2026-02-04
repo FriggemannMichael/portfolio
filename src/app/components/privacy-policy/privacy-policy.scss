@@ -1,0 +1,187 @@
+@use '../../../styles.scss' as *;
+
+// Mobile Header (Logo left, Burger Menu right)
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: $color-bg-dark-grey;
+  z-index: 1000;
+
+  // Hide on desktop (navigation is shown instead)
+  @include tablet {
+    display: none;
+  }
+}
+
+.mobile-logo {
+  flex-shrink: 0;
+}
+
+// Mobile-first approach
+.privacy-policy-section {
+  position: relative;
+  padding: $spacing-2xl 0;
+  width: 100%;
+  min-height: 100vh;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+// Title Container
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  gap: 10px;
+  width: 100%;
+
+  @include tablet {
+    justify-content: flex-start;
+  }
+}
+
+// Back Arrow
+.back-arrow {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform $transition;
+  border: none;
+  background: none;
+  padding: 0;
+
+  .arrow-icon {
+    width: 60px;
+    height: 60px;
+    transform: rotate(-90deg);
+    border: none;
+  }
+
+  &:hover {
+    transform: translateX(-5px);
+  }
+}
+
+.privacy-policy-title {
+  font-family: $font-heading;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3.375rem);
+  line-height: 120%;
+  color: $color-primary-blue;
+  margin: 0;
+
+  @include tablet {
+    font-size: 3.375rem;
+  }
+}
+
+// Content Container
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  width: 100%;
+}
+
+// Text Container
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  width: 100%;
+}
+
+// Privacy Section
+.privacy-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  width: 100%;
+}
+
+// Section Header
+.section-header {
+  font-family: $font-body;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 120%;
+  color: $color-primary-blue;
+  margin: 0;
+
+  @include tablet {
+    font-size: 1.5rem;
+  }
+}
+
+// Section Body (for contact details)
+.section-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  width: 100%;
+
+  p {
+    font-family: $font-body;
+    font-weight: 400;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    line-height: 120%;
+    color: $color-creme-white;
+    margin: 0;
+
+    @include tablet {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Section Content (for blue highlighted sections)
+.section-content {
+  font-family: $font-body;
+  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.1875rem);
+  line-height: 120%;
+  color: $color-primary-blue;
+  margin: 0;
+  max-width: 100%;
+  text-align: justify;
+
+  @include tablet {
+    font-size: 1.1875rem;
+    max-width: 968px;
+  }
+}
+
+// Responsive adjustments for very small screens
+@media (max-width: $breakpoint-small-mobile) {
+  .container {
+    padding: 0 $spacing-sm;
+  }
+
+  .privacy-policy-title {
+    font-size: 1.75rem;
+  }
+
+  .section-header {
+    font-size: 1.125rem;
+  }
+
+  .section-content {
+    font-size: 0.9375rem;
+  }
+}

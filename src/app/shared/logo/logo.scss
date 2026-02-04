@@ -2,10 +2,10 @@
 
 .logo {
   display: inline-block;
-  transition: transform styles.$transition;
+  transition: transform 400ms ease;
 
   &:hover {
-    transform: rotateY(15deg);
+    transform: rotate(120deg);
   }
 
   img {

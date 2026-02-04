@@ -3,8 +3,12 @@
 // Mobile-first approach
 .contact-section {
   position: relative;
-  padding: $spacing-2xl 0;
+  padding: $spacing-xl 0;
   width: 100%;
+
+  @include desktop {
+    padding: $spacing-lg 0;
+  }
 }
 
 .container {
@@ -22,7 +26,7 @@
   line-height: 120%;
   color: $color-primary-blue;
   text-align: center;
-  margin-bottom: clamp(3.75rem, 10vw, 8.3125rem);
+  margin-bottom: clamp(2rem, 5vw, 3rem);
 }
 
 // Scroll to Top Button

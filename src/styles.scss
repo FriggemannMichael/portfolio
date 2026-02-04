@@ -3,6 +3,7 @@
 // ============================================
 
 // Breakpoints
+$breakpoint-small-mobile: 360px;
 $breakpoint-mobile: 320px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
@@ -66,13 +67,13 @@ $fs-h6: clamp(1rem, 1.5vw, 1.625rem);
 $fs-p: clamp(1rem, 0.5vw + 0.875rem, 1.125rem);
 $fs-small: clamp(0.875rem, 0.5vw + 0.75rem, 0.875rem);
 
-// Spacing
+// Spacing (reduziert für kompakteres Layout)
 $spacing-xs: 8px;
 $spacing-sm: 16px;
 $spacing-md: 24px;
-$spacing-lg: 40px;
-$spacing-xl: 56px;
-$spacing-2xl: 80px;
+$spacing-lg: 32px;    // vorher: 40px
+$spacing-xl: 40px;    // vorher: 56px
+$spacing-2xl: 48px;   // vorher: 80px
 
 // Border Radius
 $radius-sm: 5px;
@@ -310,3 +311,4 @@ section {
     transition: none;
   }
 }
+

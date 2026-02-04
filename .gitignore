@@ -49,3 +49,5 @@ Thumbs.db
 despic/
 cloud/
 cloud agents/
+
+.env

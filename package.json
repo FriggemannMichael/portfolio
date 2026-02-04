@@ -5,9 +5,12 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration=production",
+    "deploy:ftp": "npm run build:prod && node ftp-deploy.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "optimize-images": "node scripts/optimize-images.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "serve:prod": "http-server dist/portfolio/browser -p 4200"
   },
   "prettier": {
     "printWidth": 100,

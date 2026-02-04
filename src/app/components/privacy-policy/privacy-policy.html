@@ -1,0 +1,94 @@
+<!-- Mobile Header -->
+<header class="mobile-header">
+  <app-logo class="mobile-logo" />
+  <app-burger-menu (menuToggle)="onMenuToggle($event)" />
+</header>
+
+<!-- Desktop Navigation -->
+<app-navigation></app-navigation>
+
+<section class="privacy-policy-section" *transloco="let t">
+  <div class="container">
+    <!-- Title Container -->
+    <div class="title-container" appScrollAnimate animation="fade-up">
+      <h1 class="privacy-policy-title">{{ t('privacyPolicy.title') }}</h1>
+    </div>
+
+    <!-- Back Arrow -->
+    <a routerLink="/" class="back-arrow">
+      <img class="arrow-icon" src="/img/Arrow_up.svg" alt="back arrow" />
+    </a>
+
+    <!-- Content Container -->
+    <div class="content-container">
+      <!-- Text Container -->
+      <div class="text-container">
+        <!-- Introduction Section -->
+        <div class="privacy-section" appScrollAnimate animation="fade-up" [delay]="100">
+          <h2 class="section-header">{{ t('privacyPolicy.introduction.title') }}</h2>
+          <p class="section-content">{{ t('privacyPolicy.introduction.content') }}</p>
+        </div>
+
+        <!-- Responsible Party Section -->
+        <div class="privacy-section" appScrollAnimate animation="fade-up" [delay]="150">
+          <h2 class="section-header">{{ t('privacyPolicy.responsibleParty.title') }}</h2>
+          <div class="section-body">
+            <p>{{ t('privacyPolicy.responsibleParty.name') }}</p>
+            <p>{{ t('privacyPolicy.responsibleParty.street') }}</p>
+            <p>{{ t('privacyPolicy.responsibleParty.city') }}</p>
+            <p>{{ t('privacyPolicy.responsibleParty.country') }}</p>
+          </div>
+          <div class="section-body">
+            <p>{{ t('privacyPolicy.responsibleParty.contactLabel') }}</p>
+            <p>{{ t('privacyPolicy.responsibleParty.phone') }}</p>
+            <p>{{ t('privacyPolicy.responsibleParty.email') }}</p>
+          </div>
+        </div>
+
+        <!-- Data Collection Section -->
+        <div class="privacy-section" appScrollAnimate animation="fade-up" [delay]="200">
+          <h2 class="section-header">{{ t('privacyPolicy.dataCollection.title') }}</h2>
+          <p class="section-content">{{ t('privacyPolicy.dataCollection.content') }}</p>
+        </div>
+
+        <!-- Contact Form Section -->
+        <div class="privacy-section" appScrollAnimate animation="fade-up" [delay]="250">
+          <h2 class="section-header">{{ t('privacyPolicy.contactForm.title') }}</h2>
+          <p class="section-content">{{ t('privacyPolicy.contactForm.content') }}</p>
+        </div>
+
+        <!-- Cookies Section -->
+        <div class="privacy-section" appScrollAnimate animation="fade-up" [delay]="300">
+          <h2 class="section-header">{{ t('privacyPolicy.cookies.title') }}</h2>
+          <p class="section-content">{{ t('privacyPolicy.cookies.content') }}</p>
+        </div>
+
+        <!-- Server Log Files Section -->
+        <div class="privacy-section" appScrollAnimate animation="fade-up" [delay]="350">
+          <h2 class="section-header">{{ t('privacyPolicy.serverLogs.title') }}</h2>
+          <p class="section-content">{{ t('privacyPolicy.serverLogs.content') }}</p>
+        </div>
+
+        <!-- Your Rights Section -->
+        <div class="privacy-section" appScrollAnimate animation="fade-up" [delay]="400">
+          <h2 class="section-header">{{ t('privacyPolicy.rights.title') }}</h2>
+          <p class="section-content">{{ t('privacyPolicy.rights.content') }}</p>
+        </div>
+
+        <!-- Data Security Section -->
+        <div class="privacy-section" appScrollAnimate animation="fade-up" [delay]="450">
+          <h2 class="section-header">{{ t('privacyPolicy.security.title') }}</h2>
+          <p class="section-content">{{ t('privacyPolicy.security.content') }}</p>
+        </div>
+
+        <!-- Changes Section -->
+        <div class="privacy-section" appScrollAnimate animation="fade-up" [delay]="500">
+          <h2 class="section-header">{{ t('privacyPolicy.changes.title') }}</h2>
+          <p class="section-content">{{ t('privacyPolicy.changes.content') }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

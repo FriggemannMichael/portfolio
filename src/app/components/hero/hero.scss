@@ -209,10 +209,7 @@
     }
 
     &__social {
-      position: absolute;
-      left: auto;
-      right: 1rem;
-      top: 2rem;
+      display: none; // Social Icons auf Tablet verstecken
     }
 
     &__image {
