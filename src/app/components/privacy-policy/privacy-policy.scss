@@ -18,6 +18,8 @@
     flex-direction: column;
     align-items: flex-start;
     gap: clamp(2rem, 5vw, 4rem);
+    max-width: 1440px; // Content-Begrenzung: matches header limit
+    margin: 0 auto;
   }
 }
 
@@ -125,14 +127,10 @@
   p {
     font-family: $font-body;
     font-weight: 400;
-    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-size: 1rem; // 16px minimum for accessibility
     line-height: 120%;
     color: $color-creme-white;
     margin: 0;
-
-    @include tablet {
-      font-size: 1rem;
-    }
   }
 }
 
@@ -154,9 +152,9 @@
 }
 
 // Responsive adjustments for very small screens
-@media (max-width: $breakpoint-small-mobile) {
-  .container {
-    padding: 0 $spacing-sm;
+@media (max-width: 320px) {
+  .privacy-policy-section {
+    padding: $spacing-lg 0; // Reduce top/bottom padding on tiny screens
   }
 
   .privacy-policy-title {
@@ -164,10 +162,10 @@
   }
 
   .section-header {
-    font-size: 1.125rem;
+    font-size: 1.25rem; // Keep above 16px
   }
 
   .section-content {
-    font-size: 0.9375rem;
+    font-size: 1rem; // Keep 16px minimum
   }
 }

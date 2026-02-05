@@ -81,9 +81,9 @@ export class Contact {
   private async submitFormData(): Promise<boolean> {
     const formData = this.contactForm.value;
     return this.emailService.sendEmail({
-      name: formData.name,
-      email: formData.email,
-      message: formData.message,
+      name: formData.name?.trim(),
+      email: formData.email?.trim(),
+      message: formData.message?.trim(),
     });
   }
 

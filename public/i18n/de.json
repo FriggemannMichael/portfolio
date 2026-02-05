@@ -139,6 +139,11 @@
         "privacyPolicy": "Datenschutz",
         "copyright": "© Michael Friggemann"
     },
+    "notFound": {
+        "title": "Seite nicht gefunden",
+        "description": "Die von Ihnen gesuchte Seite existiert nicht oder wurde verschoben.",
+        "backToHome": "Zurück zur Startseite"
+    },
     "legalNotice": {
         "title": "Impressum",
         "imprint": {

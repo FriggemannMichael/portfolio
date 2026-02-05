@@ -22,9 +22,9 @@
     justify-content: center;
     align-items: center;
 
-    // Responsive Spacing
-    padding: styles.$spacing-sm clamp(styles.$spacing-lg, 5vw, styles.$spacing-xl);
-    gap: clamp(2rem, 12vw, 196px);
+    // Responsive Spacing (reduced padding for smaller viewports)
+    padding: styles.$spacing-sm clamp(styles.$spacing-md, 3vw, styles.$spacing-xl);
+    gap: clamp(1.5rem, 8vw, 196px);
     margin: 0; // Kein Margin - direkt am Content
 
     // Dimensionen
@@ -39,8 +39,8 @@
 
     // Zusätzlicher Breakpoint für mittlere Viewports (768px - 1100px)
     @media (max-width: 1100px) {
-      padding: styles.$spacing-sm styles.$spacing-lg;
-      gap: clamp(1.5rem, 8vw, 8rem);
+      padding: styles.$spacing-sm styles.$spacing-md; // Reduced from $spacing-lg
+      gap: clamp(1rem, 6vw, 6rem);
       min-height: 80px;
     }
 

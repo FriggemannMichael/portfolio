@@ -9,14 +9,12 @@ import { Projects } from './components/projects/projects';
 import { References } from './components/references/references';
 import { Contact } from './components/contact/contact';
 import { Footer } from './components/footer/footer';
-import { NavigationComponent } from './components/navigation/navigation';
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
     Hero,
-    NavigationComponent,
     Whyme,
     Skills,
     Projects,

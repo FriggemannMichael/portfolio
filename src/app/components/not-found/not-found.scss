@@ -1,0 +1,81 @@
+@use '../../../styles.scss' as *;
+
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: $spacing-lg $spacing-sm;
+  background: $color-bg-dark-grey;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-lg;
+}
+
+.error-code {
+  font-family: $font-heading;
+  font-size: clamp(4rem, 15vw, 8rem);
+  font-weight: 700;
+  line-height: 1;
+  color: $color-primary-blue;
+  margin: 0;
+}
+
+.error-title {
+  font-family: $font-heading;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 120%;
+  color: $color-creme-white;
+  margin: 0;
+}
+
+.error-description {
+  font-family: $font-body;
+  font-size: $fs-p;
+  font-weight: 400;
+  line-height: 140%;
+  color: $color-white;
+  margin: 0;
+  max-width: 400px;
+}
+
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 30px;
+  margin-top: $spacing-md;
+  background: transparent;
+  border: 1px solid $color-primary-blue;
+  border-radius: 30px;
+  font-family: $font-body;
+  font-size: $fs-p;
+  font-weight: 400;
+  line-height: 120%;
+  color: $color-primary-blue;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $transition;
+
+  &:hover {
+    background: $color-primary-blue;
+    color: $color-primary-dark;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

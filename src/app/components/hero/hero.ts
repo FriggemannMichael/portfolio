@@ -18,6 +18,7 @@ import { NavigationComponent } from '../navigation/navigation';
     BurgerMenu,
     LanguageSwitcherComponent,
     TranslocoDirective,
+    NavigationComponent,
   ],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
