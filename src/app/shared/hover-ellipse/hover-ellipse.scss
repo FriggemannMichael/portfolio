@@ -64,6 +64,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 15%; // Sicherheitsabstand zur Ellipse-Kante
+    box-sizing: border-box;
   }
 
   &--auto-size {

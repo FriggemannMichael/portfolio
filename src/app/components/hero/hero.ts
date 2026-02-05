@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  signal,
-  HostListener,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, HostListener, ViewChild } from '@angular/core';
 import { HeroImageComponent } from './hero-image/hero-image';
 import { ArrowBtnComponent } from '../../shared/arrow-btn/arrow-btn';
 import { SocialMedia } from '../../shared/social-media/social-media';
@@ -24,7 +18,6 @@ import { NavigationComponent } from '../navigation/navigation';
     BurgerMenu,
     LanguageSwitcherComponent,
     TranslocoDirective,
-    NavigationComponent
   ],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
@@ -48,7 +41,7 @@ export class Hero {
 
     const target = event.target as HTMLElement;
     const clickedInsideMenu = target.closest('.menu-container');
-    const clickedBurgerButton = target.closest('.burger-icon');
+    const clickedBurgerButton = target.closest('.burger-menu__button');
 
     if (!clickedInsideMenu && !clickedBurgerButton) {
       this.closeMenu();

@@ -11,141 +11,145 @@
   display: block;
   margin: 0;
   padding: 0;
-}
+  position: sticky;
+  top: 0;
+  z-index: 100;
 
-.menu-bar {
-  // Flexbox für horizontale Zentrierung der Elemente
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  .menu-bar {
+    // Flexbox für horizontale Zentrierung der Elemente
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-  // Responsive Spacing
-  padding: styles.$spacing-sm clamp(2rem, 8vw, 109px);
-  gap: clamp(2rem, 12vw, 196px);
-  margin: 0; // Kein Margin - direkt am Content
+    // Responsive Spacing
+    padding: styles.$spacing-sm clamp(styles.$spacing-lg, 5vw, styles.$spacing-xl);
+    gap: clamp(2rem, 12vw, 196px);
+    margin: 0; // Kein Margin - direkt am Content
 
-  // Dimensionen
-  width: 100%;
-  min-height: clamp(80px, 10vh, 104px); // Fluid height basierend auf Viewport
+    // Dimensionen
+    width: 100%;
+    min-height: clamp(80px, 10vh, 104px); // Fluid height basierend auf Viewport
 
-  // Styling
-  background: styles.$color-primary-blue;
+    // Styling
+    background: styles.$color-primary-blue;
 
-  // Z-Index für Layering
-  z-index: 20;
+    // Z-Index für Layering
+    z-index: 20;
 
-  // Zusätzlicher Breakpoint für mittlere Viewports (768px - 1100px)
-  @media (max-width: 1100px) {
-    padding: styles.$spacing-sm clamp(1.5rem, 6vw, 4rem);
-    gap: clamp(1.5rem, 8vw, 8rem);
-    min-height: 80px;
+    // Zusätzlicher Breakpoint für mittlere Viewports (768px - 1100px)
+    @media (max-width: 1100px) {
+      padding: styles.$spacing-sm styles.$spacing-lg;
+      gap: clamp(1.5rem, 8vw, 8rem);
+      min-height: 80px;
+    }
+
+    // Auf Mobile komplett ausblenden (Mobile nutzt Burger Menu)
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
-  // Auf Mobile komplett ausblenden (Mobile nutzt Burger Menu)
-  @media (max-width: 768px) {
-    display: none;
-  }
-}
-
-// ===========================================
-// LOGO CONTAINER - Linke Seite der Navigation
-// ===========================================
-.logo-container {
-  display: flex;
-  align-items: flex-end;
-  gap: styles.$spacing-xs;
-  flex-shrink: 0; // Verhindert Schrumpfen bei wenig Platz
-}
-
-.logo {
-  width: clamp(52px, 5vw, 58px);
-  height: auto;
-  aspect-ratio: 58 / 72;
-  object-fit: contain;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.name {
-  font-family: styles.$font-heading;
-  font-weight: 400;
-  font-size: styles.$fs-small;
-  line-height: 120%;
-  color: styles.$color-creme-white;
-}
-
-.role {
-  font-family: styles.$font-body;
-  font-weight: 300;
-  font-size: styles.$fs-small;
-  line-height: 120%;
-  color: styles.$color-primary-dark;
-}
-
-// ===========================================
-// MENU SYSTEM - Zentraler Bereich
-// Links sind horizontal zentriert
-// ===========================================
-.menu-system {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  // Responsive gap zwischen Links
-  gap: clamp(1.5rem, 5vw, 92px);
-
-  flex-shrink: 1; // Kann schrumpfen bei wenig Platz
-}
-
-.menu-button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: clamp(0.25rem, 0.5vh, 0.5rem) clamp(0.5rem, 1vw, 1rem);
-  border: none;
-  background: none;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: styles.$radius-sm;
-
-  // Smooth Transition für Hover-Effekt
-  transition: opacity styles.$transition, transform styles.$transition;
-
-  &:hover {
-    opacity: 0.85;
-    transform: translateY(-2px);
+  // ===========================================
+  // LOGO CONTAINER - Linke Seite der Navigation
+  // ===========================================
+  .logo-container {
+    display: flex;
+    align-items: flex-end;
+    gap: styles.$spacing-xs;
+    flex-shrink: 0; // Verhindert Schrumpfen bei wenig Platz
   }
 
-  &:focus-visible {
-    outline: 2px solid styles.$color-primary-dark;
-    outline-offset: 2px;
+  .logo {
+    width: clamp(52px, 5vw, 58px);
+    height: auto;
+    aspect-ratio: 58 / 72;
+    object-fit: contain;
   }
 
-  &:active {
-    transform: translateY(0);
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
   }
 
-  .text {
-    font-family: styles.$font-body;
-    font-weight: 500;
-    font-size: clamp(14px, 1.6vw, styles.$fs-h6);
+  .name {
+    font-family: styles.$font-heading;
+    font-weight: 400;
+    font-size: styles.$fs-small;
     line-height: 120%;
-    text-align: center;
+    color: styles.$color-creme-white;
+  }
+
+  .role {
+    font-family: styles.$font-body;
+    font-weight: 300;
+    font-size: styles.$fs-small;
+    line-height: 120%;
     color: styles.$color-primary-dark;
-    white-space: nowrap; // Verhindert Umbruch
+  }
+
+  // ===========================================
+  // MENU SYSTEM - Zentraler Bereich
+  // Links sind horizontal zentriert
+  // ===========================================
+  .menu-system {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    // Responsive gap zwischen Links
+    gap: clamp(1.5rem, 5vw, 92px);
+
+    flex-shrink: 1; // Kann schrumpfen bei wenig Platz
+  }
+
+  .menu-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(0.25rem, 0.5vh, 0.5rem) clamp(0.5rem, 1vw, 1rem);
+    border: none;
+    background: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: styles.$radius-sm;
+
+    // Smooth Transition für Hover-Effekt
+    transition:
+      opacity styles.$transition,
+      transform styles.$transition;
+
+    &:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid styles.$color-primary-dark;
+      outline-offset: 2px;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    .text {
+      font-family: styles.$font-body;
+      font-weight: 500;
+      font-size: clamp(14px, 1.6vw, styles.$fs-h6);
+      line-height: 120%;
+      text-align: center;
+      color: styles.$color-primary-dark;
+      white-space: nowrap; // Verhindert Umbruch
+    }
+  }
+
+  // ===========================================
+  // LANGUAGE SWITCHER - Rechte Seite der Navigation
+  // ===========================================
+  app-language-switcher {
+    flex-shrink: 0; // Verhindert Schrumpfen
   }
 }
-
-// ===========================================
-// LANGUAGE SWITCHER - Rechte Seite der Navigation
-// ===========================================
-app-language-switcher {
-  flex-shrink: 0; // Verhindert Schrumpfen
-}
-

@@ -5,21 +5,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: clamp(3rem, 8vw, 5rem) 1.5rem clamp(2rem, 5vw, 3rem);
-  gap: 2rem;
+  padding: styles.$spacing-2xl styles.$spacing-lg styles.$spacing-xl;
+  gap: styles.$spacing-xl;
   width: 100%;
-  max-width: 344px;
+  max-width: 1440px; // ← Einheitlich
   margin: 0 auto;
 
   @include styles.tablet {
-    max-width: 1440px;
-    padding: clamp(3rem, 6vw, 4rem) 40px clamp(2rem, 4vw, 3rem);
-    gap: 2.5rem;
+    padding: styles.$spacing-2xl styles.$spacing-xl styles.$spacing-xl;
+    gap: styles.$spacing-xl;
   }
-
   @include styles.desktop {
-    padding: 3rem 40px 2rem;
-    gap: 2rem;
+    padding: styles.$spacing-2xl styles.$spacing-xl styles.$spacing-xl;
+    gap: styles.$spacing-xl;
   }
 
   &__title {
@@ -37,21 +35,21 @@
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: styles.$spacing-xl;
     width: 100%;
 
     @include styles.tablet {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      gap: 3rem;
+      gap: styles.$spacing-2xl;
     }
   }
 
   &__location {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: styles.$spacing-sm;
     width: 100%;
 
     @include styles.tablet {
@@ -87,7 +85,9 @@
       border-radius: 50%;
       transform: rotate(11.02deg) scale(0.7);
       opacity: 0;
-      transition: opacity 300ms ease, transform 300ms ease;
+      transition:
+        opacity 300ms ease,
+        transform 300ms ease;
 
       @include styles.tablet {
         opacity: 1;
@@ -144,7 +144,7 @@
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: styles.$spacing-lg;
     width: 100%;
     align-items: center;
 
@@ -191,7 +191,8 @@
       font-family: styles.$font-body;
       font-style: normal;
       font-weight: 400;
-      font-size: 18px;
+      font-size: styles.$fs-p;
+
       line-height: 120%;
       color: styles.$color-primary-blue;
       cursor: pointer;

@@ -1,4 +1,14 @@
-import { Component, output, signal, ChangeDetectionStrategy, effect, inject, DestroyRef, PLATFORM_ID } from '@angular/core';
+import {
+  Component,
+  output,
+  signal,
+  ChangeDetectionStrategy,
+  effect,
+  inject,
+  DestroyRef,
+  PLATFORM_ID,
+  input,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher';
@@ -16,6 +26,7 @@ export class BurgerMenu {
   private readonly platformId = inject(PLATFORM_ID);
 
   isOpen = signal(false);
+  showOverlay = input(true); // Default: true (für Unterseiten)
 
   navigate = output<string>();
   menuToggle = output<boolean>();

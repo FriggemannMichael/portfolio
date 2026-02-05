@@ -24,15 +24,18 @@
     z-index: 1;
     width: 580px;
     height: 617px;
-    // Center shape behind portrait with slight offset
-    left: -50px;
     top: 0;
     transform: scaleX(-1);
 
-    // Responsive offset adjustments to prevent clipping
+    // Responsive: Maximal -50px, aber nie weiter links als der verfügbare Platz
+    left: max(-50px, calc((100vw - 1440px) / 2 * -1));
+
+    // Oder einfacher - clamp zwischen 0 und -50px basierend auf Viewport:
+    // left: clamp(-50px, -3vw, 0px);
+
     @media (max-width: 1440px) {
       left: -30px;
-      width: 108%; // Scale with container
+      width: 108%;
       height: auto;
       aspect-ratio: 580 / 617;
     }

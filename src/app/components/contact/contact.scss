@@ -3,11 +3,13 @@
 // Mobile-first approach
 .contact-section {
   position: relative;
-  padding: $spacing-xl 0;
+  padding: $spacing-lg $spacing-lg; // ← Original: 32px 32px
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 
   @include desktop {
-    padding: $spacing-lg 0;
+    padding: $spacing-lg $spacing-xl; // ← Original: 32px 40px
   }
 }
 
@@ -20,7 +22,7 @@
   line-height: 120%;
   color: $color-primary-blue;
   text-align: center;
-  margin-bottom: clamp(2rem, 5vw, 3rem);
+  margin-bottom: $spacing-xl;
 }
 
 // Scroll to Top Button
@@ -34,8 +36,8 @@
 
   @include tablet {
     position: absolute;
-    top: 80px;
-    right: $spacing-md;
+    right: 24px; // Mehr Abstand vom rechten Rand
+    top: 0;
     width: auto;
     margin-top: 0;
   }
@@ -51,11 +53,11 @@
   flex-direction: column;
   align-items: center;
   padding: 0;
-  gap: 2rem;
+  gap: $spacing-xl;
   width: 100%;
 
   @include tablet {
-    gap: 3rem;
+    gap: $spacing-2xl;
   }
 }
 
@@ -65,7 +67,7 @@
   flex-direction: column;
   align-items: center;
   padding: 0;
-  gap: 1.5rem;
+  gap: $spacing-lg;
 
   @include tablet {
     align-items: flex-start;
@@ -74,7 +76,7 @@
   @include desktop {
     flex-direction: row;
     align-items: center;
-    gap: 2.25rem;
+    gap: $spacing-xl;
   }
 }
 
@@ -98,18 +100,18 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
+  gap: $spacing-sm;
   width: auto;
   padding-left: 0;
   order: -1; // Contact über Text auf Mobile
 
   @include tablet {
-    padding-left: 1rem;
+    padding-left: $spacing-sm;
     width: 100%;
   }
 
   @include desktop {
-    gap: 0.5rem;
+    gap: $spacing-xs;
     width: auto;
     order: 0; // Normale Reihenfolge auf Desktop (Text links, Contact rechts)
   }
@@ -142,19 +144,16 @@
 
 // Contact Form
 .contact-form {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: flex-start;
-  padding: 0;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-sm;
   width: 100%;
   max-width: 358px;
   position: relative;
 
   @include tablet {
-    gap: 1rem 1.3125rem;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-md;
     max-width: 911px;
     margin: 0 auto;
   }
@@ -214,28 +213,13 @@
 // Input Wrapper
 .input-wrapper {
   position: relative;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
   width: 100%;
   height: 80px;
 
-  @include tablet {
-    &:not(.message-wrapper) {
-      width: calc(50% - 0.65625rem);
-      max-width: 445px;
-    }
-  }
-
   &.message-wrapper {
-    max-width: 100%;
+    grid-column: 1 / -1;
     height: auto;
     min-height: 164px;
-    order: 2;
-
-    @include tablet {
-      max-width: 911px;
-    }
   }
 }
 
@@ -378,6 +362,11 @@ span.error-message {
   flex-grow: 0;
 
   @include tablet {
+    grid-column: 1 / -1; // Überspannt beide Spalten des Formulars
+    display: grid;
+    grid-template-columns: 1fr auto; // Checkbox links, Button rechts
+    align-items: center;
+    gap: 24px;
     max-width: 911px;
     height: 80px;
     min-height: auto;
@@ -389,6 +378,11 @@ span.error-message {
   align-items: flex-start;
   gap: 5px;
   width: 100%;
+
+  @include tablet {
+    width: auto;
+    flex: 0 1 auto; // Kann schrumpfen, aber nicht wachsen
+  }
 }
 
 .checkbox-input {
@@ -490,11 +484,10 @@ app-button {
   transition: opacity $transition;
 
   @include tablet {
-    position: absolute;
-    right: 0;
-    top: 32px;
+    position: static; // Nicht absolut!
     margin-top: 0;
-    margin-left: 0;
+    margin-left: 24px; // Abstand zum Text
+    flex-shrink: 0; // Button behält Größe
   }
 
   &.disabled {

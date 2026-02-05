@@ -9,12 +9,14 @@ import { Projects } from './components/projects/projects';
 import { References } from './components/references/references';
 import { Contact } from './components/contact/contact';
 import { Footer } from './components/footer/footer';
+import { NavigationComponent } from './components/navigation/navigation';
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
     Hero,
+    NavigationComponent,
     Whyme,
     Skills,
     Projects,
@@ -33,9 +35,9 @@ export class App {
   private readonly currentUrl = toSignal(
     this.router.events.pipe(
       filter((event): event is NavigationEnd => event instanceof NavigationEnd),
-      map(event => event.urlAfterRedirects)
+      map((event) => event.urlAfterRedirects),
     ),
-    { initialValue: this.router.url }
+    { initialValue: this.router.url },
   );
 
   protected readonly isHomePage = computed(() => {

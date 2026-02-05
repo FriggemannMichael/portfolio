@@ -73,6 +73,11 @@
     @include tablet {
       display: none;
     }
+
+    // Hide on desktop+ (navigation component takes over)
+    @include desktop {
+      display: none;
+    }
   }
 
   // BEM Element: burger-menu__nav
@@ -161,5 +166,9 @@ body.mobile-menu-open {
 
   @include tablet {
     overflow: auto; // Don't lock on tablet+
+  }
+
+  @include desktop {
+    overflow: auto; // Don't lock on desktop+
   }
 }

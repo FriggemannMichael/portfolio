@@ -5,6 +5,7 @@
     <app-social-media class="hero__social--mobile" />
     <app-burger-menu
       class="hero__burger-menu"
+      [showOverlay]="false"
       [class.hero__burger-menu--open]="isMenuOpen()"
       (navigate)="onNavigate($event)"
       (menuToggle)="onMenuToggle($event)"
@@ -63,7 +64,4 @@
       </div>
     </div>
   </div>
-
-  <!-- Navigation: volle Breite, am unteren Rand -->
-  <app-navigation></app-navigation>
 </section>

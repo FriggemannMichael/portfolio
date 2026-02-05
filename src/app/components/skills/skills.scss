@@ -1,24 +1,24 @@
 @use '../../../styles.scss' as *;
 
 // Mobile-first approach
+
 .skills-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 0.25rem 2rem;
-  gap: 1.5rem;
+  padding: $spacing-xl $spacing-lg;
+  gap: $spacing-lg;
   width: 100%;
-  max-width: 343px;
+  max-width: 1440px; // ← Einheitlich, Padding regelt den Abstand
   margin: 0 auto;
 
   @include tablet {
-    padding: clamp(2.5rem, 5vw, 3.5rem) 0 clamp(2rem, 4vw, 3rem);
+    padding: $spacing-2xl $spacing-xl $spacing-xl;
     gap: $spacing-xl;
-    max-width: 1440px;
   }
 
   @include desktop {
-    padding: 3rem 0 2.5rem;
+    padding: $spacing-2xl $spacing-xl $spacing-xl;
     gap: $spacing-lg;
   }
 }
@@ -44,13 +44,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
+  gap: $spacing-xl;
   width: 100%;
 
   @include tablet {
     flex-direction: row;
     justify-content: center;
-    gap: clamp(2.5rem, 8vw, 4.9375rem);
+    gap: clamp($spacing-xl, 8vw, 4.9375rem);
   }
 }
 
@@ -61,7 +61,7 @@
   align-items: flex-start;
   align-content: flex-start;
   justify-content: center;
-  gap: 2.5rem;
+  gap: $spacing-xl;
   width: 100%;
   max-width: 298px;
   position: relative;
@@ -143,7 +143,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: $spacing-sm;
   width: 100%;
 
   @include tablet {
@@ -196,7 +196,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: $spacing-sm;
   width: 100%;
 
   @include tablet {
@@ -212,7 +212,7 @@
   align-items: center;
   width: 123px;
   min-height: 128px;
-  gap: 10px;
+  gap: $spacing-xs;
   padding: 15px 20px;
   box-sizing: border-box;
   background: url('/img/Ellipse 24.svg') no-repeat center / contain;

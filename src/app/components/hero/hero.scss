@@ -170,8 +170,7 @@
   // Bricht aus max-width Container aus
   // ===========================================
   app-navigation {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%); // Trick: Volle Breite trotz max-width Container
+    width: 100%;
   }
 
   // Burger Menu - versteckt auf Desktop
@@ -316,6 +315,8 @@
     height: 100%;
     object-fit: fill;
   }
+
+  left: 0;
 }
 
 .menu-items {
@@ -347,13 +348,13 @@
 .menu-text {
   font-family: styles.$font-body;
   font-weight: 400;
-  font-size: 20px;
+  font-size: styles.$fs-h4;
   line-height: 120%;
   color: styles.$color-primary-dark;
   transition: all styles.$transition;
 
   @media (max-width: 480px) {
-    font-size: 16px;
+    font-size: styles.$fs-p;
   }
 }
 

@@ -43,7 +43,10 @@ export const PROJECTS: Project[] = [
     githubUrl: 'https://github.com/FriggemannMichael/join_mpa',
     sections: [
       { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.join.about' },
-      { titleKey: 'projects.sections.workProcess', descriptionKey: 'projects.items.join.workProcess' },
+      {
+        titleKey: 'projects.sections.workProcess',
+        descriptionKey: 'projects.items.join.workProcess',
+      },
       { titleKey: 'projects.sections.groupWork', descriptionKey: 'projects.items.join.groupWork' },
     ],
   },
@@ -57,8 +60,14 @@ export const PROJECTS: Project[] = [
     githubUrl: 'https://github.com/FriggemannMichael/pokedex',
     sections: [
       { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.pokedex.about' },
-      { titleKey: 'projects.sections.workProcess', descriptionKey: 'projects.items.pokedex.workProcess' },
-      { titleKey: 'projects.sections.groupWork', descriptionKey: 'projects.items.pokedex.groupWork' },
+      {
+        titleKey: 'projects.sections.workProcess',
+        descriptionKey: 'projects.items.pokedex.workProcess',
+      },
+      {
+        titleKey: 'projects.sections.groupWork',
+        descriptionKey: 'projects.items.pokedex.groupWork',
+      },
     ],
   },
   {
@@ -71,8 +80,14 @@ export const PROJECTS: Project[] = [
     githubUrl: 'https://github.com/FriggemannMichael/ElPolloLoco',
     sections: [
       { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.elpolloloco.about' },
-      { titleKey: 'projects.sections.workProcess', descriptionKey: 'projects.items.elpolloloco.workProcess' },
-      { titleKey: 'projects.sections.groupWork', descriptionKey: 'projects.items.elpolloloco.groupWork' },
+      {
+        titleKey: 'projects.sections.workProcess',
+        descriptionKey: 'projects.items.elpolloloco.workProcess',
+      },
+      {
+        titleKey: 'projects.sections.groupWork',
+        descriptionKey: 'projects.items.elpolloloco.groupWork',
+      },
     ],
   },
   {
@@ -82,12 +97,18 @@ export const PROJECTS: Project[] = [
     technologies: ['angular.svg', 'ts..svg'],
     durationKey: 'projects.durations.inProgress',
     liveUrl: '#',
-    githubUrl: 'https://github.com/username',
+    githubUrl: '#',
     isOngoing: true,
     sections: [
       { titleKey: 'projects.sections.about', descriptionKey: 'projects.items.ongoing.about' },
-      { titleKey: 'projects.sections.workProcess', descriptionKey: 'projects.items.ongoing.workProcess' },
-      { titleKey: 'projects.sections.groupWork', descriptionKey: 'projects.items.ongoing.groupWork' },
+      {
+        titleKey: 'projects.sections.workProcess',
+        descriptionKey: 'projects.items.ongoing.workProcess',
+      },
+      {
+        titleKey: 'projects.sections.groupWork',
+        descriptionKey: 'projects.items.ongoing.groupWork',
+      },
     ],
   },
 ];

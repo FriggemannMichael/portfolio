@@ -49,7 +49,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: $spacing-sm;
   width: auto;
   height: auto;
   order: 2;
@@ -128,7 +128,7 @@
   flex-direction: row;
   align-items: flex-start;
   padding: 0;
-  gap: 1rem;
+  gap: $spacing-sm;
   width: auto;
   height: 30px;
   flex: none;

@@ -5,33 +5,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 0 0;
-  width: 100vw;
+  padding: $spacing-2xl $spacing-lg 0;
+  width: 100%;
   max-width: 1440px;
   margin: 0 auto;
 
   @include tablet {
-    padding: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+    padding: $spacing-2xl $spacing-xl 0;
     align-items: flex-start;
   }
 
   @include desktop {
-    padding: 3rem 0 0;
+    padding: $spacing-2xl $spacing-xl 0;
   }
 
   &__headline {
     font-family: $font-heading;
-    font-size: 32px;
+    font-size: $fs-h2;
     font-weight: 400;
     line-height: 120%;
     color: $color-primary-blue;
     text-align: center;
-    margin: 0 0 32px 0;
+    margin: 0 0 $spacing-lg 0;
     width: 100%;
 
     @include tablet {
       font-size: clamp(2.5rem, 5vw, 3.75rem);
-      margin-bottom: 40px;
+      margin-bottom: $spacing-xl;
     }
   }
 }
@@ -41,7 +41,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  padding-left: 1rem;
+  padding-left: $spacing-sm;
   position: relative;
   z-index: 2;
   width: 100%;
@@ -50,7 +50,7 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   margin-bottom: 0;
-  gap: 8px;
+  gap: $spacing-xs;
 
   &::-webkit-scrollbar {
     display: none;
@@ -58,8 +58,8 @@
 
   @include tablet {
     max-width: 100%;
-    gap: 16px;
-    padding-left: 4rem;
+    gap: $spacing-sm;
+    padding-left: $spacing-2xl;
   }
 
   &__tab {
@@ -68,7 +68,7 @@
     border: none;
     border-radius: 0;
     font-family: $font-body;
-    font-size: 16px;
+    font-size: $fs-p;
     font-weight: 400;
     line-height: 120%;
     color: rgba($color-creme-white, 0.6);
@@ -92,7 +92,7 @@
 
     @include tablet {
       padding: 12px 24px;
-      font-size: 23px;
+      font-size: $fs-h4;
 
       &--active {
         padding: 16px 32px;
@@ -104,7 +104,7 @@
 // Project Details Container
 .project-details {
   background: $color-tab-bg;
-  padding: 22px 16px;
+  padding: $spacing-md $spacing-sm;
   width: calc(100%);
   max-width: 358px;
   position: relative;
@@ -116,7 +116,7 @@
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 40px 60px;
+    padding: $spacing-xl clamp($spacing-xl, 5vw, 60px);
     border-radius: 0 30px 30px 30px;
   }
 }
@@ -132,7 +132,7 @@
 
   &__name {
     font-family: $font-heading;
-    font-size: 24px;
+    font-size: $fs-h3;
     font-weight: 400;
     line-height: 120%;
     color: $color-primary-blue;
@@ -154,11 +154,11 @@
 .project-content {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: $spacing-md;
 
   @include tablet {
     flex-direction: row;
-    gap: 60px;
+    gap: clamp($spacing-xl, 5vw, 60px);
     align-items: flex-start;
   }
 
@@ -174,7 +174,7 @@
   &__left {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: $spacing-md;
     flex: 1;
 
     @include tablet {
@@ -188,7 +188,7 @@
     @include tablet {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: $spacing-md;
       align-items: flex-end;
       min-width: 320px;
     }
@@ -199,7 +199,7 @@
 .project-info {
   &__section {
     display: flex;
-    gap: 12px;
+    gap: $spacing-sm;
     align-items: flex-start;
   }
 
@@ -274,7 +274,7 @@
 
   &__icons {
     display: flex;
-    gap: 16px;
+    gap: $spacing-sm;
     justify-content: flex-end;
   }
 
@@ -320,7 +320,7 @@
 // Action Buttons
 .project-buttons {
   display: flex;
-  gap: 16px;
+  gap: $spacing-sm;
   justify-content: center;
 
   // Mobile buttons
