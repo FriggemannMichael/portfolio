@@ -21,7 +21,6 @@
   height: 100dvh; // Modern: berücksichtigt Mobile Browser UI
   margin: 0 auto;
   padding: 0; // Überschreibt globales section padding (80px)
-  overflow: hidden; // Verhindert vertikalen Scroll
 
   // Mobile Header - nur auf Mobile sichtbar
   &__header {
@@ -266,7 +265,6 @@
     &__logo--mobile {
       width: 48px;
     }
-
 
     &__image {
       max-width: min(300px, 90vw);
