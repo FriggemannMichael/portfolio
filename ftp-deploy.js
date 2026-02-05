@@ -1,4 +1,4 @@
-const FtpDeploy = require("ftp-deploy");
+const FtpDeploy = require('ftp-deploy');
 const ftpDeploy = new FtpDeploy();
 
 const config = {
@@ -6,9 +6,9 @@ const config = {
   password: process.env.FTP_PASSWORD,
   host: process.env.FTP_HOST,
   port: 21,
-  localRoot: __dirname + "/dist/portfolio/browser",
-  remoteRoot: "/", // oder "/public_html/" je nach Hosting
-  include: ["*", "**/*"],
+  localRoot: __dirname + '/dist/portfolio/browser',
+  remoteRoot: '/', // oder "/public_html/" je nach Hosting
+  include: ['*', '**/*'],
   exclude: [],
   deleteRemote: false,
   forcePasv: true,
@@ -17,5 +17,5 @@ const config = {
 
 ftpDeploy
   .deploy(config)
-  .then((res) => console.log("Deployment abgeschlossen:", res))
-  .catch((err) => console.error("Deployment fehlgeschlagen:", err));
+  .then((res) => console.log('Deployment abgeschlossen:', res))
+  .catch((err) => console.error('Deployment fehlgeschlagen:', err));
